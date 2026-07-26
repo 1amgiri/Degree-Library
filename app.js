@@ -230,60 +230,10 @@ const toggleMenuDropdown = (element) => {
 
 const alertAbout = (e) => {
     if (e) e.preventDefault();
-    
-    if (document.getElementById('aboutRetroModal')) return;
-    
-    const modalOverlay = document.createElement('div');
-    modalOverlay.id = 'aboutRetroModal';
-    modalOverlay.className = 'retro-modal-overlay';
-    
-    modalOverlay.innerHTML = `
-        <div class="retro-modal-card">
-            <div class="retro-modal-header">
-                <span class="retro-modal-title">About Free Degree Library</span>
-                <button class="retro-modal-close" onclick="closeAboutModal()">X</button>
-            </div>
-            <div class="retro-modal-body">
-                <p><strong>Free Degree Library</strong> is a student-powered platform for all Degree & PG level students. Our goal is to create a central hub where knowledge can be shared easily among peers, making academic materials accessible to everyone.</p>
-                
-                <h4>Key Features</h4>
-                <ul>
-                    <li><strong>Share:</strong> Upload notes, assignments, and presentations in any format.</li>
-                    <li><strong>Organize:</strong> Tag materials for easy categorization.</li>
-                    <li><strong>Discover:</strong> Search and find exactly what you need using keywords and tags.</li>
-                    <li><strong>Stay Updated:</strong> Instantly know when new materials or announcements are posted.</li>
-                </ul>
-                
-                <h4>Admin Contact</h4>
-                <div class="retro-admin-row">
-                    <span class="retro-admin-label">Admin:</span>
-                    <div class="retro-admin-tag">
-                        <img src="https://giri-portfolio.rf.gd/GIRI.png" alt="GIRI G" class="retro-admin-avatar">
-                        <span style="font-weight: bold;">GIRI G</span>
-                    </div>
-                </div>
-                <p><strong>Contact:</strong> <a href="mailto:cirravosolutions@gmail.com">cirravosolutions@gmail.com</a></p>
-                <p><strong>Instagram:</strong> <a href="https://www.instagram.com/cirravo/" target="_blank" rel="noopener noreferrer">https://www.instagram.com/cirravo/</a></p>
-                <p><strong>Website:</strong> <a href="https://cirravosolutions.co.in/" target="_blank" rel="noopener noreferrer">https://cirravosolutions.co.in/</a></p>
-            </div>
-        </div>
-    `;
-    
-    modalOverlay.addEventListener('click', (event) => {
-        if (event.target === modalOverlay) {
-            closeAboutModal();
-        }
-    });
-    
-    document.body.appendChild(modalOverlay);
+    window.location.href = 'about.html';
 };
 
-const closeAboutModal = () => {
-    const modal = document.getElementById('aboutRetroModal');
-    if (modal) {
-        modal.remove();
-    }
-};
+const closeAboutModal = () => {};
 
 const alertBugReport = (e) => {
     if (e) e.preventDefault();
