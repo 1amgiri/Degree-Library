@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="en"><head>  <!-- Google tag (gtag.js) -->  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VHYRJJZX5H"></script>  <script>    window.dataLayer = window.dataLayer || [];    function gtag() { dataLayer.push(arguments); }    gtag('js', new Date());    gtag('config', 'G-VHYRJJZX5H');  </script>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Important Questions & Prep - Free Degree Library</title>
+  <meta name="description" content="Get important exam questions, midterm prep resources, and solved papers to ace your college exams.">
+  <meta name="keywords" content="important questions, midterm prep, solved papers, exam preparation, question bank">
+  <meta name="author" content="Cirravo Solutions">
+  <link rel="canonical" href="https://degreelibrary.gt.tc/important.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://degreelibrary.gt.tc/important.html">
+  <meta property="og:title" content="Important Questions & Prep - Free Degree Library">
+  <meta property="og:description" content="Get important exam questions, midterm prep resources, and solved papers to ace your college exams.">
+  <meta property="og:image" content="/logo.png">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://degreelibrary.gt.tc/important.html">
+  <meta name="twitter:title" content="Important Questions & Prep - Free Degree Library">
+  <meta name="twitter:description" content="Get important exam questions, midterm prep resources, and solved papers to ace your college exams.">
+  <meta name="twitter:image" content="/logo.png">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Important Questions & Prep - Free Degree Library",
+    "description": "Get important exam questions, midterm prep resources, and solved papers to ace your college exams.",
+    "url": "https://degreelibrary.gt.tc/important.html"
+  }
+  </script>  <link rel="icon" type="image/png" href="favicon.png">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.min.css?v=2.0.35"></head><body>  <header>    <div class="header-container">      <div class="header-left">
+        <button id="menuToggleBtn" onclick="openSidebar()" aria-label="Toggle menu">☰ MENU</button>
+        <div style="display: flex; flex-direction: column;">          <a href="index.html" class="brand">Free Degree Library</a>          <div class="brand-subtitle">Powered by: <a href="https://cirravosolutions.co.in/" target="_blank"              rel="noopener noreferrer">Cirravo Solutions</a></div>        </div>      </div>      <nav>        <a href="index.html">Home</a>        <a href="upload.html">Upload</a>        <a href="community.html">Community<span class="blinking-dot"></span></a>        <a href="mca.html" style="font-weight: bold;">MCA</a>        <a href="#" onclick="openSubscribeModal(event)" class="subscribe-btn">Subscribe <span class="subscribe-count">0</span></a>        </nav>    </div>  </header>  <main>    <h1 class="main-heading">Important Questions & Exam papers</h1>    <div class="search-container" style="position: relative;">
+        <input
+          type="text"
+          id="searchQuery"
+          placeholder="Search materials..."
+          aria-label="Search materials"
+          class="search-input"
+          autocomplete="off"
+          style="padding-right: 30px;"
+          oninput="document.getElementById('clearSearchBtn').style.display = this.value ? 'block' : 'none';"
+        />
+        <span 
+          id="clearSearchBtn"
+          style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 16px; color: #888; display: none;"
+          onclick="document.getElementById('searchQuery').value=''; document.getElementById('searchQuery').dispatchEvent(new Event('input')); this.style.display='none';"
+        >✖</span>
+      </div>    <div id="errorAlert" class="alert-error" style="display: none;">      <div id="errorMsg" style="white-space: pre-line; margin-bottom: 8px;"></div>      <button id="retryBtn">Retry</button>    </div>    <div id="loadingIndicator" style="display: none;">Loading questions...</div>    <table class="materials-table">      <thead>        <tr>          <th>Subject</th>          <th class="uploader-col">Uploaded By</th>          <th>Date</th>          <th>Download</th>        </tr>      </thead>      <tbody id="materialsTableBody">        <tr>          <td colSpan="4" style="text-align: center;">No materials loaded.</td>        </tr>      </tbody>    </table>  </main><footer class="footer">    <div class="footer-container">      <div class="footer-col">        <h4>Quick Links</h4>        <ul>          <li><a href="/">Home</a></li>          <li><a href="/upload.html">Upload Material</a></li>          <li><a href="/community.html">Community Forum</a></li>          <li><a href="/mca.html">MCA</a></li>        </ul>      </div>      <div class="footer-col">        <h4>Resources</h4>        <ul>          <li><a href="icet.html">ICET PYQs</a></li>          <li><a href="https://pixels111.github.io/bcahub/index.html" target="_blank">BCA Resources</a></li>          <li><a href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx" target="_blank">APSHE</a></li>        </ul>      </div>      <div class="footer-col">        <h4>FAQs</h4>        <ul>          <li><a href="#" onclick="alert('Yes, all materials on Free Degree Library are 100% free to download!')">Is downloading free?</a></li>          <li><a href="#" onclick="alert('Anyone can upload study materials! Just go to the Upload section and share.')">How to upload?</a></li>          <li><a href="#" onclick="alert('You can report any issues or bugs using the Menu -> Report Error/Bug option.')">How to report an issue?</a></li>        </ul>      </div>      <div class="footer-col">        <h4>Connect</h4>        <ul>          <li><a href="https://www.instagram.com/cirravo/" target="_blank">Instagram</a></li>          <li><a href="#" onclick="alertBugReport(event)">Report Error/Bug</a></li>          <li><a href="admin.html">Admin Login</a></li>        </ul>      </div>    </div>    <div class="footer-bottom">      Powered by - <a href="https://cirravosolutions.co.in/" target="_blank" rel="noopener noreferrer" style="font-weight: bold; color: #1E293B;">Cirravo Solutions</a>    </div>  </footer>  <script src="app.min.js?v=2.0.35" defer></script>  <script>    const IMPORTANT_KEYWORDS = [      'important', 'question', 'paper', 'semester', 'exam',      'answer', 'q&a', 'qa', 'pyq', 'test', 'midterm',      'final', 'solved', 'record', 'prep', 'sheet'    ];    const searchInput = document.getElementById('searchQuery');    const tableBody = document.getElementById('materialsTableBody');    const errorAlert = document.getElementById('errorAlert');    const errorMsg = document.getElementById('errorMsg');    const loadingIndicator = document.getElementById('loadingIndicator');    const retryBtn = document.getElementById('retryBtn');    const renderMaterials = (items) => {      if (items.length === 0) {        tableBody.innerHTML = `<tr><td colSpan="4" style="text-align: center;">No important questions found.</td></tr>`;        return;      }      tableBody.innerHTML = items.map(m => {        const downloadAction = `onclick="event.preventDefault(); downloadFile('${m.id}', '${m.file_name || 'download'}')"`;        const generatedSlug = m.name ? m.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') : m.id;        const slug = m.slug || generatedSlug;        return `          <tr id="material-${m.id}">            <td>              ${m.name}              <div class="mobile-uploader-label">by: ${m.uploader}</div>              <div class="file-size-label">Size: ${m.file_size || 'N/A'}</div>            </td>            <td class="uploader-col">${m.uploader}</td>            <td>${formatDate(m.created_at)}</td>            <td>              <a href="${m.file_path}" download="${m.file_name}" ${downloadAction} class="mr-1">Download</a>              </td>          </tr>        `;      }).join('');      
+/* Highlight and scroll to shared material if present in URL */
+      const urlParams = new URLSearchParams(window.location.search);      let targetId = urlParams.get('material');      if (!targetId && window.location.hash) {        const hashParams = new URLSearchParams(window.location.hash.substring(window.location.hash.indexOf('?')));        targetId = hashParams.get('material');      }      if (targetId) {        const row = document.getElementById(`material-${targetId}`);        if (row) {          row.classList.add('highlighted-row');          setTimeout(() => {            row.scrollIntoView({ behavior: 'smooth', block: 'center' });          }, 100);        }      }    };    const fetchMaterials = async (query) => {      loadingIndicator.style.display = 'block';      errorAlert.style.display = 'none';      try {        const params = new URLSearchParams();        if (query) {          params.append('query', query);        }        const response = await fetch(getProxiedUrl('materials.php', params), {          credentials: 'include',          cache: 'no-store',          headers: {            'Cache-Control': 'no-cache, no-store, must-revalidate',            'Pragma': 'no-cache',            'Expires': '0'          }        });        if (!response.ok) {          throw new Error("Unable to load materials.\nHosting provider temporarily blocked the request.\nPlease try again later.");        }        const data = await safeJsonParse(response);        if (!Array.isArray(data)) {          throw new Error("Unable to load materials.\nHosting provider temporarily blocked the request.\nPlease try again later.");        }        const importantList = data.filter(material => {          const searchStr = `${material.name} ${material.tags} ${material.category}`.toLowerCase();          return IMPORTANT_KEYWORDS.some(keyword => searchStr.includes(keyword));        });        renderMaterials(importantList);      } catch (e) {        console.error("API error:", e);        errorMsg.innerText = e.message || "Unable to load materials.\nHosting provider temporarily blocked the request.\nPlease try again later.";        errorAlert.style.display = 'block';      } finally {        loadingIndicator.style.display = 'none';      }    };    searchInput.addEventListener('input', (e) => {      fetchMaterials(e.target.value);    });    retryBtn.addEventListener('click', () => {      fetchMaterials(searchInput.value);    });    
+/* Initial Load */
+
+    document.addEventListener('DOMContentLoaded', () => { fetchMaterials(''); });  </script>  
+  <!-- Sidebar overlay backdrop -->
+  <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
+  <!-- Sidebar Menu Drawer -->
+  <div id="sidebarMenu" class="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-title">MENU</span>
+      <button class="sidebar-close" aria-label="Close menu" onclick="closeSidebar()">X</button>
+    </div>
+    <div class="sidebar-content">
+      <!-- Section 2: Browse Content -->
+      <div class="menu-section">
+        <div class="menu-section-title">Browse Content</div>
+        
+        <a href="/index.html" class="menu-item">
+          <span class="menu-item-icon">🏠</span> Home
+        </a>
+        <a href="/community.html" class="menu-item">
+          <span class="menu-item-icon">💬</span> Student Community
+        </a>
+        <a href="/upload.html" class="menu-item">
+          <span class="menu-item-icon">📤</span> Upload Materials
+        </a>
+        <a href="/important.html" class="menu-item">
+          <span class="menu-item-icon">⚡</span> Important Questions
+        </a>
+        <a href="/mca.html" class="menu-item">
+          <span class="menu-item-icon">🎓</span> MCA
+        </a>
+        <a href="/icet.html" class="menu-item">
+          <span class="menu-item-icon">🎓</span> ICET PYQs
+        </a>
+        <a href="/admin.html" class="menu-item">
+          <span class="menu-item-icon">🔑</span> Admin Panel
+        </a>
+      </div>
+      <!-- Section 3: Help -->
+      <div class="menu-section">
+        <div class="menu-section-title">Help</div>
+        <div class="menu-item-dropdown">
+          <div class="menu-item" style="cursor: pointer; justify-content: space-between;"
+            onclick="toggleMenuDropdown(this)">
+            <span style="display: flex; align-items: center; gap: 12px;"><span class="menu-item-icon">📖</span>
+              Official Syllabus Content</span>
+            <span class="arrow">▾</span>
+          </div>
+          <div class="menu-dropdown-content" style="display: none; padding-left: 20px;">
+            <div style="padding: 10px 15px; color: #818CF8; font-size: 12px; font-weight: bold;">UG</div>
+            <a href="https://svuniversity.edu.in/degree-course-syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon">🎓</span> SV University
+            </a>
+            <a href="https://cuap.ac.in/syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon">🎓</span> Andhra University
+            </a>
+            <div style="padding: 10px 15px; color: #818CF8; font-size: 12px; font-weight: bold; margin-top: 5px;">PG</div>
+            <a href="https://svuniversity.edu.in/pg-course-syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon">🎓</span> SV University
+            </a>
+            <a href="https://andhrauni-ac.in/admissions/school-of-distance-education/pgcourses.html" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon">🎓</span> Andhra University
+            </a>
+          </div>
+        </div>
+        <a href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">🏛️</span> APSHE
+        </a>
+        <div class="menu-item-dropdown">
+          <div class="menu-item" style="cursor: pointer; justify-content: space-between;"
+            onclick="toggleMenuDropdown(this)">
+            <span style="display: flex; align-items: center; gap: 12px;"><span class="menu-item-icon">📄</span>
+              Results</span>
+            <span class="arrow">▾</span>
+          </div>
+          <div class="menu-dropdown-content" style="display: none; padding-left: 20px;">
+            <a href="https://www.manabadi.co.in/" target="_blank" rel="noopener noreferrer" class="menu-item"
+              style="border-bottom: none;">
+              <span class="menu-item-icon">🔍</span> Results(Manabadi)
+            </a>
+            <a href="https://g21.tcsion.com/per/g21/pub/1723/SelfServices/templates/sdham15012018101517/Sdham515012018101605.html"
+              target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none;">
+              <span class="menu-item-icon">🏫</span> Results(TCSion)
+            </a>
+          </div>
+        </div>
+        <a href="https://pixels111.github.io/bcahub/index.html" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">📖</span> BCA Resources
+        </a>
+      </div>
+      <!-- Section 4: Other Products -->
+      <div class="menu-section">
+        <div class="menu-section-title">Our Other Free Products</div>
+        <a href="https://buildmyresume.free.nf/" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">💼</span> ATS Friendly Resume Builder
+        </a>
+        <a href="https://upiqr.ct.ws/" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">📱</span> UPI QR Generator
+        </a>
+        <a href="https://cirravosolutions.co.in/safex/index.html?i=1" target="_blank" rel="noopener noreferrer"
+          class="menu-item">
+          <span class="menu-item-icon">🔐</span> Offline Password Manager
+        </a>
+        <a href="https://1amgiri.itch.io/ilikecode" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">📱</span> iLikeCode - Mobile Coding
+        </a>
+      </div>
+      <!-- Section 5: Extras -->
+      <div class="menu-section" style="border-top: 1px dashed #334155; padding-top: 10px;">
+        <a href="#" onclick="alertBugReport(event)" class="menu-item">
+          <span class="menu-item-icon">⚠️</span> Report Error/Bug
+        </a>
+        <a href="#" onclick="alertAbout(event)" class="menu-item">
+          <span class="menu-item-icon">ℹ️</span> About Free Degree Library
+        </a>
+        <a href="/admin.html" class="menu-item">
+          <span class="menu-item-icon">🔑</span> Admin Login
+        </a>
+        <a href="https://www.instagram.com/cirravo/" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">📸</span> Follow on Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body></html>
