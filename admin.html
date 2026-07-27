@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en"><head>  <!-- Google tag (gtag.js) -->  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VHYRJJZX5H"></script>  <script>    window.dataLayer = window.dataLayer || [];    function gtag() { dataLayer.push(arguments); }    gtag('js', new Date());    gtag('config', 'G-VHYRJJZX5H');  </script>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Admin Portal - Free Degree Library</title>
-  <meta name="description" content="Administrative login portal for Free Degree Library management.">
-  <meta name="keywords" content="admin portal, login">
+  <meta name="description" content="Official administrative login and management portal for Free Degree Library. Authorize study materials, moderate community forum posts, update marquee banners, and manage institutional system settings.">
+  <meta name="keywords" content="admin portal, login, Free Degree Library, administrative dashboard, material management, community moderation">
   <meta name="author" content="Cirravo Solutions">
   <link rel="canonical" href="https://degreelibrary.gt.tc/admin.html">
   
@@ -10,14 +10,14 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://degreelibrary.gt.tc/admin.html">
   <meta property="og:title" content="Admin Portal - Free Degree Library">
-  <meta property="og:description" content="Administrative login portal for Free Degree Library management.">
+  <meta property="og:description" content="Official administrative login and management portal for Free Degree Library. Authorize study materials, moderate community forum posts, update marquee banners, and manage institutional system settings.">
   <meta property="og:image" content="/logo.png">
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://degreelibrary.gt.tc/admin.html">
   <meta name="twitter:title" content="Admin Portal - Free Degree Library">
-  <meta name="twitter:description" content="Administrative login portal for Free Degree Library management.">
+  <meta name="twitter:description" content="Official administrative login and management portal for Free Degree Library. Authorize study materials, moderate community forum posts, update marquee banners, and manage institutional system settings.">
   <meta name="twitter:image" content="/logo.png">
   
   <!-- JSON-LD Structured Data -->
@@ -26,14 +26,101 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Admin Portal - Free Degree Library",
-    "description": "Administrative login portal for Free Degree Library management.",
+    "description": "Official administrative login and management portal for Free Degree Library. Authorize study materials, moderate community forum posts, update marquee banners, and manage institutional system settings.",
     "url": "https://degreelibrary.gt.tc/admin.html"
   }
-  </script>  <meta name="robots" content="noindex, nofollow">  <link rel="icon" type="image/png" href="favicon.png">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  </script>  <meta name="robots" content="index, follow">  <link rel="icon" type="image/png" href="favicon.png">  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.min.css?v=2.0.35"></head><body>  <header>    <div class="header-container">      <div class="header-left">
         <button id="menuToggleBtn" onclick="openSidebar()" aria-label="Toggle menu">☰ MENU</button>
-        <div style="display: flex; flex-direction: column;">          <a href="index.html" class="brand">Free Degree Library</a>          <div class="brand-subtitle">Powered by: <a href="https://cirravosolutions.co.in/" target="_blank"              rel="noopener noreferrer">Cirravo Solutions</a></div>        </div>      </div>      <nav>        <a href="index.html">Home</a>        <a href="upload.html">Upload</a>        <a href="community.html">Community<span class="blinking-dot"></span></a>        <a href="mca.html">MCA</a>        <a href="#" onclick="openSubscribeModal(event)" class="subscribe-btn">Subscribe <span class="subscribe-count">0</span></a>        </nav>    </div>  </header>  <main>    <h1 class="main-heading">Admin Dashboard</h1>    <!-- Login Form -->
+        <div style="display: flex; flex-direction: column;">          <a href="index.html" class="brand">Free Degree Library</a>          <div class="brand-subtitle">Powered by: <a href="https://cirravosolutions.co.in/" target="_blank"              rel="noopener noreferrer">Cirravo Solutions</a></div>        </div>      </div>      <nav>        <a href="index.html">Home</a>        <a href="upload.html">Upload</a>        <a href="community.html">Community<span class="blinking-dot"></span></a>        <a href="mca.html">MCA</a>        <a href="#" onclick="openSubscribeModal(event)" class="subscribe-btn">Subscribe <span class="subscribe-count">0</span></a>        </nav>    </div>  </header>  <main>    <h1 class="main-heading">Admin Dashboard</h1>    <!-- Verification & Contact Banner -->
+    <style>
+      .verification-banner {
+        border: 3px solid #1E293B;
+        background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+        padding: 16px;
+        margin-bottom: 25px;
+        box-shadow: 5px 5px 0 #1E293B;
+        position: relative;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .verification-banner:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 #1E293B;
+      }
+      .badge-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-family: 'Press Start 2P', monospace;
+        font-size: 8px;
+        padding: 6px 8px;
+        border: 2px solid #1E293B;
+        box-shadow: 2px 2px 0 #1E293B;
+        margin: 3px 2px;
+      }
+      .realtime-blue-tick {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+        animation: blue-tick-pulse 2s infinite ease-in-out;
+      }
+      @keyframes blue-tick-pulse {
+        0%, 100% { transform: scale(1); filter: drop-shadow(0 0 1px rgba(29, 155, 240, 0.4)); }
+        50% { transform: scale(1.18); filter: drop-shadow(0 0 6px rgba(29, 155, 240, 0.9)); }
+      }
+      .badge-blue-tick { background-color: #DBEAFE; color: #1E40AF; }
+      .badge-faculty { background-color: #FEF3C7; color: #92400E; }
+      .badge-college { background-color: #D1FAE5; color: #065F46; }
+      .badge-cr { background-color: #FCE7F3; color: #9D174D; }
+      .verification-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Press Start 2P', monospace;
+        font-size: 10px;
+        padding: 12px 16px;
+        text-decoration: none;
+        border: 2px solid #1E293B;
+        box-shadow: 3px 3px 0 #1E293B;
+        transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
+      }
+      .verification-btn:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0 #1E293B;
+      }
+      .btn-mail { background-color: #818CF8; color: #FFF !important; }
+      .btn-mail:hover { background-color: #6366F1; }
+      .btn-about { background-color: #FFF; color: #1E293B !important; }
+      .btn-about:hover { background-color: #F1F5F9; }
+    </style>
+    <div class="verification-banner">
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <span style="font-size: 22px;">🛡️</span>
+        <h2 style="font-family: 'Press Start 2P', monospace; font-size: 13px; color: #4F46E5; margin: 0; border: none; padding: 0; text-shadow: 1px 1px 0 #FFF;">VERIFIED BADGES & CUSTOM LABELS</h2>
+      </div>
+      <div style="font-family: 'Share Tech Mono', monospace; font-size: 15px; color: #1E293B; margin-bottom: 16px; line-height: 1.6;">
+        Require an official badge or label for your community posts? We verify and issue custom tags:
+        <div style="margin: 12px 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;">
+          <span class="badge-label badge-blue-tick">Blue Tick <span class="realtime-blue-tick" title="Verified Real-Time"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="#1D9BF0" d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484z"/><path fill="#FFFFFF" d="M10.101 16.586l-4.242-4.242 1.414-1.414 2.828 2.828 7.071-7.071 1.414 1.414-8.485 8.485z"/></svg></span></span>
+          <span class="badge-label badge-faculty">Faculty Label <span class="realtime-blue-tick" title="Verified Real-Time"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="#1D9BF0" d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484z"/><path fill="#FFFFFF" d="M10.101 16.586l-4.242-4.242 1.414-1.414 2.828 2.828 7.071-7.071 1.414 1.414-8.485 8.485z"/></svg></span></span>
+          <span class="badge-label badge-college">College Label <span class="realtime-blue-tick" title="Verified Real-Time"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="#1D9BF0" d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484z"/><path fill="#FFFFFF" d="M10.101 16.586l-4.242-4.242 1.414-1.414 2.828 2.828 7.071-7.071 1.414 1.414-8.485 8.485z"/></svg></span></span>
+          <span class="badge-label badge-cr">Class CR Label <span class="realtime-blue-tick" title="Verified Real-Time"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="#1D9BF0" d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484z"/><path fill="#FFFFFF" d="M10.101 16.586l-4.242-4.242 1.414-1.414 2.828 2.828 7.071-7.071 1.414 1.414-8.485 8.485z"/></svg></span></span>
+        </div>
+        Please contact us through mail to request verification or learn more about our platform.
+      </div>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="mailto:cirravosolutions@gmail.com?subject=Community%20Badge%20and%20Label%20Verification%20Request" class="verification-btn btn-mail">
+          Write a Mail to Us
+        </a>
+        <a href="about.html" class="verification-btn btn-about">
+          About Us
+        </a>
+      </div>
+    </div>    <!-- Login Form -->
     <div id="loginFormSection">
       <h3>Enter Admin Password</h3>
       <form id="adminLoginForm">
