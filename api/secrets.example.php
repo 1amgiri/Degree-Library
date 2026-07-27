@@ -17,5 +17,5 @@ define('CFG_SMTP_USER', 'your-email@gmail.com');
 define('CFG_SMTP_PASS', 'your-16-character-app-password');
 
 // Administrator Passwords / Key Tokens
-define('CFG_ADMIN_KEY_1', 'yadavGIRI@4153');
+define('CFG_ADMIN_KEY_1', 'Enter-Password');
 ?>
