@@ -1,4 +1,61 @@
-<?php// material.phprequire_once 'api/db.php';$slug = isset($_GET['slug']) ? $_GET['slug'] : '';if (empty($slug)) {    header("HTTP/1.0 404 Not Found");    echo "<h1>404 Not Found</h1>";    exit;}// Check if slug column exists$slug_exists = false;$colRes = $conn->query("SHOW COLUMNS FROM materials LIKE 'slug'");if ($colRes && $colRes->num_rows > 0) {    $slug_exists = true;}$fallback_id = 0;if (is_numeric($slug)) {    $fallback_id = (int)$slug;}if ($slug_exists) {    $stmt = $conn->prepare("SELECT * FROM materials WHERE slug = ? OR id = ?");    $stmt->bind_param("si", $slug, $fallback_id);    $stmt->execute();    $res = $stmt->get_result();} else {    // Fallback if slug column doesn't exist yet    $allRes = $conn->query("SELECT * FROM materials");    $foundId = 0;    while($row = $allRes->fetch_assoc()) {        $gen = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $row['name'] ?? '')));        $gen = preg_replace('/-+/', '-', $gen);        $gen = trim($gen, '-') ?: $row['id'];        if ($gen === $slug || (string)$row['id'] === $slug || $row['id'] == $fallback_id) {            $foundId = $row['id'];            break;        }    }    if ($foundId > 0) {        $stmt = $conn->prepare("SELECT * FROM materials WHERE id = ?");        $stmt->bind_param("i", $foundId);        $stmt->execute();        $res = $stmt->get_result();    } else {        $res = $conn->query("SELECT * FROM materials WHERE id = 0");    }}if ($res->num_rows === 0) {    header("HTTP/1.0 404 Not Found");    echo "<h1>404 Not Found - Material does not exist.</h1>";    exit;}$material = $res->fetch_assoc();
+<?php
+// material.php
+require_once 'api/db.php';
+
+$slug = isset($_GET['slug']) ? $_GET['slug'] : '';
+if (empty($slug)) {
+    header("HTTP/1.0 404 Not Found");
+    echo "<h1>404 Not Found</h1>";
+    exit;
+}
+
+// Check if slug column exists
+$slug_exists = false;
+$colRes = $conn->query("SHOW COLUMNS FROM materials LIKE 'slug'");
+if ($colRes && $colRes->num_rows > 0) {
+    $slug_exists = true;
+}
+
+$fallback_id = 0;
+if (is_numeric($slug)) {
+    $fallback_id = (int)$slug;
+}
+
+if ($slug_exists) {
+    $stmt = $conn->prepare("SELECT * FROM materials WHERE slug = ? OR id = ?");
+    $stmt->bind_param("si", $slug, $fallback_id);
+    $stmt->execute();
+    $res = $stmt->get_result();
+} else {
+    // Fallback if slug column doesn't exist yet
+    $allRes = $conn->query("SELECT * FROM materials");
+    $foundId = 0;
+    while($row = $allRes->fetch_assoc()) {
+        $gen = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $row['name'] ?? '')));
+        $gen = preg_replace('/-+/', '-', $gen);
+        $gen = trim($gen, '-') ?: $row['id'];
+        if ($gen === $slug || (string)$row['id'] === $slug || $row['id'] == $fallback_id) {
+            $foundId = $row['id'];
+            break;
+        }
+    }
+    if ($foundId > 0) {
+        $stmt = $conn->prepare("SELECT * FROM materials WHERE id = ?");
+        $stmt->bind_param("i", $foundId);
+        $stmt->execute();
+        $res = $stmt->get_result();
+    } else {
+        $res = $conn->query("SELECT * FROM materials WHERE id = 0");
+    }
+}
+
+if ($res->num_rows === 0) {
+    header("HTTP/1.0 404 Not Found");
+    echo "<h1>404 Not Found - Material does not exist.</h1>";
+    exit;
+}
+
+$material = $res->fetch_assoc();
 $material_name_clean = strip_tags($material['name'] ?? 'Study Material');
 $uploader_clean = strip_tags($material['uploader'] ?? 'User');
 $category_clean = strip_tags($material['category'] ?? 'General');
