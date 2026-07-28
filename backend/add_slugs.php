@@ -2,14 +2,17 @@
 require_once 'config.php';
 require_once '../api/db.php'; // Reuse existing DB connection
 
-function generate_slug($string) {
+function generate_slug($string)
+{
     $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $string)));
     $slug = preg_replace('/-+/', '-', $slug);
     return trim($slug, '-') ?: 'item';
 }
 
-function generate_slug_from_content($content) {
-    $text = strip_tags($content);
+function generate_slug_from_content($content)
+{
+    $text = preg_replace('/<(style|script|svg)[^>]*>.*?<\/\1>/is', '', $content);
+    $text = trim(preg_replace('/\s+/', ' ', strip_tags($text)));
     if (strlen($text) > 60) {
         $text = substr($text, 0, 60);
         $lastSpace = strrpos($text, ' ');
@@ -20,17 +23,18 @@ function generate_slug_from_content($content) {
     return generate_slug($text);
 }
 
-function get_unique_slug($conn, $table, $base_slug, $id) {
+function get_unique_slug($conn, $table, $base_slug, $id)
+{
     $slug = $base_slug;
     $counter = 2;
     $current_slug = $slug;
-    
+
     while (true) {
         $stmt = $conn->prepare("SELECT id FROM $table WHERE slug = ? AND id != ?");
         $stmt->bind_param("si", $current_slug, $id);
         $stmt->execute();
         $res = $stmt->get_result();
-        
+
         if ($res->num_rows === 0) {
             break;
         }
@@ -57,7 +61,7 @@ if ($res) {
 }
 
 echo "Updating community posts...\n";
-$res = $conn->query("SELECT id, content FROM community_posts WHERE slug IS NULL OR slug = ''");
+$res = $conn->query("SELECT id, content FROM community_posts");
 if ($res) {
     while ($row = $res->fetch_assoc()) {
         $base = generate_slug_from_content($row['content']);

@@ -85,7 +85,8 @@ try {
     $slug = '';
     if ($slug_exists) {
         // Generate unique slug from community post content
-        $text = strip_tags($content);
+        $text = preg_replace('/<(style|script|svg)[^>]*>.*?<\/\1>/is', '', $content);
+        $text = trim(preg_replace('/\s+/', ' ', strip_tags($text)));
         if (strlen($text) > 60) {
             $text = substr($text, 0, 60);
             $lastSpace = strrpos($text, ' ');
