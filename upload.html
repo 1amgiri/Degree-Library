@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="en"><head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-W46D2S8X');</script>
+  <!-- End Google Tag Manager -->  <!-- Google tag (gtag.js) -->  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VHYRJJZX5H"></script>  <script>    window.dataLayer = window.dataLayer || [];    function gtag() { dataLayer.push(arguments); }    gtag('js', new Date());    gtag('config', 'G-VHYRJJZX5H');  </script>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <meta name="google-site-verification" content="HHDF_-yJPgEF6-kJo_lfHWz7Bhl1Rfb6xeMYLpuEty4">
+
+  <title>Upload Material - Free Degree Library</title>
+  <meta name="description" content="Share your study materials, notes, and previous year question papers with the student community on Free Degree Library.">
+  <meta name="keywords" content="upload study material, share notes, Free Degree Library upload, student contribution">
+  <meta name="author" content="Cirravo Solutions">
+  <link rel="canonical" href="https://degreelibrary.gt.tc/upload.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://degreelibrary.gt.tc/upload.html">
+  <meta property="og:title" content="Upload Material - Free Degree Library">
+  <meta property="og:description" content="Share your study materials, notes, and previous year question papers with the student community on Free Degree Library.">
+  <meta property="og:image" content="/logo.png">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://degreelibrary.gt.tc/upload.html">
+  <meta name="twitter:title" content="Upload Material - Free Degree Library">
+  <meta name="twitter:description" content="Share your study materials, notes, and previous year question papers with the student community on Free Degree Library.">
+  <meta name="twitter:image" content="/logo.png">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Upload Material - Free Degree Library",
+    "description": "Share your study materials, notes, and previous year question papers with the student community on Free Degree Library.",
+    "url": "https://degreelibrary.gt.tc/upload.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Free Degree Library",
+      "url": "https://degreelibrary.gt.tc/"
+    }
+  }
+  </script>  <link class="favicon" rel="icon" type="image/png" href="favicon.png">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.min.css?v=2.0.35"></head><body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W46D2S8X"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header>    <div class="header-container">      <div class="header-left">
+        <button id="menuToggleBtn" onclick="openSidebar()" aria-label="Toggle menu">☰ MENU</button>
+        <div style="display: flex; flex-direction: column;">          <a href="index.html" class="brand">Free Degree Library</a>          <div class="brand-subtitle">Powered by: <a href="https://cirravosolutions.co.in/" target="_blank"              rel="noopener noreferrer">Cirravo Solutions</a></div>        </div>      </div>      <nav>        <a href="index.html">Home</a>        <a href="upload.html" style="font-weight: bold;">Upload</a>        <a href="community.html">Community<span class="blinking-dot"></span></a>        <a href="mca.html">MCA</a>        <a href="#" onclick="openSubscribeModal(event)" class="subscribe-btn">Subscribe <span class="subscribe-count">0</span></a>        </nav>    </div>  </header>  <main>    <h1 class="main-heading">Upload New Material</h1>    <div id="errorAlert" class="alert-error" style="display: none;"></div>    <div id="successAlert" class="alert-success" style="display: none;"></div>    <form id="uploadForm">      <div class="form-group">        <label for="name">Material Name</label>        <input type="text" id="name" placeholder="e.g. Algorithms Note" required>      </div>      <div class="form-group">        <label for="tags">Tags (Comma separated)</label>        <input type="text" id="tags" placeholder="e.g. BCA, Math, Sem 1" required>      </div>      <div class="form-group">        <label for="category">Category</label>        <select id="category">          <option value="Business/Commerce">Business/Commerce</option>          <option value="Computers">Computers</option>          <option value="Science">Science</option>          <option value="Law">Law</option>        </select>      </div>      <div class="form-group">        <label for="uploader">Uploader Name</label>        <input type="text" id="uploader" required>      </div>      <div class="form-group">        <label for="file">Choose File</label>        <input type="file" id="file" required>      </div>      <button type="submit" id="submitBtn">Upload Material</button>    </form>  </main><footer class="footer">    <div class="footer-container">      <div class="footer-col">        <h4>Quick Links</h4>        <ul>          <li><a href="/">Home</a></li>          <li><a href="/upload.html">Upload Material</a></li>          <li><a href="/community.html">Community Forum</a></li>          <li><a href="/mca.html">MCA</a></li>        </ul>      </div>      <div class="footer-col">        <h4>Resources</h4>        <ul>          <li><a href="icet.html">ICET PYQs</a></li>          <li><a href="https://pixels111.github.io/bcahub/index.html" target="_blank">BCA Resources</a></li>          <li><a href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx" target="_blank">APSHE</a></li>        </ul>      </div>      <div class="footer-col">        <h4>FAQs</h4>        <ul>          <li><a href="#" onclick="alert('Yes, all materials on Free Degree Library are 100% free to download!')">Is downloading free?</a></li>          <li><a href="#" onclick="alert('Anyone can upload study materials! Just go to the Upload section and share.')">How to upload?</a></li>          <li><a href="#" onclick="alert('You can report any issues or bugs using the Menu -> Report Error/Bug option.')">How to report an issue?</a></li>        </ul>      </div>      <div class="footer-col">        <h4>Connect</h4>        <ul>          <li><a href="https://www.instagram.com/cirravo/" target="_blank">Instagram</a></li>          <li><a href="#" onclick="alertBugReport(event)">Report Error/Bug</a></li>          <li><a href="admin.html">Admin Login</a></li>        </ul>      </div>    </div>    <div class="footer-bottom">      Powered by - <a href="https://cirravosolutions.co.in/" target="_blank" rel="noopener noreferrer" style="font-weight: bold; color: #1E293B;">Cirravo Solutions</a>    </div>  </footer>  <script src="app.min.js?v=2.0.35" defer></script>  <script>    const form = document.getElementById('uploadForm');    const submitBtn = document.getElementById('submitBtn');    const errorAlert = document.getElementById('errorAlert');    const successAlert = document.getElementById('successAlert');    const fileToBase64 = (file) => {      return new Promise((resolve, reject) => {        const reader = new FileReader();        reader.readAsDataURL(file);        reader.onload = () => resolve(reader.result);        reader.onerror = (error) => reject(error);      });    };    form.addEventListener('submit', async (e) => {      e.preventDefault();      const name = document.getElementById('name').value;      const tags = document.getElementById('tags').value;      const category = document.getElementById('category').value;      const uploader = document.getElementById('uploader').value;      const fileInput = document.getElementById('file');      if (!fileInput.files || fileInput.files.length === 0) {        errorAlert.innerText = "Please select a file.";        errorAlert.style.display = "block";        return;      }      const file = fileInput.files[0];      errorAlert.style.display = "none";      successAlert.style.display = "none";      submitBtn.disabled = true;      submitBtn.innerText = "Uploading...";      try {        const base64Content = await fileToBase64(file);        const payload = {          name,          tags,          category,          uploader,          file: {            name: file.name,            type: file.type,            content: base64Content          }        };        const response = await fetch(getProxiedUrl('uploads.php'), {          method: 'POST',          headers: {            'Content-Type': 'application/json',            'Cache-Control': 'no-cache, no-store, must-revalidate',            'Pragma': 'no-cache'          },          body: JSON.stringify(payload),          credentials: 'include',          cache: 'no-store'        });        if (!response.ok) {          const errorText = await response.text();          throw new Error(`File upload failed: ${errorText}`);        }        await safeJsonParse(response);        successAlert.innerText = "Material uploaded successfully! Redirecting...";        successAlert.style.display = "block";        setTimeout(() => {          window.location.href = "index.html";        }, 1500);      } catch (err) {        console.error(err);        errorAlert.innerText = err.message || "Failed to upload file.";        errorAlert.style.display = "block";        submitBtn.disabled = false;        submitBtn.innerText = "Upload Material";      }    });  </script>  
+  <!-- Sidebar overlay backdrop -->
+  <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
+  <!-- Sidebar Menu Drawer -->
+  <div id="sidebarMenu" class="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-title">MENU</span>
+      <button class="sidebar-close" aria-label="Close menu" onclick="closeSidebar()">X</button>
+    </div>
+    <div class="sidebar-content">
+      <!-- Section 2: Browse Content -->
+      <div class="menu-section">
+        <div class="menu-section-title">Browse Content</div>
+        
+        <a href="/index.html" class="menu-item">
+          <span class="menu-item-icon">🏠</span> Home
+        </a>
+        <a href="/community.html" class="menu-item">
+          <span class="menu-item-icon">💬</span> Student Community
+        </a>
+        <a href="/upload.html" class="menu-item">
+          <span class="menu-item-icon">📤</span> Upload Materials
+        </a>
+        <a href="/important.html" class="menu-item">
+          <span class="menu-item-icon">⚡</span> Important Questions
+        </a>
+        <a href="/mca.html" class="menu-item">
+          <span class="menu-item-icon">🎓</span> MCA
+        </a>
+        <a href="/icet.html" class="menu-item">
+          <span class="menu-item-icon">🎓</span> ICET PYQs
+        </a>
+        <a href="/admin.html" class="menu-item">
+          <span class="menu-item-icon">🔑</span> Admin Panel
+        </a>
+      </div>
+      <!-- Section 3: Help -->
+      <div class="menu-section">
+        <div class="menu-section-title">Help</div>
+        <div class="menu-item-dropdown">
+          <div class="menu-item" style="cursor: pointer; justify-content: space-between;"
+            onclick="toggleMenuDropdown(this)">
+            <span style="display: flex; align-items: center; gap: 12px;"><span class="menu-item-icon">📖</span>
+              Official Syllabus Content</span>
+            <span class="arrow">▾</span>
+          </div>
+          <div class="menu-dropdown-content" style="display: none; padding-left: 20px;">
+            <div style="padding: 10px 15px; color: #818CF8; font-size: 12px; font-weight: bold;">UG</div>
+            <a href="https://svuniversity.edu.in/degree-course-syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon">🎓</span> SV University
+            </a>
+            <a href="https://cuap.ac.in/syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon">🎓</span> Andhra University
+            </a>
+            <div style="padding: 10px 15px; color: #818CF8; font-size: 12px; font-weight: bold; margin-top: 5px;">PG</div>
+            <a href="https://svuniversity.edu.in/pg-course-syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon">🎓</span> SV University
+            </a>
+            <a href="https://andhrauni-ac.in/admissions/school-of-distance-education/pgcourses.html" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon">🎓</span> Andhra University
+            </a>
+          </div>
+        </div>
+        <a href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">🏛️</span> APSHE
+        </a>
+        <div class="menu-item-dropdown">
+          <div class="menu-item" style="cursor: pointer; justify-content: space-between;"
+            onclick="toggleMenuDropdown(this)">
+            <span style="display: flex; align-items: center; gap: 12px;"><span class="menu-item-icon">📄</span>
+              Results</span>
+            <span class="arrow">▾</span>
+          </div>
+          <div class="menu-dropdown-content" style="display: none; padding-left: 20px;">
+            <a href="https://www.manabadi.co.in/" target="_blank" rel="noopener noreferrer" class="menu-item"
+              style="border-bottom: none;">
+              <span class="menu-item-icon">🔍</span> Results(Manabadi)
+            </a>
+            <a href="https://g21.tcsion.com/per/g21/pub/1723/SelfServices/templates/sdham15012018101517/Sdham515012018101605.html"
+              target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none;">
+              <span class="menu-item-icon">🏫</span> Results(TCSion)
+            </a>
+          </div>
+        </div>
+        <a href="https://pixels111.github.io/bcahub/index.html" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">📖</span> BCA Resources
+        </a>
+      </div>
+      <!-- Section 4: Other Products -->
+      <div class="menu-section">
+        <div class="menu-section-title">Our Other Free Products</div>
+        <a href="https://buildmyresume.free.nf/" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">💼</span> ATS Friendly Resume Builder
+        </a>
+        <a href="https://upiqr.ct.ws/" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">📱</span> UPI QR Generator
+        </a>
+        <a href="https://cirravosolutions.co.in/safex/index.html?i=1" target="_blank" rel="noopener noreferrer"
+          class="menu-item">
+          <span class="menu-item-icon">🔐</span> Offline Password Manager
+        </a>
+        <a href="https://1amgiri.itch.io/ilikecode" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">📱</span> iLikeCode - Mobile Coding
+        </a>
+      </div>
+      <!-- Section 5: Extras -->
+      <div class="menu-section" style="border-top: 1px dashed #334155; padding-top: 10px;">
+        <a href="#" onclick="alertBugReport(event)" class="menu-item">
+          <span class="menu-item-icon">⚠️</span> Report Error/Bug
+        </a>
+        <a href="about.html" class="menu-item">
+          <span class="menu-item-icon">ℹ️</span> About Free Degree Library
+        </a>
+        <a href="/admin.html" class="menu-item">
+          <span class="menu-item-icon">🔑</span> Admin Login
+        </a>
+        <a href="https://www.instagram.com/cirravo/" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">📸</span> Follow on Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body></html>

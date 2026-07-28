@@ -1,0 +1,16 @@
+# Free Degree Library
+> Free Study Materials & PYQs
+
+Free Degree Library is a student-powered platform for Degree & PG level students to share and access academic materials, notes, assignments, and PYQs (Previous Year Questions) for free.
+
+## Key Sections
+- [Home](https://degreelibrary.gt.tc/) : Home page to search and download study materials.
+- [Upload](https://degreelibrary.gt.tc/upload.html) : Upload new study materials.
+- [Community](https://degreelibrary.gt.tc/community.html) : Student discussion forum.
+- [MCA](https://degreelibrary.gt.tc/mca.html) : MCA specific resources.
+- [ICET](https://degreelibrary.gt.tc/icet.html) : ICET PYQs and preparation materials.
+
+## Technical Details
+- Materials are categorized by tags (e.g., Computers, Java, Python, Business).
+- Users can download files or share direct links to specific materials.
+- It provides email and browser notifications for new content.

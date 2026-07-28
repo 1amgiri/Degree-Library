@@ -1,0 +1,76 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  ErrorDocument 400 /400.html
+  ErrorDocument 401 /401.html
+  ErrorDocument 403 /403.html
+  ErrorDocument 404 /404.html
+  ErrorDocument 500 /500.html
+  ErrorDocument 503 /503.html
+  
+  # Map /version and /config endpoints directly to API scripts
+  RewriteRule ^version$ /api/version.php [L,QSA]
+  RewriteRule ^config$ /api/config.php [L,QSA]
+
+  # Do not intercept requests to the /api, /uploads, or /backend directories
+  RewriteCond %{REQUEST_URI} ^/api/ [OR]
+  RewriteCond %{REQUEST_URI} ^/uploads/ [OR]
+  RewriteCond %{REQUEST_URI} ^/backend/
+  RewriteRule ^ - [L]
+
+  # Map sitemap.xml to sitemap.php
+
+  # Map /material/(slug) to material.php
+  RewriteRule ^material/([a-zA-Z0-9-]+)/?$ /material.php?slug=$1 [L,QSA,NC]
+
+  # Map /community/(slug) to community_post.php
+  RewriteRule ^community/([a-zA-Z0-9-]+)/?$ /community_post.php?slug=$1 [L,QSA,NC]
+
+  # Handle old URLs like /material?id=25 and /community/post?id=52
+  RewriteCond %{QUERY_STRING} (?:^|&)id=([0-9]+)
+  RewriteRule ^material/?$ /redirect.php?type=material&id=%1 [L]
+
+  RewriteCond %{QUERY_STRING} (?:^|&)id=([0-9]+)
+  RewriteRule ^community/post/?$ /redirect.php?type=post&id=%1 [L]
+
+  # If the requested file or directory does not exist
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Forward all other requests to index.php (Front Controller)
+  RewriteRule ^(.*)$ /index.php?route=$1 [L,QSA]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Ensure PHP scripts return correct content type if not set
+  <FilesMatch "\.php$">
+      Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+
+  # Cache-Control headers to manage browser caching
+  # 1. Prevent aggressive caching for HTML files (must revalidate)
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+
+  # 2. Prevent caching for Service Worker and Web Manifest
+  <FilesMatch "^(sw\.js|manifest\.json)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+
+  # 3. Cache Vite hashed assets and static resources aggressively
+  <FilesMatch "\.(js|css|woff2?|eot|ttf|otf|png|jpe?g|gif|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # 4. Double check rules for entrypoints to prevent override
+  <FilesMatch "^(index\.html|sw\.js)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+</IfModule>

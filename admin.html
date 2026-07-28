@@ -1,0 +1,1070 @@
+<!DOCTYPE html><html lang="en"><head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-W46D2S8X');</script>
+  <!-- End Google Tag Manager -->  <!-- Google tag (gtag.js) -->  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VHYRJJZX5H"></script>  <script>    window.dataLayer = window.dataLayer || [];    function gtag() { dataLayer.push(arguments); }    gtag('js', new Date());    gtag('config', 'G-VHYRJJZX5H');  </script>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <meta name="google-site-verification" content="HHDF_-yJPgEF6-kJo_lfHWz7Bhl1Rfb6xeMYLpuEty4">
+
+  <title>Admin Portal - Free Degree Library</title>
+  <meta name="description" content="Official administrative login and management portal for Free Degree Library. Authorize study materials, moderate community forum posts, update marquee banners, and manage institutional system settings.">
+  <meta name="keywords" content="admin portal, login, Free Degree Library, administrative dashboard, material management, community moderation">
+  <meta name="author" content="Cirravo Solutions">
+  <link rel="canonical" href="https://degreelibrary.gt.tc/admin.html">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://degreelibrary.gt.tc/admin.html">
+  <meta property="og:title" content="Admin Portal - Free Degree Library">
+  <meta property="og:description" content="Official administrative login and management portal for Free Degree Library. Authorize study materials, moderate community forum posts, update marquee banners, and manage institutional system settings.">
+  <meta property="og:image" content="/logo.png">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://degreelibrary.gt.tc/admin.html">
+  <meta name="twitter:title" content="Admin Portal - Free Degree Library">
+  <meta name="twitter:description" content="Official administrative login and management portal for Free Degree Library. Authorize study materials, moderate community forum posts, update marquee banners, and manage institutional system settings.">
+  <meta name="twitter:image" content="/logo.png">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Admin Portal - Free Degree Library",
+    "description": "Official administrative login and management portal for Free Degree Library. Authorize study materials, moderate community forum posts, update marquee banners, and manage institutional system settings.",
+    "url": "https://degreelibrary.gt.tc/admin.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Free Degree Library",
+      "url": "https://degreelibrary.gt.tc/"
+    }
+  }
+  </script>  <meta name="robots" content="index, follow">  <link rel="icon" type="image/png" href="favicon.png">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.min.css?v=2.0.35"></head><body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W46D2S8X"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header>    <div class="header-container">      <div class="header-left">
+        <button id="menuToggleBtn" onclick="openSidebar()" aria-label="Toggle menu">☰ MENU</button>
+        <div style="display: flex; flex-direction: column;">          <a href="index.html" class="brand">Free Degree Library</a>          <div class="brand-subtitle">Powered by: <a href="https://cirravosolutions.co.in/" target="_blank"              rel="noopener noreferrer">Cirravo Solutions</a></div>        </div>      </div>      <nav>        <a href="index.html">Home</a>        <a href="upload.html">Upload</a>        <a href="community.html">Community<span class="blinking-dot"></span></a>        <a href="mca.html">MCA</a>        <a href="#" onclick="openSubscribeModal(event)" class="subscribe-btn">Subscribe <span class="subscribe-count">0</span></a>        </nav>    </div>  </header>  <main>    <h1 class="main-heading">Admin Dashboard</h1>    <!-- Verification & Contact Banner -->
+    <style>
+      .verification-banner {
+        border: 3px solid #1E293B;
+        background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+        padding: 16px;
+        margin-bottom: 25px;
+        box-shadow: 5px 5px 0 #1E293B;
+        position: relative;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .verification-banner:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 #1E293B;
+      }
+      .badge-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-family: 'Press Start 2P', monospace;
+        font-size: 8px;
+        padding: 6px 8px;
+        border: 2px solid #1E293B;
+        box-shadow: 2px 2px 0 #1E293B;
+        margin: 3px 2px;
+      }
+      .realtime-blue-tick {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+        animation: blue-tick-pulse 2s infinite ease-in-out;
+      }
+      @keyframes blue-tick-pulse {
+        0%, 100% { transform: scale(1); filter: drop-shadow(0 0 1px rgba(29, 155, 240, 0.4)); }
+        50% { transform: scale(1.18); filter: drop-shadow(0 0 6px rgba(29, 155, 240, 0.9)); }
+      }
+      .badge-blue-tick { background-color: #DBEAFE; color: #1E40AF; }
+      .badge-faculty { background-color: #FEF3C7; color: #92400E; }
+      .badge-college { background-color: #D1FAE5; color: #065F46; }
+      .badge-cr { background-color: #FCE7F3; color: #9D174D; }
+      .verification-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Press Start 2P', monospace;
+        font-size: 10px;
+        padding: 12px 16px;
+        text-decoration: none;
+        border: 2px solid #1E293B;
+        box-shadow: 3px 3px 0 #1E293B;
+        transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
+      }
+      .verification-btn:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0 #1E293B;
+      }
+      .btn-mail { background-color: #818CF8; color: #FFF !important; }
+      .btn-mail:hover { background-color: #6366F1; }
+      .btn-about { background-color: #FFF; color: #1E293B !important; }
+      .btn-about:hover { background-color: #F1F5F9; }
+    </style>
+    <div class="verification-banner">
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <span style="font-size: 22px;">🛡️</span>
+        <h2 style="font-family: 'Press Start 2P', monospace; font-size: 13px; color: #4F46E5; margin: 0; border: none; padding: 0; text-shadow: 1px 1px 0 #FFF;">VERIFIED BADGES & CUSTOM LABELS</h2>
+      </div>
+      <div style="font-family: 'Share Tech Mono', monospace; font-size: 15px; color: #1E293B; margin-bottom: 16px; line-height: 1.6;">
+        Require an official badge or label for your community posts? We verify and issue custom tags:
+        <div style="margin: 12px 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;">
+          <span class="badge-label badge-blue-tick">Blue Tick <span class="realtime-blue-tick" title="Verified Real-Time"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="#1D9BF0" d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484z"/><path fill="#FFFFFF" d="M10.101 16.586l-4.242-4.242 1.414-1.414 2.828 2.828 7.071-7.071 1.414 1.414-8.485 8.485z"/></svg></span></span>
+          <span class="badge-label badge-faculty">Faculty Label <span class="realtime-blue-tick" title="Verified Real-Time"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="#1D9BF0" d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484z"/><path fill="#FFFFFF" d="M10.101 16.586l-4.242-4.242 1.414-1.414 2.828 2.828 7.071-7.071 1.414 1.414-8.485 8.485z"/></svg></span></span>
+          <span class="badge-label badge-college">College Label <span class="realtime-blue-tick" title="Verified Real-Time"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="#1D9BF0" d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484z"/><path fill="#FFFFFF" d="M10.101 16.586l-4.242-4.242 1.414-1.414 2.828 2.828 7.071-7.071 1.414 1.414-8.485 8.485z"/></svg></span></span>
+          <span class="badge-label badge-cr">Class CR Label <span class="realtime-blue-tick" title="Verified Real-Time"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="#1D9BF0" d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484z"/><path fill="#FFFFFF" d="M10.101 16.586l-4.242-4.242 1.414-1.414 2.828 2.828 7.071-7.071 1.414 1.414-8.485 8.485z"/></svg></span></span>
+        </div>
+        Please contact us through mail to request verification or learn more about our platform.
+      </div>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="mailto:cirravosolutions@gmail.com?subject=Community%20Badge%20and%20Label%20Verification%20Request" class="verification-btn btn-mail">
+          Write a Mail to Us
+        </a>
+        <a href="about.html" class="verification-btn btn-about">
+          About Us
+        </a>
+      </div>
+    </div>    <!-- Login Form -->
+    <div id="loginFormSection">
+      <h3>Enter Admin Password</h3>
+      <form id="adminLoginForm">
+        <div class="form-group">
+          <label for="adminPassword">Password</label>
+          <div style="position: relative; display: flex; align-items: center;">
+            <input type="password" id="adminPassword"
+              style="width: 100%; padding: 10px 45px 10px 10px; font-family: 'Share Tech Mono', monospace; font-size: 16px; border: 3px solid #1E293B; box-sizing: border-box; transition: all 0.2s;"
+              placeholder="Enter Admin Password" required>
+            <button type="button" id="togglePasswordBtn" onclick="togglePasswordVisibility()" aria-label="Toggle Password Visibility"
+              style="position: absolute; right: 8px; background: none; border: none; font-size: 20px; cursor: pointer; padding: 0 5px; box-shadow: none;">👁️</button>
+          </div>
+        </div>
+        <div id="captchaSection" style="display: none; margin-top: 15px; margin-bottom: 15px; padding: 12px; border: 3px solid #DC2626; background-color: #FEF2F2; box-shadow: 4px 4px 0 #DC2626;">
+          <label id="captchaQuestionLabel" for="captchaAnswer" style="font-weight: bold; color: #991B1B; display: block; margin-bottom: 6px; font-size: 13px; font-family: 'Share Tech Mono', monospace;">🛡️ Anti-Bot Verification: What is <span id="captchaMathText" style="font-size: 15px; color: #000; background: #FED7AA; padding: 2px 6px; border: 1px solid #C2410C;"></span> ?</label>
+          <input type="number" id="captchaAnswer" placeholder="Enter calculated result" style="width: 100%; padding: 8px; font-family: 'Share Tech Mono', monospace; font-size: 16px; border: 2px solid #1E293B; box-sizing: border-box;">
+          <div style="font-size: 11px; color: #7F1D1D; margin-top: 6px; font-family: 'Share Tech Mono', monospace;">⚠️ 3 incorrect attempts detected. Solve the math check to proceed.</div>
+        </div>
+        <button id="loginSubmitBtn" type="submit" style="width: 100%; font-size: 14px; padding: 12px; margin-top: 10px;">Verify & Access Dashboard</button>
+      </form>
+      <div id="loginError"
+        style="padding: 15px; border: 3px solid #DC2626; font-family: 'Share Tech Mono', monospace; margin-top: 15px; display: none; font-size: 15px; font-weight: bold; text-align: center; box-shadow: 5px 5px 0 #DC2626; background-color: #FEE2E2; color: #DC2626; transition: all 0.2s;">
+      </div>
+    </div>
+    <!-- Dashboard Panel (hidden by default) -->
+    <div id="dashboardSection" style="display: none;">
+      <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+        <button id="tabMaterialsBtn" class="tab-btn" style="background-color: #818CF8;">Manage Materials</button>
+        <button id="tabPostsBtn" class="tab-btn">Manage Posts</button>
+        <button id="tabMarqueeBtn" class="tab-btn">Manage Marquee</button>
+        <button id="tabSendMailBtn" class="tab-btn">Send Email</button>
+        <button id="tabSettingsBtn" class="tab-btn">Settings</button>
+      </div>
+      <div id="loadingIndicator" style="display: none;">Loading entries...</div>
+      <!-- Manage Materials Tab -->
+      <div id="tabMaterialsContent">
+        <h3>Materials List</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th class="uploader-col">Uploaded By</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adminMaterialsBody">
+            <tr>
+              <td colspan="4" style="text-align: center;">No materials loaded.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Manage Posts Tab -->
+      <div id="tabPostsContent" style="display: none;">
+        <h3>Community Posts</h3>
+        <div id="adminPostsList" style="display: flex; flex-direction: column; gap: 15px;">
+          <p>No posts loaded.</p>
+        </div>
+      </div>
+      <!-- Manage Marquee Tab -->
+      <div id="tabMarqueeContent" style="display: none;">
+        <h3>Marquee Update Banner</h3>
+        <div id="marqueeManagerSection">
+          <div id="activeMarqueeBlock"
+            style="border: 3px solid #1E293B; background-color: #FFFDF5; padding: 15px; margin-bottom: 20px; display: none;">
+            <p><strong>Current Active Marquee:</strong></p>
+            <p id="activeMarqueeText" style="font-size: 16px; margin: 10px 0; color: #4F46E5;"></p>
+            <p id="activeMarqueeLink" style="font-size: 12px; color: #475569;"></p>
+            <button onclick="deleteMarqueeEntry()"              style="border-color: #ff0000; color: #ff0000; margin-top: 10px;">Delete Marquee</button>          </div>          <div id="createMarqueeBlock" style="display: none;">            <p>No active marquee update banner exists. Create one below:</p>            <form id="createMarqueeForm" style="margin-top: 15px;">              <div class="form-group">                <label for="marqueeDesc">Marquee Text / Update Message</label>                <textarea id="marqueeDesc"                  placeholder="e.g. ICET preparation notes uploaded! Check important questions tab."                  style="width:100%; height:80px;" required></textarea>              </div>              <div class="form-group">                <label for="marqueeLink">Redirect URL / Link (Optional)</label>                <input type="text" id="marqueeLink" placeholder="e.g. important.html?search=ICET">              </div>              <button type="submit">Publish Marquee</button>            </form>          </div>        </div>      </div>      <!-- Send Email Tab -->      <div id="tabSendMailContent" style="display: none;">        <h3>Send Custom Email</h3>        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: start; margin-bottom: 25px;">          <!-- Left Panel: Select Subscribers -->          <div style="border: 3px solid #1E293B; background-color: #ffffff; padding: 15px; box-shadow: 4px 4px 0 #1E293B; flex: 1 1 300px; display: flex; flex-direction: column; min-height: 480px;">            <h4 style="margin: 0 0 10px 0; font-family: 'Press Start 2P', monospace; font-size: 8px;">Select Recipients</h4>            <div style="margin-bottom: 10px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">              <input type="text" id="subscriberSearch" placeholder="Search emails..." style="padding: 6px; font-family: 'Share Tech Mono', monospace; font-size: 13px; border: 2px solid #1E293B; flex-grow: 1;">              <label style="font-family: 'Share Tech Mono', monospace; font-size: 13px; display: flex; align-items: center; gap: 5px; cursor: pointer; white-space: nowrap; user-select: none;">                <input type="checkbox" id="selectAllSubscribers" style="cursor: pointer;"> Select All              </label>            </div>            <div id="subscriberListContainer" style="overflow-y: auto; flex-grow: 1; border: 2px solid #1E293B; background-color: #F8FAFC; padding: 10px; height: 320px; display: flex; flex-direction: column; gap: 8px;">              <p style="font-family: 'Share Tech Mono', monospace; font-size: 13px; color: #64748B;">Loading subscribers...</p>            </div>            <div id="selectedCount" style="margin-top: 10px; font-family: 'Share Tech Mono', monospace; font-size: 13px; font-weight: bold; color: #4F46E5;">0 recipient(s) selected</div>            <div style="margin-top: 15px; border-top: 2px dashed #1E293B; padding-top: 15px; flex-shrink: 0;">              <label for="customRecipientInput" style="display: block; font-family: 'Press Start 2P', monospace; font-size: 8px; margin-bottom: 6px; font-weight: bold; color: #1E293B;">Or send to new/custom address(es)</label>              <input type="text" id="customRecipientInput" placeholder="e.g. test@domain.com, user2@domain.com" style="width: 100%; padding: 8px; font-family: 'Share Tech Mono', monospace; font-size: 14px; border: 3px solid #1E293B; box-sizing: border-box;">            </div>          </div>          <!-- Right Panel: Compose Email -->          <div style="border: 3px solid #1E293B; background-color: #ffffff; padding: 15px; box-shadow: 4px 4px 0 #1E293B; flex: 1.2 1 350px;">            <h4 style="margin: 0 0 15px 0; font-family: 'Press Start 2P', monospace; font-size: 8px;">Compose Message</h4>            <form id="customMailForm" style="margin-top: 0; padding: 0; box-shadow: none; border: none; max-width: 100%;">              <div class="form-group">                <label for="mailSubject">Subject</label>                <input type="text" id="mailSubject" placeholder="e.g. Announcement: New Class Materials Uploaded!" required style="width: 100%; box-sizing: border-box;">              </div>              <div class="form-group">                <label for="mailBody">Email Body (HTML Supported)</label>                <textarea id="mailBody" placeholder="&lt;p&gt;Hello Subscribers,&lt;/p&gt;&lt;p&gt;Here are the updates...&lt;/p&gt;" style="height: 220px; width: 100%; box-sizing: border-box; resize: vertical;" required></textarea>              </div>              <button type="submit" id="sendMailSubmitBtn" style="width: 100%;">Send Custom Email</button>            </form>            <div id="mailSendingProgress" style="margin-top: 15px; font-family: 'Share Tech Mono', monospace; font-size: 13px; color: #4F46E5; display: none; font-weight: bold;"></div>          </div>        </div>      </div>      <!-- Settings Tab -->      <div id="tabSettingsContent" style="display: none;">        <h3>System Settings</h3>        <div style="border: 3px solid #1E293B; background-color: #ffffff; padding: 20px; box-shadow: 4px 4px 0 #1E293B; max-width: 600px; margin-bottom: 25px;">          <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">            <div>              <h4 style="margin: 0; font-family: 'Press Start 2P', monospace; font-size: 9px; color: #1E293B;">Email Notifications</h4>              <p style="margin: 8px 0 0 0; font-family: 'Share Tech Mono', monospace; font-size: 13px; color: #475569;">Enable or disable outgoing subscriber notifications (helpful while testing to prevent spamming users).</p>            </div>            <label class="switch">              <input type="checkbox" id="emailsToggle" checked>              <span class="slider"></span>            </label>          </div>          <div id="settingsStatus" style="margin-top: 15px; font-family: 'Share Tech Mono', monospace; font-size: 13px; color: #4F46E5; display: none;">Saving setting...</div>        </div>      </div>    </div>  </main><footer class="footer">    <div class="footer-container">      <div class="footer-col">        <h4>Quick Links</h4>        <ul>          <li><a href="/">Home</a></li>          <li><a href="/upload.html">Upload Material</a></li>          <li><a href="/community.html">Community Forum</a></li>          <li><a href="/mca.html">MCA</a></li>        </ul>      </div>      <div class="footer-col">        <h4>Resources</h4>        <ul>          <li><a href="icet.html">ICET PYQs</a></li>          <li><a href="https://pixels111.github.io/bcahub/index.html" target="_blank">BCA Resources</a></li>          <li><a href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx" target="_blank">APSHE</a></li>        </ul>      </div>      <div class="footer-col">        <h4>FAQs</h4>        <ul>          <li><a href="#" onclick="alert('Yes, all materials on Free Degree Library are 100% free to download!')">Is downloading free?</a></li>          <li><a href="#" onclick="alert('Anyone can upload study materials! Just go to the Upload section and share.')">How to upload?</a></li>          <li><a href="#" onclick="alert('You can report any issues or bugs using the Menu -> Report Error/Bug option.')">How to report an issue?</a></li>        </ul>      </div>      <div class="footer-col">        <h4>Connect</h4>        <ul>          <li><a href="https://www.instagram.com/cirravo/" target="_blank">Instagram</a></li>          <li><a href="#" onclick="alertBugReport(event)">Report Error/Bug</a></li>          <li><a href="admin.html">Admin Login</a></li>        </ul>      </div>    </div>    <div class="footer-bottom">      Powered by - <a href="https://cirravosolutions.co.in/" target="_blank" rel="noopener noreferrer" style="font-weight: bold; color: #1E293B;">Cirravo Solutions</a>    </div>  </footer>  <script src="app.min.js?v=2.0.35" defer></script>  <script>
+    let loggedIn = false;
+    let wrongAttempts = 0;
+    let currentCaptchaAnswer = null;
+    let currentTab = 'materials'; // 'materials' | 'posts' | 'marquee' | 'settings'
+    const loginSection = document.getElementById('loginFormSection');
+    const dashboardSection = document.getElementById('dashboardSection');
+    const loginForm = document.getElementById('adminLoginForm');
+    const passwordInput = document.getElementById('adminPassword');
+    const loginError = document.getElementById('loginError');
+    const tabMaterialsBtn = document.getElementById('tabMaterialsBtn');
+    const tabPostsBtn = document.getElementById('tabPostsBtn');
+    const tabMarqueeBtn = document.getElementById('tabMarqueeBtn');
+    const tabSendMailBtn = document.getElementById('tabSendMailBtn');
+    const tabSettingsBtn = document.getElementById('tabSettingsBtn');
+    const tabMaterialsContent = document.getElementById('tabMaterialsContent');
+    const tabPostsContent = document.getElementById('tabPostsContent');
+    const tabMarqueeContent = document.getElementById('tabMarqueeContent');
+    const tabSendMailContent = document.getElementById('tabSendMailContent');
+    const tabSettingsContent = document.getElementById('tabSettingsContent');
+    const emailsToggle = document.getElementById('emailsToggle');
+    const settingsStatus = document.getElementById('settingsStatus');
+    const subscriberSearch = document.getElementById('subscriberSearch');
+    const selectAllSubscribers = document.getElementById('selectAllSubscribers');
+    const subscriberListContainer = document.getElementById('subscriberListContainer');
+    const selectedCount = document.getElementById('selectedCount');
+    const customMailForm = document.getElementById('customMailForm');
+    const mailSubject = document.getElementById('mailSubject');
+    const mailBody = document.getElementById('mailBody');
+    const mailSendingProgress = document.getElementById('mailSendingProgress');
+    const sendMailSubmitBtn = document.getElementById('sendMailSubmitBtn');
+    const customRecipientInput = document.getElementById('customRecipientInput');
+    let allSubscribers = []; // caching retrieved subscribers list
+    let selectedEmails = new Set(); // set of selected emails
+    const adminMaterialsBody = document.getElementById('adminMaterialsBody');
+    const adminPostsList = document.getElementById('adminPostsList');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const activeMarqueeBlock = document.getElementById('activeMarqueeBlock');
+    const activeMarqueeText = document.getElementById('activeMarqueeText');
+    const activeMarqueeLink = document.getElementById('activeMarqueeLink');
+    const createMarqueeBlock = document.getElementById('createMarqueeBlock');
+    const createMarqueeForm = document.getElementById('createMarqueeForm');
+    const marqueeDescInput = document.getElementById('marqueeDesc');
+    const marqueeLinkInput = document.getElementById('marqueeLink');
+
+    function togglePasswordVisibility() {
+      const pwdInput = document.getElementById('adminPassword');
+      const toggleBtn = document.getElementById('togglePasswordBtn');
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        toggleBtn.innerText = '🙈';
+      } else {
+        pwdInput.type = 'password';
+        toggleBtn.innerText = '👁️';
+      }
+    }
+
+    function generateMathCaptcha() {
+      const num1 = Math.floor(Math.random() * 12) + 4; // 4 to 15
+      const num2 = Math.floor(Math.random() * 8) + 1;  // 1 to 8
+      const isAdd = Math.random() > 0.5;
+      const mathTextEl = document.getElementById('captchaMathText');
+      const captchaSection = document.getElementById('captchaSection');
+      const captchaInput = document.getElementById('captchaAnswer');
+      if (isAdd) {
+        mathTextEl.innerText = `${num1} + ${num2}`;
+        currentCaptchaAnswer = num1 + num2;
+      } else {
+        const big = Math.max(num1, num2);
+        const small = Math.min(num1, num2);
+        mathTextEl.innerText = `${big} - ${small}`;
+        currentCaptchaAnswer = big - small;
+      }
+      if (captchaInput) captchaInput.value = '';
+      if (captchaSection) captchaSection.style.display = 'block';
+    }
+
+    // Handle Login
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const loginBtn = document.getElementById('loginSubmitBtn') || loginForm.querySelector('button');
+
+      // If anti-bot challenge is active (after >= 3 attempts), verify math answer FIRST!
+      if (wrongAttempts >= 3) {
+        const userCaptchaEl = document.getElementById('captchaAnswer');
+        const userCaptchaVal = userCaptchaEl ? parseInt(userCaptchaEl.value.trim(), 10) : NaN;
+        if (isNaN(userCaptchaVal) || userCaptchaVal !== currentCaptchaAnswer) {
+          loginError.style.display = 'block';
+          loginError.style.backgroundColor = '#FEE2E2';
+          loginError.style.color = '#DC2626';
+          loginError.style.borderColor = '#DC2626';
+          loginError.style.boxShadow = '5px 5px 0 #DC2626';
+          loginError.innerHTML = '❌ ANTI-BOT VERIFICATION FAILED!<br><span style="font-size: 13px; color: #991B1B;">Incorrect math answer. Please try solving the new calculation below.</span>';
+          generateMathCaptcha();
+          if (userCaptchaEl) userCaptchaEl.focus();
+          return;
+        }
+      }
+
+      loginError.style.display = 'block';
+      loginError.style.backgroundColor = '#FEF08A';
+      loginError.style.color = '#854D0E';
+      loginError.style.borderColor = '#1E293B';
+      loginError.style.boxShadow = '3px 3px 0 #1E293B';
+      loginError.innerHTML = '⏳ Verifying password with server...';
+      const enteredPassword = passwordInput.value.trim();
+      if (!enteredPassword) {
+        loginError.innerHTML = '⚠️ Please enter a password!';
+        return;
+      }
+      if (loginBtn) { loginBtn.disabled = true; loginBtn.innerText = 'Verifying...'; }
+      try {
+        const response = await fetch(getProxiedUrl('verify_admin.php', { p: enteredPassword }), {
+          method: 'POST',
+          credentials: 'include',
+          cache: 'no-store',          headers: {            'Content-Type': 'application/json',            'Cache-Control': 'no-cache, no-store, must-revalidate',            'Pragma': 'no-cache'          },          body: JSON.stringify({ password: enteredPassword })
+        });
+        const res = await safeJsonParse(response);
+        if (response.ok && res.status === 'success') {
+          wrongAttempts = 0;
+          loggedIn = true;
+          passwordInput.style.borderColor = '#059669';
+          loginError.style.backgroundColor = '#D1FAE5';
+          loginError.style.color = '#065F46';
+          loginError.style.borderColor = '#059669';
+          loginError.style.boxShadow = '5px 5px 0 #059669';
+          loginError.innerHTML = '✅ CORRECT PASSWORD!<br>Access Granted. Loading Dashboard...';
+          if (loginBtn) { loginBtn.innerText = 'Success! Opening Dashboard...'; }
+          setTimeout(() => {
+            loginSection.style.display = 'none';
+            dashboardSection.style.display = 'block';
+            loadTabContent();
+          }, 500);
+        } else {
+          wrongAttempts++;
+          passwordInput.style.borderColor = '#DC2626';
+          passwordInput.style.backgroundColor = '#FEF2F2';
+          loginError.style.display = 'block';
+          loginError.style.backgroundColor = '#FEE2E2';
+          loginError.style.color = '#DC2626';
+          loginError.style.borderColor = '#DC2626';
+          loginError.style.boxShadow = '5px 5px 0 #DC2626';
+          
+          let errorMsg = '❌ WRONG PASSWORD! Access Denied.<br><span style="font-size: 13px; font-weight: normal; color: #991B1B;">The password you entered is incorrect (Attempt ' + wrongAttempts + ').</span>';
+          if (wrongAttempts >= 3) {
+            errorMsg += '<br><div style="margin-top:6px; color:#B91C1C; font-size:12px; border-top:1px dashed #DC2626; padding-top:6px;">🛡️ <strong>Anti-Bot Shield Activated:</strong><br>Please solve the math challenge above to prove you are human before trying again!</div>';
+            generateMathCaptcha();
+          }
+          loginError.innerHTML = errorMsg;
+
+          if (loginBtn) { loginBtn.disabled = false; loginBtn.innerText = 'Verify & Access Dashboard'; }
+          passwordInput.value = '';
+          passwordInput.focus();
+          setTimeout(() => { passwordInput.style.backgroundColor = '#FFFFFF'; }, 1500);
+        }
+      } catch (err) {
+        wrongAttempts++;
+        passwordInput.style.borderColor = '#DC2626';
+        loginError.style.display = 'block';
+        loginError.style.backgroundColor = '#FEE2E2';
+        loginError.style.color = '#DC2626';
+        loginError.style.borderColor = '#DC2626';
+        loginError.style.boxShadow = '5px 5px 0 #DC2626';
+        let errorMsg = '❌ WRONG PASSWORD OR ERROR!<br><span style="font-size: 13px; font-weight: normal; color: #991B1B;">Verification failed (' + (err.message || 'Access Denied') + ') - Attempt ' + wrongAttempts + '.</span>';
+        if (wrongAttempts >= 3) {
+          errorMsg += '<br><div style="margin-top:6px; color:#B91C1C; font-size:12px; border-top:1px dashed #DC2626; padding-top:6px;">🛡️ <strong>Anti-Bot Shield Activated:</strong><br>Please solve the math challenge above to prove you are human!</div>';
+          generateMathCaptcha();
+        }
+        loginError.innerHTML = errorMsg;
+        if (loginBtn) { loginBtn.disabled = false; loginBtn.innerText = 'Verify & Access Dashboard'; }
+        passwordInput.value = '';
+      }
+    });    // Handle Tab Toggling
+    tabMaterialsBtn.addEventListener('click', () => {
+      currentTab = 'materials';
+      tabMaterialsBtn.style.backgroundColor = '#818CF8';
+      tabPostsBtn.style.backgroundColor = '#FFF';
+      tabMarqueeBtn.style.backgroundColor = '#FFF';
+      tabSendMailBtn.style.backgroundColor = '#FFF';
+      tabSettingsBtn.style.backgroundColor = '#FFF';
+      tabMaterialsContent.style.display = 'block';
+      tabPostsContent.style.display = 'none';
+      tabMarqueeContent.style.display = 'none';
+      tabSendMailContent.style.display = 'none';
+      tabSettingsContent.style.display = 'none';
+      loadTabContent();
+    });
+    tabPostsBtn.addEventListener('click', () => {
+      currentTab = 'posts';
+      tabPostsBtn.style.backgroundColor = '#818CF8';
+      tabMaterialsBtn.style.backgroundColor = '#FFF';
+      tabMarqueeBtn.style.backgroundColor = '#FFF';
+      tabSendMailBtn.style.backgroundColor = '#FFF';
+      tabSettingsBtn.style.backgroundColor = '#FFF';
+      tabMaterialsContent.style.display = 'none';
+      tabPostsContent.style.display = 'block';
+      tabMarqueeContent.style.display = 'none';
+      tabSendMailContent.style.display = 'none';
+      tabSettingsContent.style.display = 'none';
+      loadTabContent();
+    });
+    tabMarqueeBtn.addEventListener('click', () => {
+      currentTab = 'marquee';
+      tabMarqueeBtn.style.backgroundColor = '#818CF8';
+      tabMaterialsBtn.style.backgroundColor = '#FFF';
+      tabPostsBtn.style.backgroundColor = '#FFF';
+      tabSendMailBtn.style.backgroundColor = '#FFF';
+      tabSettingsBtn.style.backgroundColor = '#FFF';
+      tabMaterialsContent.style.display = 'none';
+      tabPostsContent.style.display = 'none';
+      tabMarqueeContent.style.display = 'block';
+      tabSendMailContent.style.display = 'none';
+      tabSettingsContent.style.display = 'none';
+      loadTabContent();
+    });
+    tabSendMailBtn.addEventListener('click', () => {
+      currentTab = 'send_mail';
+      tabSendMailBtn.style.backgroundColor = '#818CF8';
+      tabMaterialsBtn.style.backgroundColor = '#FFF';
+      tabPostsBtn.style.backgroundColor = '#FFF';
+      tabMarqueeBtn.style.backgroundColor = '#FFF';
+      tabSettingsBtn.style.backgroundColor = '#FFF';
+      tabMaterialsContent.style.display = 'none';
+      tabPostsContent.style.display = 'none';
+      tabMarqueeContent.style.display = 'none';
+      tabSendMailContent.style.display = 'block';
+      tabSettingsContent.style.display = 'none';
+      loadTabContent();
+    });
+    tabSettingsBtn.addEventListener('click', () => {
+      currentTab = 'settings';
+      tabSettingsBtn.style.backgroundColor = '#818CF8';
+      tabMaterialsBtn.style.backgroundColor = '#FFF';
+      tabPostsBtn.style.backgroundColor = '#FFF';
+      tabMarqueeBtn.style.backgroundColor = '#FFF';
+      tabSendMailBtn.style.backgroundColor = '#FFF';
+      tabMaterialsContent.style.display = 'none';
+      tabPostsContent.style.display = 'none';
+      tabMarqueeContent.style.display = 'none';
+      tabSendMailContent.style.display = 'none';
+      tabSettingsContent.style.display = 'block';
+      loadTabContent();
+    });
+    const loadTabContent = () => {
+      if (currentTab === 'materials') {
+        fetchMaterialsList();
+      } else if (currentTab === 'posts') {
+        fetchPostsList();
+      } else if (currentTab === 'marquee') {
+        fetchMarqueeData();
+      } else if (currentTab === 'send_mail') {
+        fetchSubscribersList();
+      } else {
+        fetchSettings();
+      }
+    };
+    // Fetch and render Materials
+    const fetchMaterialsList = async () => {
+      loadingIndicator.style.display = 'block';
+      try {
+        const response = await fetch(getProxiedUrl('materials.php', {}), {
+          credentials: 'include',
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          }
+        });
+        if (!response.ok) throw new Error('API failure');
+        const data = await safeJsonParse(response);
+        if (!Array.isArray(data)) throw new Error('Invalid structure');
+        renderMaterials(data);
+      } catch (err) {
+        adminMaterialsBody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: #DC2626; font-weight: bold;">Error loading materials: ${err.message || 'Network error'}</td></tr>`;
+        alert('Failed to load materials: ' + err.message);
+      } finally {
+        loadingIndicator.style.display = 'none';
+      }
+    };
+    const renderMaterials = (items) => {
+      if (items.length === 0) {
+        adminMaterialsBody.innerHTML = `<tr><td colspan="4" style="text-align: center;">No materials found.</td></tr>`;
+        return;
+      }
+      adminMaterialsBody.innerHTML = items.map(m => `
+        <tr>
+          <td>
+            ${m.name}
+            <div class="mobile-uploader-label">by: ${m.uploader}</div>
+            <div class="file-size-label">Size: ${m.file_size || 'N/A'}</div>
+          </td>
+          <td class="uploader-col">${m.uploader}</td>
+          <td>${formatDate(m.created_at)}</td>
+          <td>
+            <button onclick="deleteMaterial(${m.id})" style="border-color: #ff0000; color: #ff0000; font-size: 8px; padding: 4px 6px;">[Delete]</button>
+          </td>
+        </tr>
+      `).join('');
+    };
+    window.deleteMaterial = async (id) => {
+      if (!confirm('Are you sure you want to permanently delete this material?')) return;
+      try {
+        const response = await fetch(getProxiedUrl('delete.php', {}), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          },
+          body: JSON.stringify({ id }),
+          credentials: 'include',
+          cache: 'no-store'
+        });
+        if (!response.ok) throw new Error('API failure');
+        const data = await safeJsonParse(response);
+        if (data.status === 'success') {
+          alert('Material deleted.');
+          fetchMaterialsList();
+        } else {
+          alert('Error: ' + data.message);
+        }
+      } catch (err) {
+        alert('Failed to delete material: ' + err.message);
+      }
+    };
+    // Fetch and render community posts
+    const fetchPostsList = async () => {
+      loadingIndicator.style.display = 'block';
+      try {
+        const response = await fetch(getProxiedUrl('community_get.php', {}), {
+          credentials: 'include',
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          }
+        });
+        if (!response.ok) throw new Error('API failure');
+        const data = await safeJsonParse(response);
+        if (!Array.isArray(data)) throw new Error('Invalid structure');
+        renderPosts(data);
+      } catch (err) {
+        adminPostsList.innerHTML = `<p style="color: #DC2626; font-weight: bold;">Error loading posts: ${err.message || 'Network error'}</p>`;
+        alert('Failed to load posts: ' + err.message);
+      } finally {
+        loadingIndicator.style.display = 'none';
+      }
+    };
+    const renderPosts = (items) => {
+      if (items.length === 0) {
+        adminPostsList.innerHTML = `<p>No posts found.</p>`;
+        return;
+      }
+      adminPostsList.innerHTML = items.map(p => `
+        <div class="post-item">
+          <div class="post-header">
+            <span>Posted by: ${p.name}</span>
+            <span>${new Date(p.created_at).toLocaleString()}</span>
+          </div>
+          <div class="post-body">${linkify(p.content || '')}</div>
+          <div style="margin-top: 10px;">
+            <button onclick="deletePost(${p.id})" style="border-color: #ff0000; color: #ff0000;">[Delete Post]</button>
+          </div>
+        </div>
+      `).join('');
+    };
+    window.deletePost = async (id) => {
+      if (!confirm('Are you sure you want to permanently delete this community post?')) return;
+      try {
+        const response = await fetch(getProxiedUrl('community_delete.php', {}), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          },
+          body: JSON.stringify({ id }),
+          credentials: 'include',
+          cache: 'no-store'
+        });
+        if (!response.ok) throw new Error('API failure');
+        const data = await safeJsonParse(response);
+        if (data.status === 'success') {
+          alert('Post deleted.');
+          fetchPostsList();
+        } else {
+          alert('Error deleting post.');
+        }
+      } catch (err) {
+        alert('Failed to delete post: ' + err.message);
+      }
+    };
+    let currentMarqueeId = null;
+    const fetchMarqueeData = async () => {
+      loadingIndicator.style.display = 'block';
+      activeMarqueeBlock.style.display = 'none';
+      createMarqueeBlock.style.display = 'none';
+      try {
+        const response = await fetch(getProxiedUrl('announcements_get.php', {}), {
+          credentials: 'include',
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          }
+        });
+        if (!response.ok) throw new Error('API failure');
+        const data = await safeJsonParse(response);
+        if (Array.isArray(data) && data.length > 0) {
+          const marquee = data[0];
+          currentMarqueeId = marquee.id;
+          activeMarqueeText.innerText = marquee.description;
+          activeMarqueeLink.innerText = marquee.link_url ? `Attached Link: ${marquee.link_url}` : 'No attached link';
+          activeMarqueeBlock.style.display = 'block';
+        } else {
+          currentMarqueeId = null;
+          createMarqueeBlock.style.display = 'block';
+        }
+      } catch (err) {
+        createMarqueeBlock.style.display = 'block';
+        alert('Failed to load marquee: ' + err.message);
+      } finally {
+        loadingIndicator.style.display = 'none';
+      }
+    };
+    window.deleteMarqueeEntry = async () => {
+      if (!currentMarqueeId) return;
+      if (!confirm('Are you sure you want to permanently delete this marquee update banner?')) return;
+      try {
+        const response = await fetch(getProxiedUrl('announcements_delete.php', {}), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          },
+          body: JSON.stringify({ id: currentMarqueeId }),
+          credentials: 'include',
+          cache: 'no-store'
+        });
+        if (!response.ok) throw new Error('API failure');
+        const data = await safeJsonParse(response);
+        if (data.status === 'success') {
+          alert('Marquee deleted.');
+          fetchMarqueeData();
+          const marqueeContainer = document.getElementById('marqueeContainer');
+          if (marqueeContainer) marqueeContainer.innerHTML = '';
+        } else {
+          alert('Error deleting marquee.');
+        }
+      } catch (err) {
+        alert('Failed to delete marquee: ' + err.message);
+      }
+    };
+    createMarqueeForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const description = marqueeDescInput.value.trim();
+      const link_url = marqueeLinkInput.value.trim();
+      try {
+        const response = await fetch(getProxiedUrl('announcements_add.php', {}), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          },
+          body: JSON.stringify({
+            name: 'Marquee Update',
+            description: description,
+            type: 'info',
+            link_url: link_url,
+            has_poll: false,
+            poll_results_public: false,
+            poll_options: []
+          }),
+          credentials: 'include',
+          cache: 'no-store'
+        });
+        const data = await safeJsonParse(response);
+        if (response.ok && data.status === 'success') {
+          alert('Marquee published successfully!');
+          marqueeDescInput.value = '';
+          marqueeLinkInput.value = '';
+          fetchMarqueeData();
+          if (typeof loadMarquee === 'function') loadMarquee();
+        } else {
+          alert('Error: ' + (data.message || 'Failed to publish marquee.'));
+        }
+      } catch (err) {
+        alert('Failed to publish marquee: ' + err.message);
+      }
+    });
+    const fetchSettings = async () => {
+      loadingIndicator.style.display = 'block';
+      try {
+        const response = await fetch(getProxiedUrl('settings_get.php', {}), {
+          credentials: 'include',
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          }
+        });
+        if (!response.ok) throw new Error('API failure');
+        const data = await safeJsonParse(response);
+        if (data.status === 'success') {
+          emailsToggle.checked = data.emails_enabled;
+        } else {
+          throw new Error(data.message || 'Unknown error');
+        }
+      } catch (err) {
+        alert('Failed to load settings: ' + err.message);
+      } finally {
+        loadingIndicator.style.display = 'none';
+      }
+    };
+    emailsToggle.addEventListener('change', async () => {
+      settingsStatus.innerText = 'Saving setting...';
+      settingsStatus.style.display = 'block';
+      try {
+        const response = await fetch(getProxiedUrl('settings_update.php', {}), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          },
+          body: JSON.stringify({ emails_enabled: emailsToggle.checked }),
+          credentials: 'include',
+          cache: 'no-store'
+        });
+        if (!response.ok) throw new Error('API failure');
+        const data = await safeJsonParse(response);
+        if (data.status === 'success') {
+          settingsStatus.innerText = 'Setting saved successfully!';
+          setTimeout(() => {
+            settingsStatus.style.display = 'none';
+          }, 2000);
+        } else {
+          throw new Error(data.message || 'Unknown error');
+        }
+      } catch (err) {
+        alert('Failed to save settings: ' + err.message);
+        emailsToggle.checked = !emailsToggle.checked;
+        settingsStatus.style.display = 'none';
+      }
+    });
+    const fetchSubscribersList = async () => {
+      loadingIndicator.style.display = 'block';
+      subscriberListContainer.innerHTML = '<p style="font-family: \'Share Tech Mono\', monospace; font-size: 13px; color: #64748B;">Loading subscribers...</p>';
+      try {
+        const response = await fetch(getProxiedUrl('subscribers_get.php', {}), {
+          credentials: 'include',
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          }
+        });
+        if (!response.ok) throw new Error('API failure');
+        const data = await safeJsonParse(response);
+        if (data.status === 'success') {
+          allSubscribers = data.subscribers;
+          renderSubscribers(allSubscribers);
+        } else {
+          throw new Error(data.message || 'Unknown error');
+        }
+      } catch (err) {
+        subscriberListContainer.innerHTML = `<p style="font-family: 'Share Tech Mono', monospace; font-size: 13px; color: #FF0000; font-weight: bold;">Error: ${err.message}</p>`;
+      } finally {
+        loadingIndicator.style.display = 'none';
+      }
+    };
+    const renderSubscribers = (list) => {
+      if (list.length === 0) {
+        subscriberListContainer.innerHTML = '<p style="font-family: \'Share Tech Mono\', monospace; font-size: 13px; color: #64748B;">No subscribers found.</p>';
+        return;
+      }
+      subscriberListContainer.innerHTML = list.map(sub => {
+        const isChecked = selectedEmails.has(sub.email) ? 'checked' : '';
+        return `
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 4px; border-bottom: 1px dotted #CBD5E1; min-width: 0;">
+            <label style="display: flex; align-items: center; gap: 8px; font-family: 'Share Tech Mono', monospace; font-size: 13px; cursor: pointer; user-select: none; flex-grow: 1; min-width: 0;">
+              <input type="checkbox" class="sub-checkbox" value="${sub.email}" ${isChecked} style="cursor: pointer; flex-shrink: 0;">
+              <span style="word-break: break-all; min-width: 0; text-overflow: ellipsis; overflow: hidden; ${sub.enabled ? '' : 'text-decoration: line-through; color: #94A3B8;'}">${sub.email}</span>
+            </label>
+            <div style="display: flex; align-items: center; gap: 5px; flex-shrink: 0;">
+              <span class="sub-status-label" style="font-size: 9px; font-family: 'Share Tech Mono', monospace; font-weight: bold; color: ${sub.enabled ? '#059669' : '#EF4444'};">${sub.enabled ? 'ACTIVE' : 'MUTED'}</span>
+              <label class="switch" style="transform: scale(0.65); margin-right: -8px; margin-left: -5px; width: 50px; height: 26px; display: inline-block;">
+                <input type="checkbox" class="status-toggle" data-email="${sub.email}" ${sub.enabled ? 'checked' : ''}>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        `;
+      }).join('');
+      const checkboxes = subscriberListContainer.querySelectorAll('.sub-checkbox');
+      checkboxes.forEach(cb => {
+        cb.addEventListener('change', (e) => {
+          if (e.target.checked) {
+            selectedEmails.add(e.target.value);
+          } else {
+            selectedEmails.delete(e.target.value);
+            selectAllSubscribers.checked = false;
+          }
+          updateSelectedCount();
+        });
+      });
+      const toggles = subscriberListContainer.querySelectorAll('.status-toggle');
+      toggles.forEach(toggle => {
+        toggle.addEventListener('change', async (e) => {
+          const email = e.target.getAttribute('data-email');
+          const isEnabled = e.target.checked;
+          const labelSpan = e.target.closest('div').querySelector('.sub-status-label');
+          const emailSpan = e.target.closest('div').parentElement.querySelector('span');
+          try {
+            const response = await fetch(getProxiedUrl('subscriber_toggle.php', {}), {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache'
+              },
+              body: JSON.stringify({ email, enabled: isEnabled }),
+              credentials: 'include',
+              cache: 'no-store'
+            });
+            if (!response.ok) throw new Error('API failure');
+            const data = await safeJsonParse(response);
+            if (data.status === 'success') {
+              if (isEnabled) {
+                labelSpan.innerText = 'ACTIVE';
+                labelSpan.style.color = '#059669';
+                emailSpan.style.textDecoration = '';
+                emailSpan.style.color = '';
+              } else {
+                labelSpan.innerText = 'MUTED';
+                labelSpan.style.color = '#EF4444';
+                emailSpan.style.textDecoration = 'line-through';
+                emailSpan.style.color = '#94A3B8';
+              }
+              const subObj = allSubscribers.find(s => s.email === email);
+              if (subObj) subObj.enabled = isEnabled;
+            } else {
+              throw new Error(data.message || 'Toggle failed');
+            }
+          } catch (err) {
+            alert('Failed to toggle subscriber status: ' + err.message);
+            e.target.checked = !e.target.checked;
+          }
+        });
+      });
+    };
+    const updateSelectedCount = () => {
+      selectedCount.innerText = `${selectedEmails.size} recipient(s) selected`;
+    };
+    subscriberSearch.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      const filtered = allSubscribers.filter(sub => sub.email.toLowerCase().includes(query));
+      renderSubscribers(filtered);
+    });
+    selectAllSubscribers.addEventListener('change', (e) => {
+      const query = subscriberSearch.value.toLowerCase().trim();
+      const visibleSubscribers = query 
+        ? allSubscribers.filter(sub => sub.email.toLowerCase().includes(query))
+        : allSubscribers;
+      const checkboxes = subscriberListContainer.querySelectorAll('.sub-checkbox');
+      checkboxes.forEach(cb => {
+        cb.checked = e.target.checked;
+        if (e.target.checked) {
+          selectedEmails.add(cb.value);
+        } else {
+          selectedEmails.delete(cb.value);
+        }
+      });
+      updateSelectedCount();
+    });
+    customMailForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const customEmailsVal = customRecipientInput.value.trim();
+      const customEmailsList = customEmailsVal 
+        ? customEmailsVal.split(',').map(em => em.trim()).filter(em => em.length > 0) 
+        : [];
+      const finalRecipients = Array.from(selectedEmails);
+      customEmailsList.forEach(em => {
+        if (!finalRecipients.includes(em)) {
+          finalRecipients.push(em);
+        }
+      });
+      if (finalRecipients.length === 0) {
+        alert('Please select at least one recipient or enter a custom recipient email address.');
+        return;
+      }
+      const subjectVal = mailSubject.value.trim();
+      const bodyVal = mailBody.value.trim();
+      if (!confirm(`Are you sure you want to send this custom email to ${finalRecipients.length} recipient(s)?`)) {
+        return;
+      }
+      mailSendingProgress.innerText = 'Sending emails...';
+      mailSendingProgress.style.display = 'block';
+      sendMailSubmitBtn.disabled = true;
+      try {
+        const response = await fetch(getProxiedUrl('send_custom_email.php', {}), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache'
+          },
+          body: JSON.stringify({
+            emails: finalRecipients,
+            subject: subjectVal,
+            body: bodyVal
+          }),
+          credentials: 'include',
+          cache: 'no-store'
+        });
+        if (!response.ok) throw new Error('API failure');
+        const data = await safeJsonParse(response);
+        if (data.status === 'success') {
+          alert(`Emails dispatched successfully!\nSuccess: ${data.success_count}\nFailed: ${data.fail_count}`);
+          mailSubject.value = '';
+          mailBody.value = '';
+          customRecipientInput.value = '';
+          selectedEmails.clear();
+          selectAllSubscribers.checked = false;
+          updateSelectedCount();
+          fetchSubscribersList();
+        } else {
+          throw new Error(data.message || 'Unknown error');
+        }
+      } catch (err) {
+        alert('Failed to send emails: ' + err.message);
+      } finally {
+        mailSendingProgress.style.display = 'none';
+        sendMailSubmitBtn.disabled = false;
+      }
+    });  </script>  
+  <!-- Sidebar overlay backdrop -->
+  <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
+  <!-- Sidebar Menu Drawer -->
+  <div id="sidebarMenu" class="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-title">MENU</span>
+      <button class="sidebar-close" aria-label="Close menu" onclick="closeSidebar()">X</button>
+    </div>
+    <div class="sidebar-content">
+      <!-- Section 2: Browse Content -->
+      <div class="menu-section">
+        <div class="menu-section-title">Browse Content</div>
+        
+        <a href="/index.html" class="menu-item">
+          <span class="menu-item-icon">🏠</span> Home
+        </a>
+        <a href="/community.html" class="menu-item">
+          <span class="menu-item-icon">💬</span> Student Community
+        </a>
+        <a href="/upload.html" class="menu-item">
+          <span class="menu-item-icon">📤</span> Upload Materials
+        </a>
+        <a href="/important.html" class="menu-item">
+          <span class="menu-item-icon">⚡</span> Important Questions
+        </a>
+        <a href="/mca.html" class="menu-item">
+          <span class="menu-item-icon">🎓</span> MCA
+        </a>
+        <a href="/icet.html" class="menu-item">
+          <span class="menu-item-icon">🎓</span> ICET PYQs
+        </a>
+        <a href="/admin.html" class="menu-item">
+          <span class="menu-item-icon">🔑</span> Admin Panel
+        </a>
+      </div>
+      <!-- Section 3: Help -->
+      <div class="menu-section">
+        <div class="menu-section-title">Help</div>
+        <div class="menu-item-dropdown">
+          <div class="menu-item" style="cursor: pointer; justify-content: space-between;"
+            onclick="toggleMenuDropdown(this)">
+            <span style="display: flex; align-items: center; gap: 12px;"><span class="menu-item-icon">📖</span>
+              Official Syllabus Content</span>
+            <span class="arrow">▾</span>
+          </div>
+          <div class="menu-dropdown-content" style="display: none; padding-left: 20px;">
+            <div style="padding: 10px 15px; color: #818CF8; font-size: 12px; font-weight: bold;">UG</div>
+            <a href="https://svuniversity.edu.in/degree-course-syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon">🎓</span> SV University
+            </a>
+            <a href="https://cuap.ac.in/syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon">🎓</span> Andhra University
+            </a>
+            <div style="padding: 10px 15px; color: #818CF8; font-size: 12px; font-weight: bold; margin-top: 5px;">PG</div>
+            <a href="https://svuniversity.edu.in/pg-course-syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon">🎓</span> SV University
+            </a>
+            <a href="https://andhrauni-ac.in/admissions/school-of-distance-education/pgcourses.html" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon">🎓</span> Andhra University
+            </a>
+          </div>
+        </div>
+        <a href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">🏛️</span> APSHE
+        </a>
+        <div class="menu-item-dropdown">
+          <div class="menu-item" style="cursor: pointer; justify-content: space-between;"
+            onclick="toggleMenuDropdown(this)">
+            <span style="display: flex; align-items: center; gap: 12px;"><span class="menu-item-icon">📄</span>
+              Results</span>
+            <span class="arrow">▾</span>
+          </div>
+          <div class="menu-dropdown-content" style="display: none; padding-left: 20px;">
+            <a href="https://www.manabadi.co.in/" target="_blank" rel="noopener noreferrer" class="menu-item"
+              style="border-bottom: none;">
+              <span class="menu-item-icon">🔍</span> Results(Manabadi)
+            </a>
+            <a href="https://g21.tcsion.com/per/g21/pub/1723/SelfServices/templates/sdham15012018101517/Sdham515012018101605.html"
+              target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none;">
+              <span class="menu-item-icon">🏫</span> Results(TCSion)
+            </a>
+          </div>
+        </div>
+        <a href="https://pixels111.github.io/bcahub/index.html" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">📖</span> BCA Resources
+        </a>
+      </div>
+      <!-- Section 4: Other Products -->
+      <div class="menu-section">
+        <div class="menu-section-title">Our Other Free Products</div>
+        <a href="https://buildmyresume.free.nf/" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">💼</span> ATS Friendly Resume Builder
+        </a>
+        <a href="https://upiqr.ct.ws/" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">📱</span> UPI QR Generator
+        </a>
+        <a href="https://cirravosolutions.co.in/safex/index.html?i=1" target="_blank" rel="noopener noreferrer"
+          class="menu-item">
+          <span class="menu-item-icon">🔐</span> Offline Password Manager
+        </a>
+        <a href="https://1amgiri.itch.io/ilikecode" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">📱</span> iLikeCode - Mobile Coding
+        </a>
+      </div>
+      <!-- Section 5: Extras -->
+      <div class="menu-section" style="border-top: 1px dashed #334155; padding-top: 10px;">
+        <a href="#" onclick="alertBugReport(event)" class="menu-item">
+          <span class="menu-item-icon">⚠️</span> Report Error/Bug
+        </a>
+        <a href="about.html" class="menu-item">
+          <span class="menu-item-icon">ℹ️</span> About Free Degree Library
+        </a>
+        <a href="/admin.html" class="menu-item">
+          <span class="menu-item-icon">🔑</span> Admin Login
+        </a>
+        <a href="https://www.instagram.com/cirravo/" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon">📸</span> Follow on Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body></html>
