@@ -1307,3 +1307,23 @@ h1.main-heading {
   margin-bottom: 15px;
   color: #334155;
 }
+
+/* Static Center Page Watermark */
+body::after {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65vw;
+  max-width: 480px;
+  height: 65vh;
+  max-height: 480px;
+  background-image: url('https://degreelibrary.gt.tc/watermark.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 9999;
+}
