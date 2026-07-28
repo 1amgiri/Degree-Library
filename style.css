@@ -1,5 +1,5 @@
 /* Free Degree Library Portal - Premium Indigo & Slate Pixel Theme */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap');
+/* Fonts loaded via preloaded link tags in HTML <head> for zero render-blocking latency */
 
 * {
   box-sizing: border-box;
@@ -42,6 +42,8 @@ header {
   text-decoration: none;
   text-shadow: 2px 2px 0 #FFF;
   letter-spacing: -1px;
+  display: inline-block;
+  min-height: 24px;
 }
 
 .brand-subtitle {
@@ -1299,8 +1301,23 @@ input:checked + .slider:before {
 }
 
 
-main { min-height: 60vh; }
-.materials-table { min-height: 400px; }
+main { min-height: 75vh; }
+.materials-table { min-height: 480px; width: 100%; }
+#marqueeContainer:not(:empty) { min-height: 46px; }
+
+/* Fixed overlay loading indicator to prevent layout shifting (CLS elimination) */
+#loadingIndicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1E293B;
+  color: #FFF;
+  padding: 10px 18px;
+  border: 2px solid #818CF8;
+  font-family: 'Share Tech Mono', monospace;
+  box-shadow: 3px 3px 0 #4F46E5;
+  z-index: 9999;
+}
 
 h1.main-heading {
   font-size: 1.5em;
@@ -1319,7 +1336,7 @@ body::after {
   max-width: 480px;
   height: 65vh;
   max-height: 480px;
-  background-image: url('https://degreelibrary.gt.tc/watermark.png');
+  background-image: url('/watermark.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

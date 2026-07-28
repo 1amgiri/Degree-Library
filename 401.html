@@ -1,25 +1,31 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-W46D2S8X');</script>
-    <!-- End Google Tag Manager -->
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-VHYRJJZX5H"
-    ></script>
+    <!-- Google Tag Manager & Google tag (gtag.js) Deferred for Core Web Vitals -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      function gtag() { dataLayer.push(arguments); }
+      function initAnalytics() {
+        if (window.analyticsLoaded) return;
+        window.analyticsLoaded = true;
+        /* GTM */
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-W46D2S8X');
+        /* gtag.js */
+        var gtScript = document.createElement("script");
+        gtScript.async = true;
+        gtScript.src = "https://www.googletagmanager.com/gtag/js?id=G-VHYRJJZX5H";
+        document.head.appendChild(gtScript);
+        gtag("js", new Date());
+        gtag("config", "G-VHYRJJZX5H");
       }
-      gtag("js", new Date());
-      gtag("config", "G-VHYRJJZX5H");
+      window.addEventListener("load", function() { setTimeout(initAnalytics, 1000); });
+      ["scroll", "click", "touchstart", "mousemove"].forEach(function(ev) {
+        window.addEventListener(ev, initAnalytics, { once: true, passive: true });
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,7 +36,9 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="/style.min.css?v=2.0.37" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"></noscript>
+  <link rel="stylesheet" href="/style.min.css?v=3.0.0" />
     <style>
       .error-container {
         text-align: center;
@@ -161,6 +169,6 @@
         <div style="margin-top: 4px;">Powered by : <a href="https://cirravosolutions.co.in/" target="_blank" rel="noopener noreferrer" style="font-weight: bold; color: #1e293b">Cirravo Solutions</a></div>
       </div>
     </footer>
-    <script src="/app.min.js?v=2.0.35" defer></script>
+    <script src="/app.min.js?v=3.0.0" defer></script>
   </body>
 </html>
