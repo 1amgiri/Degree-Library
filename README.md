@@ -67,3 +67,9 @@ Dedicated to constructing impactful educational software, intuitive developer to
 ## 🤝 Attribution & Copyright
 
 Created and maintained by **[Cirravo Solutions](https://cirravosolutions.co.in/)**. All uploaded study materials remain free and accessible for educational purposes worldwide.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
