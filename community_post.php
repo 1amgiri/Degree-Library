@@ -139,6 +139,82 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
     "url": "<?php echo $canonicalUrl; ?>"
   }
   </script>
+  <style>
+    .post-body {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+    .post-body * {
+        max-width: 100% !important;
+        position: static !important;
+        float: none !important;
+    }
+    .post-body img, .post-body video {
+        height: auto !important;
+    }
+    .post-body img, .post-body iframe, .post-body video {
+        display: block;
+        margin: 10px 0;
+    }
+    .post-item {
+        position: relative;
+        z-index: 1;
+        overflow: hidden; /* Prevent horizontal scrollbars spilling out */
+    }
+    .clear-both {
+        clear: both;
+    }
+  </style>
   <link rel="icon" type="image/png" href="/favicon.png">  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"></noscript>
-  <link rel="stylesheet" href="/style.min.css?v=3.0.0"></head><body>  <header>    <div class="header-container">      <div class="header-left">        <div style="display: flex; flex-direction: column;">          <a href="/" class="brand">Free Degree Library</a>          <div class="brand-subtitle">Powered by: <a href="https://cirravosolutions.co.in/" target="_blank"              rel="noopener noreferrer">Cirravo Solutions</a></div>        </div>      </div>      <nav>        <a href="/">Home</a>        <a href="/upload.html">Upload</a>        <a href="/community.html" style="font-weight: bold;">Community<span class="blinking-dot"></span></a>        <a href="/mca.html">MCA</a>        <a href="#" onclick="openSubscribeModal(event)" class="subscribe-btn">Subscribe <span            class="subscribe-count">0</span></a>        </nav>    </div>  </header>  <div id="marqueeContainer"></div>  <main style="max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">    <div class="post-item" style="border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; background: #f8fafc;">        <div class="post-header" style="display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #cbd5e1; padding-bottom: 10px;">          <span style="font-weight: bold; color: #0f172a;"><?php echo $post['is_admin'] ? '<span style="color: navy; border-bottom: 1px dotted navy; display: inline-flex; align-items: center; gap: 4px;">' . $author . '</span>' : $author; ?></span>          <span style="color: #64748b; font-size: 14px;"><?php echo date('d/m/Y H:i', strtotime($post['created_at'])); ?></span>        </div>        <div class="post-body" style="color: #334155; line-height: 1.6; font-size: 16px; word-wrap: break-word; overflow-wrap: break-word;">            <?php                 if ($post['allow_html']) {                    echo $post['content'];                } else {                    $escaped = htmlspecialchars($post['content']);                    $escaped = preg_replace_callback(                        '/(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i',                        function($matches) {                            $url = $matches[1];                            $displayUrl = strlen($url) > 30 ? substr($url, 0, 27) . '...' : $url;                            return '<a href="' . $url . '" target="_blank" rel="noopener noreferrer" style="color: #4F46E5; text-decoration: underline;">' . $displayUrl . '</a>';                        },                        $escaped                    );                    echo nl2br($escaped);                }            ?>        </div>        <?php if (!empty($post['image_path'])): ?>        <div class="post-image-container" style="margin-top: 20px;">            <img src="/<?php echo htmlspecialchars($post['image_path']); ?>" alt="Post Image" style="max-width: 100%; border-radius: 4px;">        </div>        <?php endif; ?>        <!-- Interactive part defaults back to community board since we need JS to vote -->        <div style="margin-top: 30px;">            <a href="/community.html?post=<?php echo $post['id']; ?>" style="display: inline-block; padding: 10px 20px; background-color: #4F46E5; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">View Comments & Vote</a>            <button onclick="shareContent('Post by <?php echo addslashes(strip_tags($author)); ?>', 'Check out this post on Free Degree Library', '/community/<?php echo htmlspecialchars($slug); ?>')" style="display: inline-block; padding: 10px 20px; background-color: #E2E8F0; color: #1E293B; text-decoration: none; border-radius: 4px; font-weight: bold; border: none; cursor: pointer; margin-left: 10px;">Share</button>        </div>    </div>    <div style="margin-top: 40px;">        <a href="/community.html" style="color: #4F46E5; text-decoration: underline;">&larr; Back to Community Board</a>    </div>  </main>  <script src="/app.min.js?v=3.0.0"></script></body></html>
+  <link rel="stylesheet" href="/style.min.css?v=3.0.0"></head><body>  <header>    <div class="header-container">      <div class="header-left">        <div style="display: flex; flex-direction: column;">          <a href="/" class="brand">Free Degree Library</a>          <div class="brand-subtitle">Powered by: <a href="https://cirravosolutions.co.in/" target="_blank"              rel="noopener noreferrer">Cirravo Solutions</a></div>        </div>      </div>      <nav>        <a href="/">Home</a>        <a href="/upload.html">Upload</a>        <a href="/community.html" style="font-weight: bold;">Community<span class="blinking-dot"></span></a>        <a href="/mca.html">MCA</a>        <a href="#" onclick="openSubscribeModal(event)" class="subscribe-btn">Subscribe <span            class="subscribe-count">0</span></a>        </nav>    </div>  </header>  <div id="marqueeContainer"></div>  <main style="max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">    <div class="post-item" style="border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; background: #f8fafc; position: relative; z-index: 1;">        <div class="post-header" style="display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #cbd5e1; padding-bottom: 10px;">          <span style="font-weight: bold; color: #0f172a;"><?php echo $post['is_admin'] ? '<span style="color: navy; border-bottom: 1px dotted navy; display: inline-flex; align-items: center; gap: 4px;">' . $author . '</span>' : $author; ?></span>          <span style="color: #64748b; font-size: 14px;"><?php echo date('d/m/Y H:i', strtotime($post['created_at'])); ?></span>        </div>        <div class="post-body clear-both" style="color: #334155; line-height: 1.6; font-size: 16px; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">
+<?php 
+$content = trim($post['content']);
+// Strip leading spaces and non-breaking spaces (including right after the first HTML tag)
+$content = preg_replace('/^(\s|&nbsp;)+/i', '', $content);
+$content = preg_replace('/^(<[a-z0-9]+[^>]*>)(\s|&nbsp;)+/i', '$1', $content);
+
+if ($post['allow_html']) {
+    echo $content;
+} else {
+    $escaped = htmlspecialchars($content);
+    $escaped = preg_replace_callback(
+        '/(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i',
+        function($matches) {
+            $url = $matches[1];
+            $displayUrl = strlen($url) > 30 ? substr($url, 0, 27) . '...' : $url;
+            return '<a href="' . $url . '" target="_blank" rel="noopener noreferrer" style="color: #4F46E5; text-decoration: underline;">' . $displayUrl . '</a>';
+        },
+        $escaped
+    );
+    echo nl2br($escaped);
+}
+?>
+        </div>        <?php if (!empty($post['image_path'])): ?>        <div class="post-image-container clear-both" style="margin-top: 20px; max-width: 100%;">            <a href="/<?php echo htmlspecialchars($post['image_path']); ?>" target="_blank" style="display: block; cursor: pointer;">                <img src="/<?php echo htmlspecialchars($post['image_path']); ?>" alt="Post Image" style="max-width: 100%; height: auto; border-radius: 4px; display: block; position: static !important; margin: 0 auto;">            </a>        </div>        <?php endif; ?>    </div>    <div class="clear-both" style="margin-top: 40px; position: relative; z-index: 2; padding-bottom: 20px;">        <a href="/community.html" style="color: #4F46E5; text-decoration: underline; font-weight: bold; display: inline-block;">&larr; Back to Community Board</a>    </div>  </main>
+  <script>
+    // Make sure any pasted images are statically positioned, properly scaled, and open in full view when clicked.
+    document.addEventListener("DOMContentLoaded", function() {
+        var postBodyImages = document.querySelectorAll('.post-body img');
+        postBodyImages.forEach(function(img) {
+            img.style.position = "static";
+            img.style.display = "block";
+            img.style.maxWidth = "100%";
+            img.style.height = "auto";
+            img.style.marginBottom = "10px";
+            img.style.cursor = "pointer";
+            
+            img.onclick = function(e) {
+                e.preventDefault();
+                window.open(img.src, '_blank');
+            };
+        });
+        
+        // Also force static position on iframes and embeds
+        var embeds = document.querySelectorAll('.post-body iframe, .post-body embed, .post-body object');
+        embeds.forEach(function(el) {
+            el.style.position = "static";
+            el.style.maxWidth = "100%";
+        });
+    });
+  </script>
+  <script src="/app.min.js?v=3.0.0"></script></body></html>
