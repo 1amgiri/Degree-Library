@@ -58,7 +58,7 @@ function send_html_email($to, $subject, $body_html)
     
     // Check if there's a custom footer/unsubscribe link in the body
     if (strpos($body_html, 'Manage Preferences or Unsubscribe') !== false) {
-        $footer_content = "Free Degree Library Team - Helping students learn together.<br>You are receiving this because you subscribed to updates.<br><a href='https://degreelibrary.gt.tc/updates' style='color: #7D84E8; text-decoration: underline; font-weight: bold;'>Manage Preferences or Unsubscribe</a>";
+        $footer_content = "Free Degree Library Team - Helping students learn together.<br>You are receiving this because you subscribed to updates.<br><a href='https://degreelibrary.gt.tc/' style='color: #7D84E8; text-decoration: underline; font-weight: bold;'>Manage Preferences or Unsubscribe</a>";
         // Strip out any redundant default unsubscribe paragraph
         $main_content = preg_replace('/<br><hr><p style=\'font-size:11px;.*<\/p>/s', '', $main_content);
         $main_content = preg_replace('/<hr><p style="font-size: 11px;.*<\/p>/s', '', $main_content);
@@ -224,7 +224,7 @@ function trigger_group_notifications($subject, $body_html, $preference_column)
     if ($result && $result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $email = $row['email'];
-            $unsubscribe_url = "https://degreelibrary.gt.tc/updates";
+            $unsubscribe_url = "https://degreelibrary.gt.tc/";
             $footer = "<br><hr><p style='font-size:11px;color:#888;text-align:center;'>You are receiving this because you subscribed to updates on Free Degree Library.<br><a href='{$unsubscribe_url}'>Manage Preferences or Unsubscribe</a></p>";
             $full_body = $body_html . $footer;
             send_html_email($email, $subject, $full_body);

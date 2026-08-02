@@ -114,7 +114,7 @@ if ($method === 'POST') {
                  }
                 $body .= "</ul>";
                 $body .= "<div style=\"margin-top: 25px; margin-bottom: 15px;\">";
-                $body .= "<a href='https://degreelibrary.gt.tc/updates' style='display: inline-block; padding: 12px 22px; border: 3px solid #2D3347; background: #FFCA28; color: #000000; font-family: \"Courier New\", monospace; font-weight: bold; text-decoration: none;'>Manage Preferences</a>";
+                $body .= "<a href='https://degreelibrary.gt.tc/' style='display: inline-block; padding: 12px 22px; border: 3px solid #2D3347; background: #FFCA28; color: #000000; font-family: \"Courier New\", monospace; font-weight: bold; text-decoration: none;'>Manage Preferences</a>";
                 $body .= "</div>";
  
                  send_html_email($email, $subject, $body);

@@ -31,7 +31,7 @@ $failedEmails = [];
 foreach ($emails as $email) {
     $email = trim($email);
     if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $unsubscribe_url = "https://degreelibrary.gt.tc/updates";
+        $unsubscribe_url = "https://degreelibrary.gt.tc/";
         $footer = "<br><hr><p style='font-size:11px;color:#888;text-align:center;'>You are receiving this because you subscribed to updates on Free Degree Library.<br><a href='{$unsubscribe_url}'>Manage Preferences or Unsubscribe</a></p>";
         $full_body = $body . $footer;
         
