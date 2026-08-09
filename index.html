@@ -1,77 +1,67 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Google Tag Manager & Google tag (gtag.js) Deferred for Core Web Vitals -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      function initAnalytics() {
-        if (window.analyticsLoaded) return;
-        window.analyticsLoaded = true;
-        /* GTM */
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-W46D2S8X');
-        /* gtag.js */
-        var gtScript = document.createElement("script");
-        gtScript.async = true;
-        gtScript.src = "https://www.googletagmanager.com/gtag/js?id=G-VHYRJJZX5H";
-        document.head.appendChild(gtScript);
-        gtag("js", new Date());
-        gtag("config", "G-VHYRJJZX5H");
-      }
-      window.addEventListener("load", function() { setTimeout(initAnalytics, 1000); });
-      ["scroll", "click", "touchstart", "mousemove"].forEach(function(ev) {
-        window.addEventListener(ev, initAnalytics, { once: true, passive: true });
-      });
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="lEVab0df_DbMYa7VvnO_YFu0CfrcfIZF1AgEuVWjIek" />
-    <meta name="google-site-verification" content="HHDF_-yJPgEF6-kJo_lfHWz7Bhl1Rfb6xeMYLpuEty4" />
 
-    <title>Free Degree Library - Free Study Materials & PYQs</title>
-    <meta
-      name="description"
-      content="Download free study materials, PYQs (Previous Year Questions), assignments, and syllabus content for UG and PG students easily at Free Degree Library."
-    />
-    <meta
-      name="keywords"
-      content="Free Degree Library, study materials, free PYQs, download notes, bca resources, student community, college syllabus"
-    />
-    <meta name="author" content="Cirravo Solutions" />
-    <link rel="canonical" href="https://degreelibrary.gt.tc/" />
+<head>
+  <!-- Google Tag Manager & Google tag (gtag.js) Deferred for Core Web Vitals -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    function initAnalytics() {
+      if (window.analyticsLoaded) return;
+      window.analyticsLoaded = true;
+      /* GTM */
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-W46D2S8X');
+      /* gtag.js */
+      var gtScript = document.createElement("script");
+      gtScript.async = true;
+      gtScript.src = "https://www.googletagmanager.com/gtag/js?id=G-VHYRJJZX5H";
+      document.head.appendChild(gtScript);
+      gtag("js", new Date());
+      gtag("config", "G-VHYRJJZX5H");
+    }
+    window.addEventListener("load", function () { setTimeout(initAnalytics, 1000); });
+    ["scroll", "click", "touchstart", "mousemove"].forEach(function (ev) {
+      window.addEventListener(ev, initAnalytics, { once: true, passive: true });
+    });
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="lEVab0df_DbMYa7VvnO_YFu0CfrcfIZF1AgEuVWjIek" />
+  <meta name="google-site-verification" content="HHDF_-yJPgEF6-kJo_lfHWz7Bhl1Rfb6xeMYLpuEty4" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://degreelibrary.gt.tc/" />
-    <meta
-      property="og:title"
-      content="Free Degree Library - Free Study Materials & PYQs"
-    />
-    <meta
-      property="og:description"
-      content="Download free study materials, PYQs (Previous Year Questions), assignments, and syllabus content for UG and PG students easily at Free Degree Library."
-    />
-    <meta property="og:image" content="/logo.png" />
+  <title>Free Degree Library - Free Study Materials & PYQs</title>
+  <meta name="description"
+    content="Download free study materials, PYQs (Previous Year Questions), assignments, and syllabus content for UG and PG students easily at Free Degree Library." />
+  <meta name="keywords"
+    content="Free Degree Library, study materials, free PYQs, download notes, bca resources, student community, college syllabus" />
+  <meta name="author" content="Cirravo Solutions" />
+  <link rel="canonical" href="https://degreelibrary.gt.tc/" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://degreelibrary.gt.tc/" />
-    <meta
-      name="twitter:title"
-      content="Free Degree Library - Free Study Materials & PYQs"
-    />
-    <meta
-      name="twitter:description"
-      content="Download free study materials, PYQs (Previous Year Questions), assignments, and syllabus content for UG and PG students easily at Free Degree Library."
-    />
-    <meta name="twitter:image" content="/logo.png" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://degreelibrary.gt.tc/" />
+  <meta property="og:title" content="Free Degree Library - Free Study Materials & PYQs" />
+  <meta property="og:description"
+    content="Download free study materials, PYQs (Previous Year Questions), assignments, and syllabus content for UG and PG students easily at Free Degree Library." />
+  <meta property="og:image" content="/logo.png" />
 
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://degreelibrary.gt.tc/" />
+  <meta name="twitter:title" content="Free Degree Library - Free Study Materials & PYQs" />
+  <meta name="twitter:description"
+    content="Download free study materials, PYQs (Previous Year Questions), assignments, and syllabus content for UG and PG students easily at Free Degree Library." />
+  <meta name="twitter:image" content="/logo.png" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
@@ -81,679 +71,464 @@
         "url": "https://degreelibrary.gt.tc/"
       }
     </script>
-    <script>
-      /* Dynamically get the route for client-side rendering */
-      let path = window.location.pathname.substring(1);
-      if (path === "index.html" || path === "index.php") path = "";
-      window.INITIAL_ROUTE = path;
-    </script>
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" /></noscript>
-    <link rel="stylesheet" href="/style.min.css?v=3.0.0" />
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W46D2S8X"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <header>
-      <div class="header-container">
-        <div class="header-left">
+  <script>
+    /* Dynamically get the route for client-side rendering */
+    let path = window.location.pathname.substring(1);
+    if (path === "index.html" || path === "index.php") path = "";
+    window.INITIAL_ROUTE = path;
+  </script>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" />
+  </noscript>
+  <link rel="stylesheet" href="/style.min.css?v=3.0.2" />
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W46D2S8X" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header>
+    <div class="header-container">
+      <div class="header-left">
         <button id="menuToggleBtn" onclick="openSidebar()" aria-label="Toggle menu">☰ MENU</button>
-          <div style="display: flex; flex-direction: column">
-            <a href="/" class="brand" data-static-brand="true">Free Degree Library</a>
-            <div class="brand-subtitle">
-              Powered by:
-              <a
-                href="https://cirravosolutions.co.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Cirravo Solutions</a
-              >
-            </div>
+        <div style="display: flex; flex-direction: column">
+          <a href="/" class="brand" data-static-brand="true">Free Degree Library</a>
+          <div class="brand-subtitle">
+            Powered by:
+            <a href="https://cirravosolutions.co.in/" target="_blank" rel="noopener noreferrer">Cirravo Solutions</a>
           </div>
         </div>
-        <nav>
-          <a href="/" style="font-weight: bold">Home</a>
-          <a href="/upload.html">Upload</a>
-          <a href="/community.html"
-            >Community<span class="blinking-dot"></span
-          ></a>
-          <a href="/mca.html">MCA</a>
-          <a href="#" onclick="openSubscribeModal(event)" class="subscribe-btn"
-            >Subscribe <span class="subscribe-count">0</span></a
-          >
-          </nav>
       </div>
-    </header>
-    <div id="marqueeContainer"></div>
-    <main>
-      <h1 class="main-heading">Search Materials</h1>
-      <div class="search-container" style="position: relative;">
-        <input
-          type="text"
-          id="searchQuery"
-          placeholder="Search materials..."
-          aria-label="Search materials"
-          class="search-input"
-          autocomplete="off"
-          style="padding-right: 30px;"
-          oninput="document.getElementById('clearSearchBtn').style.display = this.value ? 'block' : 'none';"
-        />
-        <span 
-          id="clearSearchBtn"
-          style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 16px; color: #888; display: none;"
-          onclick="document.getElementById('searchQuery').value=''; document.getElementById('searchQuery').dispatchEvent(new Event('input')); this.style.display='none';"
-        >✖</span>
-      </div>
-      <div class="keywords-wrapper">
-        <button
-          class="scroll-btn left-scroll-btn"
-          aria-label="Scroll left"
-          onclick="
+      <nav>
+        <a href="/" style="font-weight: bold">Home</a>
+        <a href="/upload.html">Upload</a>
+        <a href="/community.html">Community<span class="blinking-dot"></span></a>
+        <a href="/mca.html">MCA</a>
+        <a href="#" onclick="openSubscribeModal(event)" class="subscribe-btn">Subscribe <span
+            class="subscribe-count">0</span></a>
+      </nav>
+    </div>
+  </header>
+  <div id="marqueeContainer"></div>
+  <main>
+    <h1 class="main-heading">Search Materials</h1>
+    <div class="search-container" style="position: relative;">
+      <input type="text" id="searchQuery" placeholder="Search materials..." aria-label="Search materials"
+        class="search-input" autocomplete="off" style="padding-right: 30px;"
+        oninput="document.getElementById('clearSearchBtn').style.display = this.value ? 'block' : 'none';" />
+      <span id="clearSearchBtn"
+        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 16px; color: #888; display: none;"
+        onclick="document.getElementById('searchQuery').value=''; document.getElementById('searchQuery').dispatchEvent(new Event('input')); this.style.display='none';">✖</span>
+    </div>
+    <div class="keywords-wrapper">
+      <button class="scroll-btn left-scroll-btn" aria-label="Scroll left" onclick="
             document
               .getElementById('keywordsContainer')
               .scrollBy({ left: -200, behavior: 'smooth' })
-          "
-        >
-          &#9664;
-        </button>
-        <div class="keywords-scroll-container" id="keywordsContainer">
-          <a
-            href="#"
-            onclick="
+          ">
+        &#9664;
+      </button>
+      <div class="keywords-scroll-container" id="keywordsContainer">
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = '';
               fetchMaterials('');
-            "
-            class="keyword-tag"
-            >ALL</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">ALL</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Maths';
               fetchMaterials('Maths');
-            "
-            class="keyword-tag"
-            >Maths</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Maths</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Computers';
               fetchMaterials('Computers');
-            "
-            class="keyword-tag"
-            >Computers</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Computers</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Java';
               fetchMaterials('Java');
-            "
-            class="keyword-tag"
-            >Java</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Java</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Python';
               fetchMaterials('Python');
-            "
-            class="keyword-tag"
-            >Python</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Python</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'C Program';
               fetchMaterials('C Program');
-            "
-            class="keyword-tag"
-            >C Program</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">C Program</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Business';
               fetchMaterials('Business');
-            "
-            class="keyword-tag"
-            >Business</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Business</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Commerce';
               fetchMaterials('Commerce');
-            "
-            class="keyword-tag"
-            >Commerce</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Commerce</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Law';
               fetchMaterials('Law');
-            "
-            class="keyword-tag"
-            >Law</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Law</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value =
                 'Important Questions';
               fetchMaterials('Important Questions');
-            "
-            class="keyword-tag"
-            >Important Questions</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Important Questions</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'PYQs';
               fetchMaterials('PYQs');
-            "
-            class="keyword-tag"
-            >PYQs</a
-          >
-          <a
-            href="https://degreelibrary.gt.tc/mca.html"
-            class="keyword-tag mca-tag"
-            >MCA</a
-          >
-          <a
-            href="https://degreelibrary.gt.tc/icet.html"
-            class="keyword-tag icet-tag"
-            >ICET</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">PYQs</a>
+        <a href="https://degreelibrary.gt.tc/mca.html" class="keyword-tag mca-tag">MCA</a>
+        <a href="https://degreelibrary.gt.tc/icet.html" class="keyword-tag icet-tag">ICET</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'DBMS';
               fetchMaterials('DBMS');
-            "
-            class="keyword-tag"
-            >DBMS</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">DBMS</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'PM';
               fetchMaterials('PM');
-            "
-            class="keyword-tag"
-            >PM</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">PM</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'OS';
               fetchMaterials('OS');
-            "
-            class="keyword-tag"
-            >OS</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">OS</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Web';
               fetchMaterials('Web');
-            "
-            class="keyword-tag"
-            >Web</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Web</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Software Testing';
               fetchMaterials('Software Testing');
-            "
-            class="keyword-tag"
-            >Software Testing</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Software Testing</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value =
                 'Software Engineering';
               fetchMaterials('Software Engineering');
-            "
-            class="keyword-tag"
-            >Software Engineering</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Software Engineering</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Finance';
               fetchMaterials('Finance');
-            "
-            class="keyword-tag"
-            >Finance</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Finance</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Sanskrit';
               fetchMaterials('Sanskrit');
-            "
-            class="keyword-tag"
-            >Sanskrit</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Sanskrit</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value =
                 'Application Development';
               fetchMaterials('Application Development');
-            "
-            class="keyword-tag"
-            >Application Development</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Application Development</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Cloud';
               fetchMaterials('Cloud');
-            "
-            class="keyword-tag"
-            >Cloud</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Cloud</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value =
                 'Environmental Education';
               fetchMaterials('Environmental Education');
-            "
-            class="keyword-tag"
-            >Environmental Education</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Environmental Education</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Cyber Security';
               fetchMaterials('Cyber Security');
-            "
-            class="keyword-tag"
-            >Cyber Security</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Cyber Security</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'AI';
               fetchMaterials('AI');
-            "
-            class="keyword-tag"
-            >AI</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">AI</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'ML';
               fetchMaterials('ML');
-            "
-            class="keyword-tag"
-            >ML</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">ML</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'DSA';
               fetchMaterials('DSA');
-            "
-            class="keyword-tag"
-            >DSA</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">DSA</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Statistics';
               fetchMaterials('Statistics');
-            "
-            class="keyword-tag"
-            >Statistics</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Statistics</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Social Work';
               fetchMaterials('Social Work');
-            "
-            class="keyword-tag"
-            >Social Work</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Social Work</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'ENTREPRENEURSHIP';
               fetchMaterials('ENTREPRENEURSHIP');
-            "
-            class="keyword-tag"
-            >ENTREPRENEURSHIP</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">ENTREPRENEURSHIP</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value =
                 'Health and hygiene';
               fetchMaterials('Health and hygiene');
-            "
-            class="keyword-tag"
-            >Health and hygiene</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Health and hygiene</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Tourism Guidance';
               fetchMaterials('Tourism Guidance');
-            "
-            class="keyword-tag"
-            >Tourism Guidance</a
-          >
-          <a
-            href="#"
-            onclick="
+            " class="keyword-tag">Tourism Guidance</a>
+        <a href="#" onclick="
               event.preventDefault();
               document.getElementById('searchQuery').value = 'Geography';
               fetchMaterials('Geography');
-            "
-            class="keyword-tag"
-            >Geography</a
-          >
-        </div>
-        <button
-          class="scroll-btn right-scroll-btn"
-          aria-label="Scroll right"
-          onclick="
+            " class="keyword-tag">Geography</a>
+      </div>
+      <button class="scroll-btn right-scroll-btn" aria-label="Scroll right" onclick="
             document
               .getElementById('keywordsContainer')
               .scrollBy({ left: 200, behavior: 'smooth' })
-          "
-        >
-          &#9654;
-        </button>
+          ">
+        &#9654;
+      </button>
+    </div>
+    <div id="errorAlert" class="alert-error" style="display: none">
+      <div id="errorMsg" style="white-space: pre-line; margin-bottom: 8px"></div>
+      <button id="retryBtn">Retry</button>
+    </div>
+    <div id="loadingIndicator" style="display: none">
+      Loading materials...
+    </div>
+    <div id="mcaIcetNotice"
+      style="display: none; background: #e0e7ff; color: #1e40af; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 16px; border-left: 4px solid #3b82f6; text-align: left;">
+    </div>
+    <h3>Materials List</h3>
+    <table class="materials-table">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th class="uploader-col">Uploaded By</th>
+          <th>Date</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody id="materialsTableBody">
+        <tr>
+          <td colspan="4" style="text-align: center">No materials loaded.</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/upload.html">Upload Material</a></li>
+          <li><a href="/community.html">Community Forum</a></li>
+          <li><a href="/mca.html">MCA</a></li>
+        </ul>
       </div>
-      <div id="errorAlert" class="alert-error" style="display: none">
-        <div
-          id="errorMsg"
-          style="white-space: pre-line; margin-bottom: 8px"
-        ></div>
-        <button id="retryBtn">Retry</button>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="icet.html">ICET PYQs</a></li>
+          <li>
+            <a href="https://pixels111.github.io/bcahub/index.html" target="_blank">BCA Resources</a>
+          </li>
+          <li>
+            <a href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx" target="_blank">APSHE</a>
+          </li>
+        </ul>
       </div>
-      <div id="loadingIndicator" style="display: none">
-        Loading materials...
-      </div>
-      <div id="mcaIcetNotice" style="display: none; background: #e0e7ff; color: #1e40af; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 16px; border-left: 4px solid #3b82f6; text-align: left;"></div>
-      <h3>Materials List</h3>
-      <table class="materials-table">
-        <thead>
-          <tr>
-            <th>Subject</th>
-            <th class="uploader-col">Uploaded By</th>
-            <th>Date</th>
-            <th>Download</th>
-          </tr>
-        </thead>
-        <tbody id="materialsTableBody">
-          <tr>
-            <td colspan="4" style="text-align: center">No materials loaded.</td>
-          </tr>
-        </tbody>
-      </table>
-    </main>
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/upload.html">Upload Material</a></li>
-            <li><a href="/community.html">Community Forum</a></li>
-            <li><a href="/mca.html">MCA</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="icet.html">ICET PYQs</a></li>
-            <li>
-              <a
-                href="https://pixels111.github.io/bcahub/index.html"
-                target="_blank"
-                >BCA Resources</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx"
-                target="_blank"
-                >APSHE</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>FAQs</h4>
-          <ul>
-            <li>
-              <a
-                href="#"
-                onclick="
+      <div class="footer-col">
+        <h4>FAQs</h4>
+        <ul>
+          <li>
+            <a href="#" onclick="
                   alert(
                     'Yes, all materials on Free Degree Library are 100% free to download!',
                   )
-                "
-                >Is downloading free?</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                onclick="
+                ">Is downloading free?</a>
+          </li>
+          <li>
+            <a href="#" onclick="
                   alert(
                     'Anyone can upload study materials! Just go to the Upload section and share.',
                   )
-                "
-                >How to upload?</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                onclick="
+                ">How to upload?</a>
+          </li>
+          <li>
+            <a href="#" onclick="
                   alert(
                     'You can report any issues or bugs using the Menu -> Report Error/Bug option.',
                   )
-                "
-                >How to report an issue?</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <ul>
-            <li>
-              <a href="https://www.instagram.com/cirravo/" target="_blank"
-                >Instagram</a
-              >
-            </li>
-            <li>
-              <a href="#" onclick="alertBugReport(event)">Report Error/Bug</a>
-            </li>
-            <li><a href="admin.html">Admin Login</a></li>
-          </ul>
-        </div>
+                ">How to report an issue?</a>
+          </li>
+        </ul>
       </div>
-      <div class="footer-bottom">
-        <div>&copy; Free Degree Material, Since 2023</div>
-        <div style="margin-top: 4px;">
-          Powered by :
-          <a
-            href="https://cirravosolutions.co.in/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style="font-weight: bold; color: #1e293b"
-            >Cirravo Solutions</a
-          >
-        </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li>
+            <a href="https://www.instagram.com/cirravo/" target="_blank">Instagram</a>
+          </li>
+          <li>
+            <a href="#" onclick="alertBugReport(event)">Report Error/Bug</a>
+          </li>
+          <li><a href="admin.html">Admin Login</a></li>
+        </ul>
       </div>
-    </footer>
-    <script src="/app.min.js?v=3.0.0" defer></script>
-    <script>
-      let currentMaterials = [];
-      const searchInput = document.getElementById("searchQuery");
-      const tableBody = document.getElementById("materialsTableBody");
-      const errorAlert = document.getElementById("errorAlert");
-      const errorMsg = document.getElementById("errorMsg");
-      const loadingIndicator = document.getElementById("loadingIndicator");
-      const retryBtn = document.getElementById("retryBtn");
-      const renderMaterials = (items) => {
-        if (items.length === 0) {
-          tableBody.innerHTML = `<tr><td colSpan="4" style="text-align: center;">No materials found.</td></tr>`;
-          return;
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; Free Degree Material, Since 2023</div>
+      <div style="margin-top: 4px;">
+        Powered by :
+        <a href="https://cirravosolutions.co.in/" target="_blank" rel="noopener noreferrer"
+          style="font-weight: bold; color: #1e293b">Cirravo Solutions</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/app.min.js?v=3.0.2" defer></script>
+  <script>
+    let currentMaterials = [];
+    const searchInput = document.getElementById("searchQuery");
+    const tableBody = document.getElementById("materialsTableBody");
+    const errorAlert = document.getElementById("errorAlert");
+    const errorMsg = document.getElementById("errorMsg");
+    const loadingIndicator = document.getElementById("loadingIndicator");
+    const retryBtn = document.getElementById("retryBtn");
+    const renderMaterials = (items) => {
+      if (items.length === 0) {
+        tableBody.innerHTML = `<tr><td colSpan="4" style="text-align: center;">No materials found.</td></tr>`;
+        return;
+      }
+      tableBody.innerHTML = items
+        .map((m) => {
+          const fileLabel =
+            m.file_type === "application/pdf"
+              ? "PDF"
+              : m.file_type.startsWith("image/")
+                ? "IMG"
+                : "FILE";
+          const downloadAction = `onclick="event.preventDefault(); downloadFile('${m.id}', '${m.file_name || "download"}')"`;
+          const generatedSlug = m.name
+            ? m.name
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, "-")
+              .replace(/(^-|-$)+/g, "")
+            : m.id;
+          const slug = m.slug || generatedSlug;
+          return `          <tr id="material-${m.id}">            <td>              <a href="/material/${slug}" style="text-decoration: none; color: #1E293B; font-weight: bold;">${m.name}</a>              <div class="mobile-uploader-label">by: ${m.uploader}</div>              <div class="file-size-label">Size: ${m.file_size || "N/A"}</div>            </td>            <td class="uploader-col">${m.uploader}</td>            <td>${formatDate(m.created_at)}</td>            <td>              <a href="${m.file_path}" download="${m.file_name}" ${downloadAction} class="mr-1">Download</a>              </td>          </tr>        `;
+        })
+        .join("");
+      /* Highlight and scroll to shared material if present in URL */
+      const urlParams = new URLSearchParams(window.location.search);
+      let targetId = urlParams.get("material");
+      if (!targetId && window.location.hash) {
+        const hashParams = new URLSearchParams(
+          window.location.hash.substring(window.location.hash.indexOf("?")),
+        );
+        targetId = hashParams.get("material");
+      }
+      if (targetId) {
+        const row = document.getElementById(`material-${targetId}`);
+        if (row) {
+          row.classList.add("highlighted-row");
+          setTimeout(() => {
+            row.scrollIntoView({ behavior: "smooth", block: "center" });
+          }, 100);
         }
-        tableBody.innerHTML = items
-          .map((m) => {
-            const fileLabel =
-              m.file_type === "application/pdf"
-                ? "PDF"
-                : m.file_type.startsWith("image/")
-                  ? "IMG"
-                  : "FILE";
-            const downloadAction = `onclick="event.preventDefault(); downloadFile('${m.id}', '${m.file_name || "download"}')"`;
-            const generatedSlug = m.name
-              ? m.name
-                  .toLowerCase()
-                  .replace(/[^a-z0-9]+/g, "-")
-                  .replace(/(^-|-$)+/g, "")
-              : m.id;
-            const slug = m.slug || generatedSlug;
-            return `          <tr id="material-${m.id}">            <td>              <a href="/material/${slug}" style="text-decoration: none; color: #1E293B; font-weight: bold;">${m.name}</a>              <div class="mobile-uploader-label">by: ${m.uploader}</div>              <div class="file-size-label">Size: ${m.file_size || "N/A"}</div>            </td>            <td class="uploader-col">${m.uploader}</td>            <td>${formatDate(m.created_at)}</td>            <td>              <a href="${m.file_path}" download="${m.file_name}" ${downloadAction} class="mr-1">Download</a>              </td>          </tr>        `;
-          })
-          .join("");
-        /* Highlight and scroll to shared material if present in URL */
-        const urlParams = new URLSearchParams(window.location.search);
-        let targetId = urlParams.get("material");
-        if (!targetId && window.location.hash) {
-          const hashParams = new URLSearchParams(
-            window.location.hash.substring(window.location.hash.indexOf("?")),
+      }
+    };
+    const fetchMaterials = async (query) => {
+      loadingIndicator.style.display = "block";
+      errorAlert.style.display = "none";
+      try {
+        const params = new URLSearchParams();
+        if (query) {
+          params.append("query", query);
+        }
+        const response = await fetch(getProxiedUrl("materials.php", params), {
+          credentials: "include",
+          cache: "no-store",
+          headers: {
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            Pragma: "no-cache",
+            Expires: "0",
+          },
+        });
+        if (!response.ok) {
+          throw new Error(
+            "Unable to load materials.\nHosting provider temporarily blocked the request.\nPlease try again later.",
           );
-          targetId = hashParams.get("material");
         }
-        if (targetId) {
-          const row = document.getElementById(`material-${targetId}`);
-          if (row) {
-            row.classList.add("highlighted-row");
-            setTimeout(() => {
-              row.scrollIntoView({ behavior: "smooth", block: "center" });
-            }, 100);
-          }
+        const data = await safeJsonParse(response);
+        if (!Array.isArray(data)) {
+          throw new Error(
+            "Unable to load materials.\nHosting provider temporarily blocked the request.\nPlease try again later.",
+          );
         }
-      };
-      const fetchMaterials = async (query) => {
-        loadingIndicator.style.display = "block";
-        errorAlert.style.display = "none";
-        try {
-          const params = new URLSearchParams();
-          if (query) {
-            params.append("query", query);
-          }
-          const response = await fetch(getProxiedUrl("materials.php", params), {
-            credentials: "include",
-            cache: "no-store",
-            headers: {
-              "Cache-Control": "no-cache, no-store, must-revalidate",
-              Pragma: "no-cache",
-              Expires: "0",
-            },
-          });
-          if (!response.ok) {
-            throw new Error(
-              "Unable to load materials.\nHosting provider temporarily blocked the request.\nPlease try again later.",
-            );
-          }
-          const data = await safeJsonParse(response);
-          if (!Array.isArray(data)) {
-            throw new Error(
-              "Unable to load materials.\nHosting provider temporarily blocked the request.\nPlease try again later.",
-            );
-          }
-          currentMaterials = data;
-          renderMaterials(data);
-        } catch (e) {
-          console.error("API error:", e);
-          errorMsg.innerText =
-            e.message ||
-            "Unable to load materials.\nHosting provider temporarily blocked the request.\nPlease try again later.";
-          errorAlert.style.display = "block";
-        } finally {
-          loadingIndicator.style.display = "none";
+        currentMaterials = data;
+        renderMaterials(data);
+      } catch (e) {
+        console.error("API error:", e);
+        errorMsg.innerText =
+          e.message ||
+          "Unable to load materials.\nHosting provider temporarily blocked the request.\nPlease try again later.";
+        errorAlert.style.display = "block";
+      } finally {
+        loadingIndicator.style.display = "none";
+      }
+    };
+    searchInput.addEventListener("input", (e) => {
+      const val = e.target.value.toLowerCase().trim();
+      const notice = document.getElementById("mcaIcetNotice");
+      if (notice) {
+        if (val === 'mca') {
+          notice.style.display = 'block';
+          notice.innerHTML = `Looking for MCA materials? <a href="mca.html" style="color:#4F46E5; font-weight:bold; text-decoration:underline;">Click here to navigate to the MCA section</a>.`;
+        } else if (val === 'icet') {
+          notice.style.display = 'block';
+          notice.innerHTML = `Looking for ICET PYQs? <a href="icet.html" style="color:#4F46E5; font-weight:bold; text-decoration:underline;">Click here to navigate to the ICET section</a>.`;
+        } else {
+          notice.style.display = 'none';
         }
-      };
-      searchInput.addEventListener("input", (e) => {
-        const val = e.target.value.toLowerCase().trim();
-        const notice = document.getElementById("mcaIcetNotice");
-        if (notice) {
-          if (val === 'mca') {
-            notice.style.display = 'block';
-            notice.innerHTML = `Looking for MCA materials? <a href="mca.html" style="color:#4F46E5; font-weight:bold; text-decoration:underline;">Click here to navigate to the MCA section</a>.`;
-          } else if (val === 'icet') {
-            notice.style.display = 'block';
-            notice.innerHTML = `Looking for ICET PYQs? <a href="icet.html" style="color:#4F46E5; font-weight:bold; text-decoration:underline;">Click here to navigate to the ICET section</a>.`;
-          } else {
-            notice.style.display = 'none';
-          }
-        }
-        fetchMaterials(e.target.value);
-      });
-      retryBtn.addEventListener("click", () => {
-        fetchMaterials(searchInput.value);
-      });
-      /* Initial Load */
+      }
+      fetchMaterials(e.target.value);
+    });
+    retryBtn.addEventListener("click", () => {
+      fetchMaterials(searchInput.value);
+    });
+    /* Initial Load */
 
-      document.addEventListener("DOMContentLoaded", () => {
-        fetchMaterials("");
-      });
-    </script>
-    
+    document.addEventListener("DOMContentLoaded", () => {
+      fetchMaterials("");
+    });
+  </script>
+
   <!-- Sidebar overlay backdrop -->
   <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
   <!-- Sidebar Menu Drawer -->
@@ -766,7 +541,7 @@
       <!-- Section 2: Browse Content -->
       <div class="menu-section">
         <div class="menu-section-title">Browse Content</div>
-        
+
         <a href="/index.html" class="menu-item">
           <span class="menu-item-icon">🏠</span> Home
         </a>
@@ -801,22 +576,29 @@
           </div>
           <div class="menu-dropdown-content" style="display: none; padding-left: 20px;">
             <div style="padding: 10px 15px; color: #818CF8; font-size: 12px; font-weight: bold;">UG</div>
-            <a href="https://svuniversity.edu.in/degree-course-syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+            <a href="https://svuniversity.edu.in/degree-course-syllabus/" target="_blank" rel="noopener noreferrer"
+              class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
               <span class="menu-item-icon">🎓</span> SV University
             </a>
-            <a href="https://cuap.ac.in/syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+            <a href="https://cuap.ac.in/syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item"
+              style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
               <span class="menu-item-icon">🎓</span> Andhra University
             </a>
-            <div style="padding: 10px 15px; color: #818CF8; font-size: 12px; font-weight: bold; margin-top: 5px;">PG</div>
-            <a href="https://svuniversity.edu.in/pg-course-syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+            <div style="padding: 10px 15px; color: #818CF8; font-size: 12px; font-weight: bold; margin-top: 5px;">PG
+            </div>
+            <a href="https://svuniversity.edu.in/pg-course-syllabus/" target="_blank" rel="noopener noreferrer"
+              class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
               <span class="menu-item-icon">🎓</span> SV University
             </a>
-            <a href="https://andhrauni-ac.in/admissions/school-of-distance-education/pgcourses.html" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+            <a href="https://andhrauni-ac.in/admissions/school-of-distance-education/pgcourses.html" target="_blank"
+              rel="noopener noreferrer" class="menu-item"
+              style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
               <span class="menu-item-icon">🎓</span> Andhra University
             </a>
           </div>
         </div>
-        <a href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx" target="_blank" rel="noopener noreferrer" class="menu-item">
+        <a href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx" target="_blank" rel="noopener noreferrer"
+          class="menu-item">
           <span class="menu-item-icon">🏛️</span> APSHE
         </a>
         <div class="menu-item-dropdown">
@@ -837,7 +619,8 @@
             </a>
           </div>
         </div>
-        <a href="https://pixels111.github.io/bcahub/index.html" target="_blank" rel="noopener noreferrer" class="menu-item">
+        <a href="https://pixels111.github.io/bcahub/index.html" target="_blank" rel="noopener noreferrer"
+          class="menu-item">
           <span class="menu-item-icon">📖</span> BCA Resources
         </a>
       </div>
@@ -877,4 +660,5 @@
   </div>
 
 </body>
+
 </html>

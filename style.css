@@ -1344,3 +1344,21 @@ body::after {
   pointer-events: none;
   z-index: 9999;
 }
+
+/* Adjustments for small mobile devices */
+@media (max-width: 450px) {
+  body { font-size: 13px; padding: 10px; }
+  .brand { font-size: 11px; }
+  .brand-subtitle { font-size: 9px; }
+  h1.main-heading { font-size: 1.2em; }
+  h2 { font-size: 11px; }
+  nav a { padding: 6px 8px; font-size: 8px; }
+  button, input[type="submit"], .btn-link { padding: 6px 8px; font-size: 8px; }
+  #menuToggleBtn { padding: 6px 8px !important; font-size: 7px !important; }
+  .keyword-tag { padding: 6px 8px; font-size: 10px; }
+  table th { font-size: 8px; padding: 6px 8px; }
+  table td { font-size: 11px; padding: 6px 8px; }
+  .form-group input[type="text"], .form-group select, .form-group textarea, .form-group input[type="file"] { padding: 6px; font-size: 12px; }
+  input#searchQuery { padding: 6px; font-size: 12px; }
+}
+
