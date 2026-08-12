@@ -812,3 +812,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.appendChild(flagImg);
 });
+
+// Title Logo Injection
+document.addEventListener("DOMContentLoaded", () => {
+    const headerLeft = document.querySelector('.header-left');
+    const titleColumn = headerLeft ? headerLeft.querySelector('div[style*="flex-direction: column"]') : null;
+    
+    if (headerLeft && titleColumn) {
+        const logoImg = document.createElement("img");
+        logoImg.src = "https://res.cloudinary.com/y6hvobnk/image/upload/v1786530381/create_logo_reveal_video__make-ezgif.com-video-to-gif-converter.gif";
+        logoImg.alt = "Logo";
+        logoImg.style.height = "40px"; // Adjust height to match the header visually
+        logoImg.style.borderRadius = "5px";
+        
+        headerLeft.insertBefore(logoImg, titleColumn);
+    }
+});
