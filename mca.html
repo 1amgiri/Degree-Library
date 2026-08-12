@@ -1348,7 +1348,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Search links (files)
     const allLinks = tree.querySelectorAll('a');
     allLinks.forEach(link => {
-      if (link.textContent.toLowerCase().includes(term)) {
+      if (!link.dataset.originalText) link.dataset.originalText = link.innerHTML;
+      if (term && link.textContent.toLowerCase().includes(term)) {
+        const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`(${escapeRegExp(term)})`, 'gi');
+        link.innerHTML = link.dataset.originalText.replace(regex, '<mark style="background-color: #fde047; color: #1e293b; padding: 0 2px; border-radius: 2px;">$1</mark>');
+        
         let parent = link.closest('li');
         if (parent) parent.style.display = '';
         
@@ -1357,6 +1362,8 @@ document.addEventListener('DOMContentLoaded', () => {
           if (parent.tagName === 'DETAILS') parent.open = true;
           parent = parent.parentElement;
         }
+      } else {
+        link.innerHTML = link.dataset.originalText;
       }
     });
 
@@ -1364,22 +1371,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const allSummaries = tree.querySelectorAll('summary');
     allSummaries.forEach(summary => {
       const folderSpan = summary.querySelector('span');
-      if (folderSpan && folderSpan.textContent.toLowerCase().includes(term)) {
-        let details = summary.parentElement;
-        let parentLi = details.closest('li');
-        if (parentLi) parentLi.style.display = '';
-        details.open = true;
-        
-        // Show all children inside this folder
-        const children = details.querySelectorAll('li');
-        children.forEach(child => child.style.display = '');
-        
-        // Show all parents
-        let parent = parentLi ? parentLi.parentElement : null;
-        while (parent && parent.id !== 'mca-directory-tree') {
-          if (parent.tagName === 'LI') parent.style.display = '';
-          if (parent.tagName === 'DETAILS') parent.open = true;
-          parent = parent.parentElement;
+      if (folderSpan) {
+        if (!folderSpan.dataset.originalText) folderSpan.dataset.originalText = folderSpan.innerHTML;
+        if (term && folderSpan.textContent.toLowerCase().includes(term)) {
+          const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const regex = new RegExp(`(${escapeRegExp(term)})`, 'gi');
+          folderSpan.innerHTML = folderSpan.dataset.originalText.replace(regex, '<mark style="background-color: #fde047; color: #1e293b; padding: 0 2px; border-radius: 2px;">$1</mark>');
+
+          let details = summary.parentElement;
+          let parentLi = details.closest('li');
+          if (parentLi) parentLi.style.display = '';
+          details.open = true;
+          
+          // Show all children inside this folder
+          const children = details.querySelectorAll('li');
+          children.forEach(child => child.style.display = '');
+          
+          // Show all parents
+          let parent = parentLi ? parentLi.parentElement : null;
+          while (parent && parent.id !== 'mca-directory-tree') {
+            if (parent.tagName === 'LI') parent.style.display = '';
+            if (parent.tagName === 'DETAILS') parent.open = true;
+            parent = parent.parentElement;
+          }
+        } else {
+          folderSpan.innerHTML = folderSpan.dataset.originalText;
         }
       }
     });

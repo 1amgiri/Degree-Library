@@ -420,7 +420,14 @@
     const errorMsg = document.getElementById("errorMsg");
     const loadingIndicator = document.getElementById("loadingIndicator");
     const retryBtn = document.getElementById("retryBtn");
-    const renderMaterials = (items) => {
+    const renderMaterials = (items, query = "") => {
+      const highlight = (text) => {
+        if (!query || !text) return text;
+        const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+        return String(text).replace(regex, '<mark style="background-color: #fde047; color: #1e293b; padding: 0 2px; border-radius: 2px;">$1</mark>');
+      };
+
       if (items.length === 0) {
         tableBody.innerHTML = `<tr><td colSpan="4" style="text-align: center;">No materials found.</td></tr>`;
         return;
@@ -433,7 +440,7 @@
               : m.file_type.startsWith("image/")
                 ? "IMG"
                 : "FILE";
-          const downloadAction = `onclick="event.preventDefault(); downloadFile('${m.id}', '${m.file_name || "download"}')"`;
+          const downloadAction = `onclick="event.preventDefault(); event.stopPropagation(); downloadFile('${m.id}', '${m.file_name || "download"}')"`;
           const generatedSlug = m.name
             ? m.name
               .toLowerCase()
@@ -441,7 +448,19 @@
               .replace(/(^-|-$)+/g, "")
             : m.id;
           const slug = m.slug || generatedSlug;
-          return `          <tr id="material-${m.id}">            <td>              <a href="/material/${slug}" style="text-decoration: none; color: #1E293B; font-weight: bold;">${m.name}</a>              <div class="mobile-uploader-label">by: ${m.uploader}</div>              <div class="file-size-label">Size: ${m.file_size || "N/A"}</div>            </td>            <td class="uploader-col">${m.uploader}</td>            <td>${formatDate(m.created_at)}</td>            <td>              <a href="${m.file_path}" download="${m.file_name}" ${downloadAction} class="mr-1">Download</a>              </td>          </tr>        `;
+
+          let labelsHtml = "";
+          if (m.category) {
+            labelsHtml += `<span style="display: inline-block; background: #e0e7ff; color: #3730a3; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-right: 4px; margin-top: 4px; white-space: normal; word-wrap: break-word;">${highlight(m.category)}</span>`;
+          }
+          if (m.tags) {
+            const tagsList = m.tags.split(",").map(t => t.trim()).filter(t => t);
+            tagsList.forEach(t => {
+              labelsHtml += `<span style="display: inline-block; background: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-right: 4px; margin-top: 4px; border: 1px solid #cbd5e1; white-space: normal; word-wrap: break-word;">${highlight(t)}</span>`;
+            });
+          }
+
+          return `          <tr id="material-${m.id}" onclick="window.location.href='/material/${slug}'" style="cursor: pointer;" class="clickable-row">            <td>              <a href="/material/${slug}" style="text-decoration: none; color: #1E293B; font-weight: bold;">${highlight(m.name)}</a>              ${labelsHtml ? `<div style="margin-top: 4px; line-height: 1.5;">${labelsHtml}</div>` : ""}              <div class="mobile-uploader-label">by: ${highlight(m.uploader)}</div>              <div class="file-size-label">Size: ${m.file_size || "N/A"}</div>            </td>            <td class="uploader-col">${highlight(m.uploader)}</td>            <td>${formatDate(m.created_at)}</td>            <td>              <a href="${m.file_path}" download="${m.file_name}" ${downloadAction} class="mr-1">Download</a>              </td>          </tr>        `;
         })
         .join("");
       /* Highlight and scroll to shared material if present in URL */
@@ -492,7 +511,7 @@
           );
         }
         currentMaterials = data;
-        renderMaterials(data);
+        renderMaterials(data, query || "");
       } catch (e) {
         console.error("API error:", e);
         errorMsg.innerText =
