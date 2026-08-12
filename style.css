@@ -1340,7 +1340,7 @@ body::after {
   max-width: 480px;
   height: 65vh;
   max-height: 480px;
-  background-image: url('/watermark.png');
+  background-image: url('https://res.cloudinary.com/y6hvobnk/image/upload/v1786526961/watermark-ezgif.com-video-to-gif-converter.gif');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
