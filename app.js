@@ -32,7 +32,7 @@ const safeJsonParse = async (response) => {
         return data;
     } catch (e) {
         if (e.message !== "Unable to load materials. Hosting provider temporarily blocked the request. Please try again later." && !text.trim().startsWith('<') && e instanceof SyntaxError === false) {
-             throw e; // re-throw if it was our explicit error
+            throw e; // re-throw if it was our explicit error
         }
         throw new Error("Unable to load materials. Hosting provider temporarily blocked the request. Please try again later.");
     }
@@ -73,11 +73,11 @@ const showToast = (message) => {
     toast.className = 'toast';
     toast.innerHTML = `<span>💾</span> <span>${message}</span>`;
     container.appendChild(toast);
-    
+
     setTimeout(() => {
         toast.classList.add('show');
     }, 10);
-    
+
     setTimeout(() => {
         toast.classList.remove('show');
         setTimeout(() => {
@@ -91,7 +91,7 @@ let pendingDownloadFilename = null;
 
 const proceedWithDownload = () => {
     if (!pendingDownloadUrlOrId) return;
-    
+
     showToast(`Downloading ${pendingDownloadFilename || 'file'}...`);
     const params = {};
     if (/^\d+$/.test(pendingDownloadUrlOrId)) {
@@ -100,7 +100,7 @@ const proceedWithDownload = () => {
         params.path = pendingDownloadUrlOrId;
     }
     window.location.href = getProxiedUrl('download.php', params);
-    
+
     pendingDownloadUrlOrId = null;
     pendingDownloadFilename = null;
 };
@@ -108,17 +108,17 @@ const proceedWithDownload = () => {
 const showVideoAdAndDownload = (urlOrId, filename) => {
     pendingDownloadUrlOrId = urlOrId;
     pendingDownloadFilename = filename;
-    
+
     // Start the download immediately
     proceedWithDownload();
-    
+
     let modal = document.getElementById('videoAdModal');
     modal.style.display = 'flex';
-    
+
     const video = document.getElementById('adVideoPlayer');
     const skipBtn = document.getElementById('skipAdBtn');
     const progressBar = document.getElementById('adProgressBar');
-    
+
     // Reset state
     skipBtn.disabled = true;
     skipBtn.style.backgroundColor = '#333';
@@ -127,24 +127,24 @@ const showVideoAdAndDownload = (urlOrId, filename) => {
     skipBtn.innerText = 'Skip Ad in 5s';
     progressBar.style.width = '0%';
     video.currentTime = 0;
-    
+
     let skipEnabled = false;
-    
+
     const finishAd = () => {
         video.pause();
         modal.style.display = 'none';
     };
-    
+
     video.ontimeupdate = () => {
         if (video.duration) {
             const progress = (video.currentTime / video.duration) * 100;
             progressBar.style.width = `${progress}%`;
         }
-        
+
         if (!skipEnabled) {
             const secondsPlayed = Math.floor(video.currentTime);
             const secondsLeft = Math.max(0, 5 - secondsPlayed);
-            
+
             if (secondsLeft > 0) {
                 skipBtn.innerText = `Skip Ad in ${secondsLeft}s`;
             } else {
@@ -157,17 +157,17 @@ const showVideoAdAndDownload = (urlOrId, filename) => {
             }
         }
     };
-    
+
     video.onended = () => {
         finishAd();
     };
-    
+
     skipBtn.onclick = () => {
         if (!skipBtn.disabled) {
             finishAd();
         }
     };
-    
+
     // start playback immediately
     video.play().catch(e => {
         console.error("Autoplay failed:", e);
@@ -205,6 +205,8 @@ const openSidebar = () => {
         sidebar.classList.add('open');
         overlay.style.display = 'block';
     }
+    const flagImg = document.getElementById('indFlagImg');
+    if (flagImg) flagImg.style.display = 'none';
 };
 
 const closeSidebar = () => {
@@ -214,6 +216,8 @@ const closeSidebar = () => {
         sidebar.classList.remove('open');
         overlay.style.display = 'none';
     }
+    const flagImg = document.getElementById('indFlagImg');
+    if (flagImg) flagImg.style.display = 'block';
 };
 
 const toggleMenuDropdown = (element) => {
@@ -233,7 +237,7 @@ const alertAbout = (e) => {
     window.location.href = 'about.html';
 };
 
-const closeAboutModal = () => {};
+const closeAboutModal = () => { };
 
 const alertBugReport = (e) => {
     if (e) e.preventDefault();
@@ -249,7 +253,7 @@ const alertAdminLogin = (e) => {
 window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     let searchVal = urlParams.get('search');
-    
+
     // Fallback to window.INITIAL_ROUTE if search param isn't present
     if (!searchVal && typeof window.INITIAL_ROUTE !== 'undefined' && window.INITIAL_ROUTE) {
         // e.g., "bca/1st-semester" -> "bca 1st semester"
@@ -313,7 +317,7 @@ const loadMarquee = async () => {
             const update = data[0]; // Take the latest/only marquee
             const linkStart = update.link_url ? `<a href="${update.link_url}" target="_blank" style="color: #FFF; text-decoration: underline;">` : '';
             const linkEnd = update.link_url ? `</a>` : '';
-            
+
             container.innerHTML = `
                 <div class="marquee-container">
                   <span class="blinking-tag">NEW!</span>
@@ -360,7 +364,7 @@ const initInternshipPromo = () => {
     preloadVideo.as = 'video';
     preloadVideo.href = 'Cirravo SVEP.mp4';
     document.head.appendChild(preloadVideo);
-    
+
     // Pre-inject Video Ad Modal
     if (!document.getElementById('videoAdModal')) {
         const videoAdModalHtml = `
@@ -420,11 +424,11 @@ const initBrandAnimation = () => {
     if (!brandElement) return;
 
     const pathname = window.location.pathname;
-    const isHomePage = brandElement.getAttribute('data-static-brand') === 'true' || 
-                       pathname === '/' || 
-                       pathname === '' || 
-                       pathname.endsWith('/index.html') || 
-                       (pathname.endsWith('/') && !pathname.includes('/material') && !pathname.includes('/community'));
+    const isHomePage = brandElement.getAttribute('data-static-brand') === 'true' ||
+        pathname === '/' ||
+        pathname === '' ||
+        pathname.endsWith('/index.html') ||
+        (pathname.endsWith('/') && !pathname.includes('/material') && !pathname.includes('/community'));
     if (isHomePage) {
         brandElement.innerText = "Free Degree Library";
         return;
@@ -434,7 +438,7 @@ const initBrandAnimation = () => {
     let titleIndex = 0;
     let charIndex = titles[0].length;
     let isDeleting = true;
-    
+
     // Add blinking cursor
     const style = document.createElement('style');
     style.innerHTML = `
@@ -453,7 +457,7 @@ const initBrandAnimation = () => {
 
     const typeEffect = () => {
         const currentTitle = titles[titleIndex];
-        
+
         if (isDeleting) {
             brandElement.innerText = currentTitle.substring(0, charIndex - 1);
             charIndex--;
@@ -495,16 +499,16 @@ const closeSubscribeModal = () => {
 
 const openSubscribeModal = (e) => {
     if (e) e.preventDefault();
-    
+
     if (document.getElementById('subscribeRetroModal')) return;
-    
+
     const modalOverlay = document.createElement('div');
     modalOverlay.id = 'subscribeRetroModal';
     modalOverlay.className = 'retro-modal-overlay';
-    
+
     let browserStatus = ('Notification' in window && Notification.permission === 'granted') ? 'Enabled ✓' : 'Disabled';
     if ('Notification' in window && Notification.permission === 'denied') browserStatus = 'Blocked';
-    
+
     modalOverlay.innerHTML = `
         <div class="retro-modal-card" style="max-height: 90vh; overflow-y: auto;">
             <div class="retro-modal-header">
@@ -553,18 +557,18 @@ const openSubscribeModal = (e) => {
             </div>
         </div>
     `;
-    
+
     modalOverlay.addEventListener('click', (event) => {
         if (event.target === modalOverlay) {
             closeSubscribeModal();
         }
     });
-    
+
     document.body.appendChild(modalOverlay);
 
     const btnBrowserPush = document.getElementById('btnBrowserPush');
     const lblBrowserStatus = document.getElementById('lblBrowserStatus');
-    
+
     if (localStorage.getItem('browser_notifications_enabled') === 'true' && Notification.permission === 'granted') {
         btnBrowserPush.innerText = 'Test Notification';
     }
@@ -740,7 +744,7 @@ const openSubscribeModal = (e) => {
 
 const initWebNotifications = async () => {
     if (!('Notification' in window)) return;
-    
+
     const checkUpdates = async () => {
         if (Notification.permission !== 'granted') return;
         if (localStorage.getItem('browser_notifications_enabled') !== 'true') return;
@@ -762,7 +766,7 @@ const initWebNotifications = async () => {
             }
 
             if (data.latest_material_id > storedMatId) {
-                new Notification('Free Degree Library Alert', { 
+                new Notification('Free Degree Library Alert', {
                     body: 'A new study material was uploaded!',
                     icon: 'logo.png'
                 });
@@ -770,7 +774,7 @@ const initWebNotifications = async () => {
             }
 
             if (data.latest_post_id > storedPostId) {
-                new Notification('Free Degree Library Alert', { 
+                new Notification('Free Degree Library Alert', {
                     body: 'A new post in the Community Board!',
                     icon: 'logo.png'
                 });
@@ -792,3 +796,19 @@ const initWebNotifications = async () => {
 // Donate Modal Logic
 
 
+// Independence Day Ribbon Injection
+document.addEventListener("DOMContentLoaded", () => {
+    const flagImg = document.createElement("img");
+    flagImg.id = "indFlagImg";
+    flagImg.src = "https://res.cloudinary.com/y6hvobnk/image/upload/v1786528833/indian_flag.png";
+    flagImg.alt = "Independence Day Special";
+    flagImg.style.position = "absolute";
+    flagImg.style.top = "0";
+    flagImg.style.left = "0";
+    flagImg.style.zIndex = "10000";
+    flagImg.style.pointerEvents = "none";
+    flagImg.style.width = "150px";
+    flagImg.style.maxWidth = "25vw";
+
+    document.body.appendChild(flagImg);
+});
