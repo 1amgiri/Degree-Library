@@ -1334,8 +1334,9 @@ h1.main-heading {
 /* Adjustments for small mobile devices */
 @media (max-width: 450px) {
   body { font-size: 13px; padding: 10px; }
-  .brand { font-size: 11px; }
-  .brand-subtitle { font-size: 9px; }
+  .brand { font-size: 9px; }
+  .header-left img { height: 35px !important; }
+  .brand-subtitle { font-size: 8px; }
   h1.main-heading { font-size: 1.2em; }
   h2 { font-size: 11px; }
   nav a { padding: 6px 8px; font-size: 8px; }

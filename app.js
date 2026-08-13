@@ -799,16 +799,17 @@ const initWebNotifications = async () => {
 // Independence Day Ribbon Injection
 document.addEventListener("DOMContentLoaded", () => {
     const flagImg = document.createElement("img");
-    flagImg.id = "indFlagImg";
-    flagImg.src = "https://res.cloudinary.com/y6hvobnk/image/upload/v1786528833/indian_flag.png";
-    flagImg.alt = "Independence Day Special";
+    flagImg.id = "watermarkImg";
+    flagImg.src = "https://res.cloudinary.com/y6hvobnk/image/upload/v1786624885/ChatGPT_Image_Aug_13_2026_06_11_15_PM_1.png";
+    flagImg.alt = "Watermark";
     flagImg.style.position = "absolute";
-    flagImg.style.top = "0";
-    flagImg.style.left = "0";
+    flagImg.style.top = "10px";
+    flagImg.style.right = "10px";
+    flagImg.style.opacity = "0.5";
     flagImg.style.zIndex = "10000";
     flagImg.style.pointerEvents = "none";
-    flagImg.style.width = "150px";
-    flagImg.style.maxWidth = "25vw";
+    flagImg.style.width = "250px";
+    flagImg.style.maxWidth = "40vw";
 
     document.body.appendChild(flagImg);
 });
@@ -820,9 +821,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (headerLeft && titleColumn) {
         const logoImg = document.createElement("img");
-        logoImg.src = "https://res.cloudinary.com/y6hvobnk/image/upload/v1786530381/create_logo_reveal_video__make-ezgif.com-video-to-gif-converter.gif";
+        logoImg.src = "https://res.cloudinary.com/y6hvobnk/image/upload/v1786623607/logo.png";
         logoImg.alt = "Logo";
-        logoImg.style.height = "40px"; // Adjust height to match the header visually
+        logoImg.style.height = "60px"; // Adjust height to match the header visually
         logoImg.style.borderRadius = "5px";
         
         headerLeft.insertBefore(logoImg, titleColumn);
