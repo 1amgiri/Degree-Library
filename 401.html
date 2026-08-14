@@ -33,7 +33,7 @@
 
     <title>401 Unauthorized - Free Degree Library</title>
     <meta name="description" content="Internal Server Error" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -84,7 +84,8 @@
         transform: translateY(-2px);
       }
     </style>
-  </head>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+</head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W46D2S8X"
@@ -94,18 +95,10 @@
       <div class="header-container">
         <div class="header-left">
         <button id="menuToggleBtn" onclick="openSidebar()" aria-label="Toggle menu">☰ MENU</button>
-          <div style="display: flex; flex-direction: column">
-            <a href="/" class="brand">Free Degree Library</a>
-            <div class="brand-subtitle">
-              Powered by:
-              <a
-                href="https://cirravosolutions.co.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Cirravo Solutions</a
-              >
-            </div>
-          </div>
+        <a href="/" class="brand" style="line-height: 0;">
+          <img src="https://res.cloudinary.com/y6hvobnk/image/upload/v1786698694/logo.png" alt="Logo" style="height: 45px; width: auto;">
+        </a>
+
         </div>
         <nav>
           <a href="/">Home</a>
@@ -166,7 +159,7 @@
       </div>
       <div class="footer-bottom">
         <div>&copy; Free Degree Material, Since 2023</div>
-        <div style="margin-top: 4px;">Powered by : <a href="https://cirravosolutions.co.in/" target="_blank" rel="noopener noreferrer" style="font-weight: bold; color: #1e293b">Cirravo Solutions</a></div>
+        
       </div>
     </footer>
     <script src="/app.min.js?v=3.0.2" defer></script>

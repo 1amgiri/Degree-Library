@@ -420,67 +420,7 @@ const closeInternPromo = () => {
 };
 
 const initBrandAnimation = () => {
-    const brandElement = document.querySelector('.brand');
-    if (!brandElement) return;
-
-    const pathname = window.location.pathname;
-    const isHomePage = brandElement.getAttribute('data-static-brand') === 'true' ||
-        pathname === '/' ||
-        pathname === '' ||
-        pathname.endsWith('/index.html') ||
-        (pathname.endsWith('/') && !pathname.includes('/material') && !pathname.includes('/community'));
-    if (isHomePage) {
-        brandElement.innerText = "Free Degree Library";
-        return;
-    }
-
-    const titles = ["Free Degree Library", "Study Materials", "Degree Notes", "ICET Q.Papers", "UG & PG", "Degree Results", "Degree Updates", "Degree Syllabus", "Important Questions"];
-    let titleIndex = 0;
-    let charIndex = titles[0].length;
-    let isDeleting = true;
-
-    // Add blinking cursor
-    const style = document.createElement('style');
-    style.innerHTML = `
-        .brand::after {
-            content: '|';
-            animation: blink 0.8s infinite;
-            color: #F97316;
-            font-weight: 400;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-    `;
-    document.head.appendChild(style);
-
-    const typeEffect = () => {
-        const currentTitle = titles[titleIndex];
-
-        if (isDeleting) {
-            brandElement.innerText = currentTitle.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            brandElement.innerText = currentTitle.substring(0, charIndex + 1);
-            charIndex++;
-        }
-
-        let typeSpeed = isDeleting ? 40 : 100;
-
-        if (!isDeleting && charIndex === currentTitle.length) {
-            typeSpeed = 2000;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            titleIndex = (titleIndex + 1) % titles.length;
-            typeSpeed = 400;
-        }
-
-        setTimeout(typeEffect, typeSpeed);
-    };
-
-    setTimeout(typeEffect, 3000);
+    // Typing effect removed as logo is now used.
 };
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -796,36 +736,4 @@ const initWebNotifications = async () => {
 // Donate Modal Logic
 
 
-// Independence Day Ribbon Injection
-document.addEventListener("DOMContentLoaded", () => {
-    const flagImg = document.createElement("img");
-    flagImg.id = "watermarkImg";
-    flagImg.src = "https://res.cloudinary.com/y6hvobnk/image/upload/v1786624885/ChatGPT_Image_Aug_13_2026_06_11_15_PM_1.png";
-    flagImg.alt = "Watermark";
-    flagImg.style.position = "absolute";
-    flagImg.style.top = "10px";
-    flagImg.style.right = "10px";
-    flagImg.style.opacity = "0.5";
-    flagImg.style.zIndex = "10000";
-    flagImg.style.pointerEvents = "none";
-    flagImg.style.width = "250px";
-    flagImg.style.maxWidth = "40vw";
 
-    document.body.appendChild(flagImg);
-});
-
-// Title Logo Injection
-document.addEventListener("DOMContentLoaded", () => {
-    const headerLeft = document.querySelector('.header-left');
-    const titleColumn = headerLeft ? headerLeft.querySelector('div[style*="flex-direction: column"]') : null;
-    
-    if (headerLeft && titleColumn) {
-        const logoImg = document.createElement("img");
-        logoImg.src = "https://res.cloudinary.com/y6hvobnk/image/upload/v1786623607/logo.png";
-        logoImg.alt = "Logo";
-        logoImg.style.height = "60px"; // Adjust height to match the header visually
-        logoImg.style.borderRadius = "5px";
-        
-        headerLeft.insertBefore(logoImg, titleColumn);
-    }
-});
