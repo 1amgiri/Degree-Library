@@ -54,6 +54,27 @@ if ($res->num_rows === 0) {
     echo "<div style='text-align: center; padding: 50px; font-family: sans-serif;'><img src='/error_cat.svg' style='height: 150px; margin-bottom: 20px; opacity: 0.8;'><h1>404 Not Found - Material does not exist.</h1></div>";
     exit;
 }
+
+$material = $res->fetch_assoc();
+$material_name_clean = strip_tags($material['name'] ?? 'Study Material');
+$uploader_clean = strip_tags($material['uploader'] ?? 'User');
+$category_clean = strip_tags($material['category'] ?? 'General');
+$tags_clean = strip_tags($material['tags'] ?? 'academic');
+$title = htmlspecialchars($material_name_clean . " - Free Degree Library", ENT_QUOTES, 'UTF-8');
+$description = htmlspecialchars("Download " . $material_name_clean . " (" . $category_clean . ") uploaded by " . $uploader_clean . " on Free Degree Library. Free academic resources and notes.", ENT_QUOTES, 'UTF-8');
+
+$shareText = $material_name_clean . "\n";
+$shareText .= "Uploader: " . $uploader_clean . "\n\n";
+$shareText .= "Category: " . $category_clean . "\n\n";
+$shareText .= "Tags: " . $tags_clean . "\n\n";
+$shareText .= "Uploaded On: " . (!empty($material['created_at']) ? date('d/m/Y', strtotime($material['created_at'])) : '') . "\n";
+
+$mat_slug_param = !empty($material['slug']) ? $material['slug'] : $slug;
+$canonicalUrl = "https://degreelibrary.gt.tc/material/" . htmlspecialchars($mat_slug_param ?? '', ENT_QUOTES, 'UTF-8');
+$downloadUrl = "/api/download.php?id=" . $material['id'];
+$datePublished = !empty($material['created_at']) ? date('c', strtotime($material['created_at'])) : '';
+?><!DOCTYPE html><html lang="en"><head>  <!-- Google Tag Manager & Google tag (gtag.js) Deferred for Core Web Vitals -->
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       function initAnalytics() {
