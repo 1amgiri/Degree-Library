@@ -92,7 +92,7 @@ let pendingDownloadFilename = null;
 const proceedWithDownload = () => {
     if (!pendingDownloadUrlOrId) return;
 
-    showToast(`Downloading ${pendingDownloadFilename || 'file'}...`);
+    showToast(`Downloading...`);
     const params = {};
     if (/^\d+$/.test(pendingDownloadUrlOrId)) {
         params.id = pendingDownloadUrlOrId;
