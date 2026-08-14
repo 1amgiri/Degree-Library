@@ -5,7 +5,7 @@ require_once 'api/db.php';
 $slug = isset($_GET['slug']) ? $_GET['slug'] : '';
 if (empty($slug)) {
     header("HTTP/1.0 404 Not Found");
-    echo "<h1>404 Not Found</h1>";
+    echo "<div style='text-align: center; padding: 50px; font-family: sans-serif;'><img src='/error_cat.svg' style='height: 150px; margin-bottom: 20px; opacity: 0.8;'><h1>404 Not Found</h1></div>";
     exit;
 }
 
@@ -51,7 +51,7 @@ if ($slug_exists) {
 
 if ($res->num_rows === 0) {
     header("HTTP/1.0 404 Not Found");
-    echo "<h1>404 Not Found - Material does not exist.</h1>";
+    echo "<div style='text-align: center; padding: 50px; font-family: sans-serif;'><img src='/error_cat.svg' style='height: 150px; margin-bottom: 20px; opacity: 0.8;'><h1>404 Not Found - Material does not exist.</h1></div>";
     exit;
 }
 
