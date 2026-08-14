@@ -1376,7 +1376,7 @@ h1.main-heading {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeOutSplash 1s forwards;
+    animation: fadeOutSplash 2s forwards;
 }
 #splashScreen img {
     max-width: 250px;
