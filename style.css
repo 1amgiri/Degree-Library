@@ -116,7 +116,7 @@ h3 {
   font-family: 'Share Tech Mono', monospace;
   font-size: 16px;
   border: 3px solid #1E293B;
-  background-color: #E2E4E1;
+  background-color: #ffffff;
   color: #1E293B;
   outline: none;
   box-shadow: inset 2px 2px 0 #ddd;
@@ -230,7 +230,7 @@ table {
   margin-bottom: 25px;
   font-size: 14px;
   border: 3px solid #1E293B;
-  background-color: #E2E4E1;
+  background-color: #ffffff;
   box-shadow: 4px 4px 0 #1E293B;
 }
 
@@ -300,7 +300,7 @@ form {
   max-width: 600px;
   margin-top: 20px;
   border: 3px solid #1E293B;
-  background-color: #E2E4E1;
+  background-color: #ffffff;
   padding: 15px;
   box-shadow: 4px 4px 0 #1E293B;
 }
@@ -327,7 +327,7 @@ form {
   font-family: 'Share Tech Mono', monospace;
   font-size: 14px;
   border: 3px solid #1E293B;
-  background-color: #E2E4E1;
+  background-color: #ffffff;
   color: #1E293B;
   outline: none;
 }
@@ -431,7 +431,7 @@ form {
 /* Community Post styling */
 .post-item {
   border: 3px solid #1E293B;
-  background-color: #E2E4E1;
+  background-color: #ffffff;
   padding: 15px;
   margin-bottom: 20px;
   box-shadow: 4px 4px 0 #1E293B;
