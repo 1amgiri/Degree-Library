@@ -799,6 +799,13 @@ const openHelpModal = (e) => {
                 <div id="translate_container" style="margin-bottom: 25px; min-height: 35px; background: white; border-radius: 4px; padding: 4px;"></div>
                 
                 <p style="font-weight: bold; margin-bottom: 10px;">Accessibility</p>
+                <select id="fontSelectPref" onchange="changeFontFamily(this.value)" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 2px solid #1E293B; border-radius: 4px; font-family: 'Share Tech Mono', monospace; font-weight: bold; background-color: #F8FAFC; color: #1E293B; cursor: pointer;">
+                    <option value="default">Retro Mono (Default)</option>
+                    <option value="sans">Modern (Sans-serif)</option>
+                    <option value="serif">Classic (Serif)</option>
+                    <option value="cursive">Cursive (Comic)</option>
+                    <option value="bold">Bold Retro</option>
+                </select>
                 <button onclick="toggleFontSize()" class="sub-btn-success" style="margin-bottom: 25px; width: 100%; padding: 10px; font-weight: bold; background-color: #3B82F6; color: white; border: none; border-radius: 4px; cursor: pointer;">Toggle Large Text</button>
                 
                 <p style="font-weight: bold; margin-bottom: 10px;">Support</p>
@@ -818,6 +825,10 @@ const openHelpModal = (e) => {
     injectGoogleTranslate();
     
     setTimeout(() => {
+        const savedFont = localStorage.getItem('user_font_pref') || 'default';
+        const fontSelect = document.getElementById('fontSelectPref');
+        if(fontSelect) fontSelect.value = savedFont;
+        
         const translateEl = document.getElementById('google_translate_element');
         if (translateEl) {
             translateEl.style.display = 'block';
@@ -834,6 +845,33 @@ const toggleFontSize = () => {
         document.body.style.zoom = "100%";
     }
 };
+
+const changeFontFamily = (val) => {
+    let fontStr = '';
+    if (val === 'default') {
+        fontStr = "'Share Tech Mono', monospace, Courier New, sans-serif";
+    } else if (val === 'sans') {
+        fontStr = "Arial, Helvetica, sans-serif";
+    } else if (val === 'serif') {
+        fontStr = "'Times New Roman', Times, serif";
+    } else if (val === 'cursive') {
+        fontStr = "'Comic Sans MS', cursive, sans-serif";
+    } else if (val === 'bold') {
+        fontStr = "'Share Tech Mono', monospace, Courier New, sans-serif";
+        document.body.style.fontWeight = 'bold';
+    }
+    
+    if (val !== 'bold') {
+        document.body.style.fontWeight = 'normal';
+    }
+    document.body.style.fontFamily = fontStr;
+    localStorage.setItem('user_font_pref', val);
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+    const savedFont = localStorage.getItem('user_font_pref');
+    if(savedFont) changeFontFamily(savedFont);
+});
 
 // Load Lucide Icons
 const lucideScript = document.createElement('script');
