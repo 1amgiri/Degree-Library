@@ -803,6 +803,7 @@ const openHelpModal = (e) => {
                 
                 <p style="font-weight: bold; margin-bottom: 10px;">Support</p>
                 <a href="mailto:cirravosolutions@gmail.com" class="sub-btn-danger" style="display: block; width: 100%; padding: 10px; font-weight: bold; text-decoration: none; box-sizing: border-box; background-color: #EF4444; color: white; border-radius: 4px;">Mail to Admin</a>
+                <a href="about.html" class="sub-btn-success" style="display: block; width: 100%; padding: 10px; font-weight: bold; text-decoration: none; box-sizing: border-box; background-color: #10B981; color: white; border-radius: 4px; margin-top: 10px;">About Us</a>
             </div>
         </div>
     `;
