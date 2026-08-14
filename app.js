@@ -737,3 +737,99 @@ const initWebNotifications = async () => {
 
 
 
+const closeHelpModal = () => {
+    const modal = document.getElementById('helpModal');
+    if (modal) {
+        // Move the translate widget back to the body before destroying the modal
+        const translateEl = document.getElementById('google_translate_element');
+        if (translateEl) {
+            translateEl.style.display = 'none';
+            document.body.appendChild(translateEl);
+        }
+        modal.remove();
+    }
+};
+
+let googleTranslateInjected = false;
+
+const injectGoogleTranslate = () => {
+    if (googleTranslateInjected) return;
+    
+    if (!document.getElementById('google_translate_element')) {
+        const dummyDiv = document.createElement('div');
+        dummyDiv.id = 'google_translate_element';
+        dummyDiv.style.display = 'none';
+        document.body.appendChild(dummyDiv);
+    }
+
+    window.googleTranslateElementInit = function() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    };
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(script);
+    googleTranslateInjected = true;
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    // If user has a translation preference, auto-load the script to persist it across pages
+    if (document.cookie.indexOf('googtrans=') !== -1) {
+        injectGoogleTranslate();
+    }
+});
+
+const openHelpModal = (e) => {
+    if (e) e.preventDefault();
+
+    if (document.getElementById('helpModal')) return;
+
+    const modalOverlay = document.createElement('div');
+    modalOverlay.id = 'helpModal';
+    modalOverlay.className = 'retro-modal-overlay';
+    
+    modalOverlay.innerHTML = `
+        <div class="retro-modal-card" style="max-height: 90vh; overflow-y: auto; text-align: center; width: 350px;">
+            <div class="retro-modal-header">
+                <span class="retro-modal-title">HELP & SETTINGS</span>
+                <button class="retro-modal-close" id="helpModalCloseBtn">X</button>
+            </div>
+            <div class="retro-modal-body" style="padding: 20px;">
+                <p style="font-weight: bold; margin-bottom: 10px;">Select Language</p>
+                <div id="translate_container" style="margin-bottom: 25px; min-height: 35px; background: white; border-radius: 4px; padding: 4px;"></div>
+                
+                <p style="font-weight: bold; margin-bottom: 10px;">Accessibility</p>
+                <button onclick="toggleFontSize()" class="sub-btn-success" style="margin-bottom: 25px; width: 100%; padding: 10px; font-weight: bold; background-color: #3B82F6; color: white; border: none; border-radius: 4px; cursor: pointer;">Toggle Large Text</button>
+                
+                <p style="font-weight: bold; margin-bottom: 10px;">Support</p>
+                <a href="mailto:cirravosolutions@gmail.com" class="sub-btn-danger" style="display: block; width: 100%; padding: 10px; font-weight: bold; text-decoration: none; box-sizing: border-box; background-color: #EF4444; color: white; border-radius: 4px;">Mail to Admin</a>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modalOverlay);
+
+    document.getElementById('helpModalCloseBtn').addEventListener('click', closeHelpModal);
+    modalOverlay.addEventListener('click', (ev) => {
+        if (ev.target === modalOverlay) closeHelpModal();
+    });
+
+    injectGoogleTranslate();
+    
+    setTimeout(() => {
+        const translateEl = document.getElementById('google_translate_element');
+        if (translateEl) {
+            translateEl.style.display = 'block';
+            document.getElementById('translate_container').appendChild(translateEl);
+        }
+    }, 10);
+};
+
+const toggleFontSize = () => {
+    const currentSize = document.body.style.zoom || "100%";
+    if (currentSize === "100%") {
+        document.body.style.zoom = "115%";
+    } else {
+        document.body.style.zoom = "100%";
+    }
+};
