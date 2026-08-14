@@ -860,7 +860,7 @@ let bgAudio = null;
 const toggleBgMusic = () => {
     const btn = document.getElementById('toggleMusicBtn');
     if (!bgAudio) {
-        bgAudio = new Audio('/bg_music.mp3');
+        bgAudio = new Audio('https://res.cloudinary.com/f4vsioev/video/upload/v1786707116/verclub_music-meditation-music-550885_nydjji.mp3');
         bgAudio.loop = true;
         bgAudio.volume = 0.5;
     }
@@ -868,7 +868,6 @@ const toggleBgMusic = () => {
     if (bgAudio.paused) {
         bgAudio.play().catch(e => {
             console.error('Audio play failed:', e);
-            alert("Please make sure you have 'bg_music.mp3' in the root directory!");
         });
         if(btn) btn.innerHTML = 'Pause Music ⏸️';
         localStorage.setItem('play_bg_music', 'true');
@@ -906,7 +905,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if(savedFont) changeFontFamily(savedFont);
     
     if (localStorage.getItem('play_bg_music') === 'true') {
-        bgAudio = new Audio('/bg_music.mp3');
+        bgAudio = new Audio('https://res.cloudinary.com/f4vsioev/video/upload/v1786707116/verclub_music-meditation-music-550885_nydjji.mp3');
         bgAudio.loop = true;
         bgAudio.volume = 0.5;
         document.body.addEventListener('click', () => {
