@@ -182,6 +182,7 @@ const downloadFile = (urlOrId, filename) => {
 
 const shareContent = (title, text, path) => {
     const url = `${window.location.origin}${path}`;
+    const fullText = text + "\n\n" + url;
     if (navigator.share) {
         navigator.share({
             title: title,
@@ -189,8 +190,8 @@ const shareContent = (title, text, path) => {
             url: url
         }).catch(err => console.error("Error sharing:", err));
     } else {
-        navigator.clipboard.writeText(url).then(() => {
-            showToast("Share link copied to clipboard!");
+        navigator.clipboard.writeText(fullText).then(() => {
+            showToast("Share content copied to clipboard!");
         }).catch(err => {
             alert("Share Link: " + url);
         });
