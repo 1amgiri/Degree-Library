@@ -423,7 +423,10 @@
       };
 
       if (items.length === 0) {
-        tableBody.innerHTML = `<tr><td colSpan="4" style="text-align: center;">No materials found.</td></tr>`;
+        tableBody.innerHTML = `<tr><td colSpan="4" style="text-align: center; padding: 40px 20px;">
+          <div style="margin-bottom: 15px; font-size: 16px; color: #475569;">We couldn't find any materials matching your search.</div>
+          <a href="/community.html" style="display: inline-block; padding: 10px 20px; background-color: #F97316; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-family: 'Share Tech Mono', monospace; box-shadow: 0 4px 6px rgba(249, 115, 22, 0.2);">Ask our Community Members</a>
+        </td></tr>`;
         return;
       }
       tableBody.innerHTML = items
