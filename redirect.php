@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // redirect.php
 require_once 'api/db.php';
 
