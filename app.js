@@ -798,7 +798,7 @@ const openHelpModal = (e) => {
                 <p style="font-weight: bold; margin-bottom: 10px;">Select Language</p>
                 <div id="translate_container" style="margin-bottom: 25px; min-height: 35px; background: white; border-radius: 4px; padding: 4px;"></div>
                 
-                <p style="font-weight: bold; margin-bottom: 10px;">Accessibility</p>
+                <p style="font-weight: bold; margin-bottom: 10px;">Accessibility & Vibe</p>
                 <select id="fontSelectPref" onchange="changeFontFamily(this.value)" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 2px solid #1E293B; border-radius: 4px; font-family: 'Share Tech Mono', monospace; font-weight: bold; background-color: #F8FAFC; color: #1E293B; cursor: pointer;">
                     <option value="default">Retro Mono (Default)</option>
                     <option value="sans">Modern (Sans-serif)</option>
@@ -806,10 +806,15 @@ const openHelpModal = (e) => {
                     <option value="cursive">Cursive (Comic)</option>
                     <option value="bold">Bold Retro</option>
                 </select>
-                <button onclick="toggleFontSize()" class="sub-btn-success" style="margin-bottom: 25px; width: 100%; padding: 10px; font-weight: bold; background-color: #3B82F6; color: white; border: none; border-radius: 4px; cursor: pointer;">Toggle Large Text</button>
+                <button onclick="toggleFontSize()" class="sub-btn-success" style="margin-bottom: 10px; width: 100%; padding: 10px; font-weight: bold; background-color: #3B82F6; color: white; border: none; border-radius: 4px; cursor: pointer;">Toggle Large Text</button>
+                <button id="toggleMusicBtn" onclick="toggleBgMusic()" class="sub-btn-success" style="margin-bottom: 25px; width: 100%; padding: 10px; font-weight: bold; background-color: #8B5CF6; color: white; border: none; border-radius: 4px; cursor: pointer;">Play Lo-Fi Study Music 🎵</button>
                 
                 <p style="font-weight: bold; margin-bottom: 10px;">Support</p>
                 <a href="mailto:cirravosolutions@gmail.com" class="sub-btn-danger" style="display: block; width: 100%; padding: 10px; font-weight: bold; text-decoration: none; box-sizing: border-box; background-color: #EF4444; color: white; border-radius: 4px;">Mail to Admin</a>
+                <button onclick="document.getElementById('reportIframeContainer').style.display='block'; this.style.display='none';" class="sub-btn-success" style="display: block; width: 100%; padding: 10px; font-weight: bold; background-color: #F59E0B; color: white; border: none; border-radius: 4px; margin-top: 10px; cursor: pointer; font-family: 'Share Tech Mono', monospace;">Report Broken Link ⚠️</button>
+                <div id="reportIframeContainer" style="display:none; margin-top:15px; width:100%; height:300px; border: 2px solid #1E293B; border-radius: 4px; overflow: hidden;">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeEF_6N97NeEWvuJ7mDHTRprd_RiIfD9HAfiqJtwO1g9pGVUg/viewform?embedded=true" width="100%" height="300" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
                 <a href="about.html" class="sub-btn-success" style="display: block; width: 100%; padding: 10px; font-weight: bold; text-decoration: none; box-sizing: border-box; background-color: #10B981; color: white; border-radius: 4px; margin-top: 10px;">About Us</a>
             </div>
         </div>
@@ -829,6 +834,11 @@ const openHelpModal = (e) => {
         const fontSelect = document.getElementById('fontSelectPref');
         if(fontSelect) fontSelect.value = savedFont;
         
+        const musicBtn = document.getElementById('toggleMusicBtn');
+        if(musicBtn && bgAudio && !bgAudio.paused) {
+            musicBtn.innerHTML = 'Pause Music ⏸️';
+        }
+        
         const translateEl = document.getElementById('google_translate_element');
         if (translateEl) {
             translateEl.style.display = 'block';
@@ -843,6 +853,29 @@ const toggleFontSize = () => {
         document.body.style.zoom = "115%";
     } else {
         document.body.style.zoom = "100%";
+    }
+};
+
+let bgAudio = null;
+const toggleBgMusic = () => {
+    const btn = document.getElementById('toggleMusicBtn');
+    if (!bgAudio) {
+        bgAudio = new Audio('/bg_music.mp3');
+        bgAudio.loop = true;
+        bgAudio.volume = 0.5;
+    }
+    
+    if (bgAudio.paused) {
+        bgAudio.play().catch(e => {
+            console.error('Audio play failed:', e);
+            alert("Please make sure you have 'bg_music.mp3' in the root directory!");
+        });
+        if(btn) btn.innerHTML = 'Pause Music ⏸️';
+        localStorage.setItem('play_bg_music', 'true');
+    } else {
+        bgAudio.pause();
+        if(btn) btn.innerHTML = 'Play Lo-Fi Study Music 🎵';
+        localStorage.setItem('play_bg_music', 'false');
     }
 };
 
@@ -871,6 +904,17 @@ const changeFontFamily = (val) => {
 window.addEventListener("DOMContentLoaded", () => {
     const savedFont = localStorage.getItem('user_font_pref');
     if(savedFont) changeFontFamily(savedFont);
+    
+    if (localStorage.getItem('play_bg_music') === 'true') {
+        bgAudio = new Audio('/bg_music.mp3');
+        bgAudio.loop = true;
+        bgAudio.volume = 0.5;
+        document.body.addEventListener('click', () => {
+            if(localStorage.getItem('play_bg_music') === 'true' && bgAudio && bgAudio.paused) {
+                bgAudio.play().catch(()=>{});
+            }
+        }, {once: true});
+    }
 });
 
 // Load Lucide Icons
