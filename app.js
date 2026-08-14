@@ -833,3 +833,9 @@ const toggleFontSize = () => {
         document.body.style.zoom = "100%";
     }
 };
+
+// Load Lucide Icons
+const lucideScript = document.createElement('script');
+lucideScript.src = 'https://unpkg.com/lucide@latest';
+lucideScript.onload = () => lucide.createIcons();
+document.head.appendChild(lucideScript);
