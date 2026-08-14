@@ -217,7 +217,7 @@
           </thead>
           <tbody id="adminMaterialsBody">
             <tr>
-              <td colspan="4" style="text-align: center;">No materials loaded.</td>
+              <td colspan="4" style="text-align: center; padding: 40px 10px;"><img src="/error_cat.svg" style="height: 100px; display: block; margin: 0 auto 15px auto; opacity: 0.8;">No materials loaded.</td>
             </tr>
           </tbody>
         </table>
@@ -226,7 +226,7 @@
       <div id="tabPostsContent" style="display: none;">
         <h3>Community Posts</h3>
         <div id="adminPostsList" style="display: flex; flex-direction: column; gap: 15px;">
-          <p>No posts loaded.</p>
+          <div style="text-align: center; padding: 40px 10px;"><img src="/error_cat.svg" style="height: 100px; display: block; margin: 0 auto 15px auto; opacity: 0.8;"><p>No posts loaded.</p></div>
         </div>
       </div>
       <!-- Manage Marquee Tab -->
@@ -519,7 +519,7 @@
     };
     const renderMaterials = (items) => {
       if (items.length === 0) {
-        adminMaterialsBody.innerHTML = `<tr><td colspan="4" style="text-align: center;">No materials found.</td></tr>`;
+        adminMaterialsBody.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 40px 10px;"><img src="/error_cat.svg" style="height: 100px; display: block; margin: 0 auto 15px auto; opacity: 0.8;">No materials found.</td></tr>`;
         return;
       }
       adminMaterialsBody.innerHTML = items.map(m => `
@@ -588,7 +588,7 @@
     };
     const renderPosts = (items) => {
       if (items.length === 0) {
-        adminPostsList.innerHTML = `<p>No posts found.</p>`;
+        adminPostsList.innerHTML = `<div style="text-align: center; padding: 40px 10px;"><img src="/error_cat.svg" style="height: 100px; display: block; margin: 0 auto 15px auto; opacity: 0.8;"><p>No posts found.</p></div>`;
         return;
       }
       adminPostsList.innerHTML = items.map(p => `

@@ -336,7 +336,7 @@
       </thead>
       <tbody id="materialsTableBody">
         <tr>
-          <td colspan="4" style="text-align: center">No materials loaded.</td>
+          <td colspan="4" style="text-align: center; padding: 40px 10px;"><img src="/error_cat.svg" style="height: 100px; display: block; margin: 0 auto 15px auto; opacity: 0.8;"><br>No materials loaded.</td>
         </tr>
       </tbody>
     </table>
@@ -426,8 +426,7 @@
       };
 
       if (items.length === 0) {
-        tableBody.innerHTML = `<tr><td colSpan="4" style="text-align: center; padding: 40px 20px;">
-          <div style="margin-bottom: 15px; font-size: 16px; color: #475569;">We couldn't find any materials matching your search.</div>
+        tableBody.innerHTML = `<tr><td colSpan="4" style="text-align: center; padding: 40px 20px;">\n          <img src="/error_cat.svg" style="height: 100px; display: block; margin: 0 auto 15px auto; opacity: 0.8;">\n          <div style="margin-bottom: 15px; font-size: 16px; color: #475569;">We couldn't find any materials matching your search.</div>
           <a href="/community.html" style="display: inline-block; padding: 10px 20px; background-color: #F97316; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-family: 'Share Tech Mono', monospace; box-shadow: 0 4px 6px rgba(249, 115, 22, 0.2);">Ask our Community Members</a>
         </td></tr>`;
         return;
