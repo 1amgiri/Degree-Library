@@ -1312,16 +1312,29 @@ main { min-height: 75vh; }
 /* Fixed overlay loading indicator to prevent layout shifting (CLS elimination) */
 #loadingIndicator {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #1E293B;
-  color: #FFF;
-  padding: 10px 18px;
-  border: 2px solid #818CF8;
-  font-family: 'Share Tech Mono', monospace;
-  box-shadow: 3px 3px 0 #4F46E5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.retro-spinner {
+  width: 40px;
+  height: 40px;
+  background-color: #818CF8;
+  margin: 0 auto 20px auto;
+  animation: flip 1.2s infinite ease-in-out;
+}
+
+@keyframes flip {
+  0% { transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+  50% { transform: perspective(120px) rotateX(-180deg) rotateY(0deg); background-color: #F97316; }
+  100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); background-color: #10B981; }
+}
+
 
 h1.main-heading {
   font-size: 1.5em;
