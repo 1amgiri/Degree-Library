@@ -411,6 +411,7 @@
     </div>
   </footer>
   <script src="/app.min.js?v=3.1.0" defer></script>
+  <script src="/globalSearch.js" defer></script>
   <script>
     let currentMaterials = [];
     const searchInput = document.getElementById("searchQuery");
@@ -546,6 +547,7 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       fetchMaterials("");
+      initGlobalSearch('searchQuery', 'materials');
     });
   </script>
 

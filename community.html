@@ -399,7 +399,10 @@
       const isHtmlAllowed = document.getElementById('allowHtmlCheck').checked;      const hasFullHtmlTags = /(<html|<head|<body|<!DOCTYPE)/i.test(content);      if (hasFullHtmlTags) {        alert("Full HTML documents are not allowed. Only scripts, styles, and simple HTML snippets are permitted.");        submitPostBtn.disabled = false;        submitPostBtn.innerText = "Post";        return;      }      if (!isHtmlAllowed && /<[a-z][\s\S]*>/i.test(content)) {        alert("HTML tags are not allowed unless you check 'Allow HTML'. Please remove them or check the box.");        submitPostBtn.disabled = false;        submitPostBtn.innerText = "Post";        return;      }      try {        const inputs = pollOptionsContainer.getElementsByClassName('poll-option-input');        const pollOpts = [];        if (hasPoll) {          for (let i = 0; i < inputs.length; i++) {            if (inputs[i].value.trim()) {              pollOpts.push(inputs[i].value.trim());            }          }        }        const payload = {          user_id: typeof userId !== 'undefined' ? userId : '',          name: userName,          content: content,          is_admin: false,          has_poll: hasPoll,          poll_options: pollOpts,          allow_html: document.getElementById('allowHtmlCheck').checked        };        if (fileInput.files && fileInput.files.length > 0) {          const file = fileInput.files[0];          payload.image = {            name: file.name,            type: file.type,            content: await fileToBase64(file)          };        }        const response = await fetch(getProxiedUrl('community_add.php', {}), {          method: 'POST',          headers: {            'Content-Type': 'application/json',            'Cache-Control': 'no-cache, no-store, must-revalidate',            'Pragma': 'no-cache'          },          body: JSON.stringify(payload),          credentials: 'include',          cache: 'no-store'        });        if (!response.ok) {          throw new Error('Failed to post');        }        await safeJsonParse(response);        postContent.value = '';        postImage.value = '';        selectedImageLabel.style.display = 'none';        hasPoll = false;        pollCreator.style.display = 'none';        togglePollBtn.innerText = 'Add Poll';        document.getElementById('allowHtmlCheck').checked = false;        pollOptionsContainer.innerHTML = `          <div style="margin-bottom: 5px;">            <input type="text" class="poll-option-input" placeholder="Option 1" style="padding: 4px; width: 200px;">          </div>          <div style="margin-bottom: 5px;">            <input type="text" class="poll-option-input" placeholder="Option 2" style="padding: 4px; width: 200px;">          </div>        `;        pollOptionsCount = 2;        fetchPosts();      } catch (err) {        alert(err.message || 'Failed to submit post');      } finally {        submitPostBtn.disabled = false;        submitPostBtn.innerText = "Post";      }    });    retryBtn.addEventListener('click', () => {      fetchPosts();    });
 
     /* Initial Load */
-    document.addEventListener('DOMContentLoaded', () => { fetchPosts(); });
+    document.addEventListener('DOMContentLoaded', () => { 
+      fetchPosts(); 
+      initGlobalSearch('communitySearch', 'community');
+    });
     const allowHtmlCheck = document.getElementById('allowHtmlCheck');
     if (allowHtmlCheck) {
         allowHtmlCheck.addEventListener('click', async (e) => {
@@ -443,6 +446,7 @@
         });
     }
 </script>
+<script src="/globalSearch.js" defer></script>
   
   <!-- Sidebar overlay backdrop -->
   <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
