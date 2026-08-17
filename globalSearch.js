@@ -2,7 +2,104 @@
  * Global Search Implementation (Dropdown Style)
  */
 
+const injectToggleStyles = () => {
+  if (document.getElementById('globalSearchStyles')) return;
+  const style = document.createElement('style');
+  style.id = 'globalSearchStyles';
+  style.textContent = `
+    .modern-toggle {
+      position: absolute;
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+    .modern-toggle-checkbox {
+      display: none;
+    }
+    .modern-toggle-label {
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 100px;
+      height: 30px;
+      background-color: #f1f5f9;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      padding: 2px;
+      box-sizing: border-box;
+    }
+    .modern-toggle-inner {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 48px;
+      height: 26px;
+      background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+      border-radius: 18px;
+      transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .modern-toggle-checkbox:checked + .modern-toggle-label .modern-toggle-inner {
+      transform: translateX(48px);
+    }
+    .modern-toggle-text {
+      flex: 1;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      z-index: 1;
+      transition: color 0.3s;
+      user-select: none;
+    }
+    .modern-toggle-checkbox:not(:checked) + .modern-toggle-label .modern-toggle-text:first-of-type {
+      color: white;
+    }
+    .modern-toggle-checkbox:not(:checked) + .modern-toggle-label .modern-toggle-text:last-of-type {
+      color: #64748b;
+    }
+    .modern-toggle-checkbox:checked + .modern-toggle-label .modern-toggle-text:first-of-type {
+      color: #64748b;
+    }
+    .modern-toggle-checkbox:checked + .modern-toggle-label .modern-toggle-text:last-of-type {
+      color: white;
+    }
+    
+    /* Fluid Gradient Border Animation */
+    .global-search-wrapper.global-active-glow::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: var(--input-radius, 8px);
+      padding: 4px; /* Increased from 2px for a thicker gradient line */
+      background: linear-gradient(90deg, #ff007f, #7928ca, #00d2ff, #3a7bd5, #ff007f);
+      background-size: 400% 400%;
+      animation: fluid-gradient 3s ease infinite;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      z-index: 5;
+    }
+    
+    @keyframes fluid-gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Hide the input's original border when the gradient glow is active so they don't overlap */
+    .global-search-wrapper.global-active-glow > input {
+      border-color: transparent !important;
+    }
+  `;
+  document.head.appendChild(style);
+};
+
 const initGlobalSearch = (inputId, currentPageType) => {
+  injectToggleStyles();
   const input = document.getElementById(inputId);
   if (!input) return;
 
@@ -33,13 +130,88 @@ const initGlobalSearch = (inputId, currentPageType) => {
     dropdown.style.width = `${rect.width}px`;
   };
 
+  // Create a dedicated wrapper to hold the absolute toggle properly
+  let wrapper = input.parentNode;
+  if (!wrapper.classList.contains('global-search-wrapper')) {
+    wrapper = document.createElement('div');
+    wrapper.className = 'global-search-wrapper';
+    wrapper.style.position = 'relative';
+    wrapper.style.display = 'flex';
+    wrapper.style.alignItems = 'center';
+    wrapper.style.width = '100%';
+    
+    // Transfer margins from input to wrapper to prevent the gradient border from encapsulating margins
+    const cs = window.getComputedStyle(input);
+    wrapper.style.marginTop = cs.marginTop;
+    wrapper.style.marginRight = cs.marginRight;
+    wrapper.style.marginBottom = cs.marginBottom;
+    wrapper.style.marginLeft = cs.marginLeft;
+    
+    input.style.setProperty('margin', '0', 'important');
+    input.style.setProperty('width', '100%', 'important');
+    input.style.setProperty('flex', '1', 'important');
+    
+    input.parentNode.insertBefore(wrapper, input);
+    wrapper.appendChild(input);
+  }
+
+  // Extract input border radius to apply to the fluid gradient glow
+  const inputRadius = window.getComputedStyle(input).borderRadius;
+  wrapper.style.setProperty('--input-radius', inputRadius || '8px');
+
+  // Create Modern Toggle UI
+  const toggleId = 'globalToggle_' + inputId;
+  const toggleContainer = document.createElement('div');
+  toggleContainer.className = 'modern-toggle';
+  toggleContainer.innerHTML = `
+    <input type="checkbox" id="${toggleId}" class="modern-toggle-checkbox" checked>
+    <label for="${toggleId}" class="modern-toggle-label">
+      <span class="modern-toggle-inner"></span>
+      <span class="modern-toggle-text">Local</span>
+      <span class="modern-toggle-text">Global</span>
+    </label>
+  `;
+  wrapper.appendChild(toggleContainer);
+  
+  // Add padding to input so text doesn't overlap the toggle (use !important)
+  input.style.setProperty('padding-left', '115px', 'important');
+
+  // Remove focus outline so it doesn't conflict with our beautiful animated gradient
+  input.style.setProperty('outline', 'none', 'important');
+  input.addEventListener('focus', () => {
+      // The animated border acts as our focus indicator
+  });
+
+  const toggleInput = toggleContainer.querySelector('input');
+  
+  const updateGlow = () => {
+    if (toggleInput.checked) {
+      wrapper.classList.add('global-active-glow');
+    } else {
+      wrapper.classList.remove('global-active-glow');
+    }
+  };
+  
+  // Initial glow
+  updateGlow();
+
+  toggleInput.addEventListener('change', (e) => {
+    updateGlow();
+    if (!e.target.checked) {
+      dropdown.style.display = 'none';
+      dropdown.innerHTML = '';
+    } else if (input.value.trim()) {
+      input.dispatchEvent(new Event('input')); // Retrigger search
+    }
+  });
+
   let debounceTimer;
 
   input.addEventListener('input', (e) => {
     const query = e.target.value.trim().toLowerCase();
     
     clearTimeout(debounceTimer);
-    if (!query) {
+    if (!query || !toggleInput.checked) {
       dropdown.style.display = 'none';
       dropdown.innerHTML = '';
       return;
@@ -57,7 +229,7 @@ const initGlobalSearch = (inputId, currentPageType) => {
   });
 
   input.addEventListener('focus', () => {
-    if (input.value.trim() && dropdown.innerHTML.trim() !== '') {
+    if (input.value.trim() && dropdown.innerHTML.trim() !== '' && toggleInput.checked) {
       updatePosition();
       dropdown.style.display = 'block';
     }
