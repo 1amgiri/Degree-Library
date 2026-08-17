@@ -94,6 +94,30 @@ const injectToggleStyles = () => {
     .global-search-wrapper.global-active-glow > input {
       border-color: transparent !important;
     }
+    
+    .global-search-input-padding {
+      padding-left: 115px !important;
+    }
+
+    @media (max-width: 450px) {
+      .modern-toggle-label {
+        width: 70px;
+        height: 26px;
+      }
+      .modern-toggle-inner {
+        width: 32px;
+        height: 22px;
+      }
+      .modern-toggle-checkbox:checked + .modern-toggle-label .modern-toggle-inner {
+        transform: translateX(34px);
+      }
+      .modern-toggle-text {
+        font-size: 8px;
+      }
+      .global-search-input-padding {
+        padding-left: 82px !important;
+      }
+    }
   `;
   document.head.appendChild(style);
 };
@@ -173,8 +197,8 @@ const initGlobalSearch = (inputId, currentPageType) => {
   `;
   wrapper.appendChild(toggleContainer);
   
-  // Add padding to input so text doesn't overlap the toggle (use !important)
-  input.style.setProperty('padding-left', '115px', 'important');
+  // Add padding to input so text doesn't overlap the toggle
+  input.classList.add('global-search-input-padding');
 
   // Remove focus outline so it doesn't conflict with our beautiful animated gradient
   input.style.setProperty('outline', 'none', 'important');
