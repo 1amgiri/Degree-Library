@@ -65,7 +65,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"></noscript>
-  <link rel="stylesheet" href="style.min.css?v=3.1.0">  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="style.min.css?v=3.1.0">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link rel="icon" type="image/png" href="/favicon.png" />
 </head><body>
   <div id="splashScreen" style="display:none;"><img src="https://res.cloudinary.com/f4vsioev/image/upload/v1786708586/splashscreen-ezgif.com-crop_nsw6bw.gif" alt="Logo"></div><script>if(!sessionStorage.getItem("splashShown")){document.getElementById("splashScreen").style.display="flex";sessionStorage.setItem("splashShown","true");}</script>
   <!-- Google Tag Manager (noscript) -->
@@ -78,8 +80,8 @@
           <img src="https://res.cloudinary.com/y6hvobnk/image/upload/v1786698694/logo.png" alt="Logo" style="height: 45px; width: auto;">
         </a>
       </div>      <nav>        <a href="index.html">Home</a>        <a href="upload.html">Add Notes</a>        <a href="community.html">Community<span class="blinking-dot"></span></a>        <a href="mca.html" style="font-weight: bold;">MCA</a>        <a href="#" onclick="openSubscribeModal(event)" class="subscribe-btn">Subscribe <span class="subscribe-count">0</span></a>
-        <a href="#" onclick="openHelpModal(event)" class="help-btn" style="margin-left: 10px; font-weight: bold; padding: 6px 12px; border-radius: 5px; background-color: #334155; color: white; text-decoration: none;">Help</a>        </nav>    </div>  </header>  <main style="text-align: center; padding: 40px 20px;">    <h1 class="main-heading">MCA Complete Special Notes By - SV University</h1>    <div style="max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-  <h2 style="color: #1E293B; margin-bottom: 20px; text-align: left;">MCA Materials Directory</h2>
+        <a href="#" onclick="openHelpModal(event)" class="help-btn" style="margin-left: 10px; font-weight: bold; padding: 6px 12px; border-radius: 5px; background-color: #334155; color: white; text-decoration: none;">Help</a>        </nav>    </div>  </header>  <main style="text-align: center; padding: 40px 20px;">    <h1 class="main-heading">MCA Complete Special Notes By - SV University</h1>  <div style="max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+  <h2 style="color: #1E293B; margin-bottom: 20px; text-align: left; display: flex; align-items: center;">MCA Materials Directory <span style="display: inline-block; width: 40px; height: 40px; margin-left: 8px;"><lottie-player src="mca_notes.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player></span></h2>
   <input type="text" id="mcaSearch" placeholder="Search for files or folders..." style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 16px; outline: none; box-sizing: border-box;">
 <ul id="mca-directory-tree" style="list-style-type: none; padding-left: 0; text-align: left;"></ul>
 

@@ -790,7 +790,7 @@ const openHelpModal = (e) => {
     modalOverlay.innerHTML = `
         <div class="retro-modal-card" style="max-height: 90vh; overflow-y: auto; text-align: center; width: 350px;">
             <div class="retro-modal-header">
-                <span class="retro-modal-title">HELP & SETTINGS</span>
+                <span class="retro-modal-title" style="display: flex; align-items: center; justify-content: center;">HELP & SETTINGS <span style="display: inline-block; width: 30px; height: 30px; margin-left: 8px;"><lottie-player src="help.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player></span></span>
                 <button class="retro-modal-close" id="helpModalCloseBtn">X</button>
             </div>
             <div class="retro-modal-body" style="padding: 20px;">
@@ -916,7 +916,9 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // Load Lucide Icons
-const lucideScript = document.createElement('script');
-lucideScript.src = 'https://unpkg.com/lucide@latest';
-lucideScript.onload = () => lucide.createIcons();
-document.head.appendChild(lucideScript);
+const lucideScript=document.createElement("script");lucideScript.src="https://unpkg.com/lucide@latest";lucideScript.onload=()=>lucide.createIcons();document.head.appendChild(lucideScript);
+if(!document.querySelector('script[src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"]')) {
+  const lottieScript=document.createElement("script");
+  lottieScript.src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+  document.head.appendChild(lottieScript);
+}
