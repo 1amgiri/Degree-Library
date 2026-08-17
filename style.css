@@ -433,7 +433,8 @@ form {
   border: 3px solid #1E293B;
   background-color: #ffffff;
   padding: 15px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
+  max-width: 550px;
   box-shadow: 4px 4px 0 #1E293B;
 }
 

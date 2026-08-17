@@ -90,60 +90,62 @@
     </div>
   </header>
   <main>
-    <h1 class="main-heading">Community Board</h1>
-    <div class="search-container" style="margin-bottom: 20px;">
-      <input type="text" id="communitySearch" placeholder="Search posts by content or name..." class="search-input" autocomplete="off" oninput="renderPosts()">
-    </div>
-    <!-- Name Modal Simulator -->
-    <div id="nameSection" style="border: 1px solid #000; padding: 10px; margin-bottom: 15px; background-color: #f9f9f9; display: none;">
-      <h3>Change Display Name</h3>
-      <form id="nameForm">
-        <input type="text" id="tempName" placeholder="Display Name" style="padding: 4px; margin-right: 5px;" required>
-        <button type="submit">Save</button>
-        <button type="button" id="cancelNameBtn" style="margin-left: 5px;">Cancel</button>
-      </form>
-    </div>
-    <button id="writePostToggleBtn" onclick="const p = document.getElementById('postBoxContainer'); p.style.display = p.style.display === 'none' ? 'block' : 'none'; this.innerText = p.style.display === 'none' ? 'Write a post' : 'Cancel post';" style="margin-bottom: 20px; width: 100%; padding: 10px; cursor: pointer; font-weight: bold; background-color: #F97316; color: white; border: none; border-radius: 5px;">Write a post</button>
-    <!-- Creator box -->
-    <div id="postBoxContainer" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; display: none;">
-      <div style="margin-bottom: 10px; font-size: 13px;">
-        Posting as: <strong id="currentUserName">Guest</strong>
-        <button type="button" id="openNameBtn" style="margin-left: 10px; padding: 2px 5px;">Change</button>
+    <div style="max-width: 550px; margin: 0 auto;">
+      <h1 class="main-heading">Community Board</h1>
+      <div class="search-container" style="margin-bottom: 20px;">
+        <input type="text" id="communitySearch" placeholder="Search posts by content or name..." class="search-input" autocomplete="off" oninput="renderPosts()">
       </div>
-      <form id="postForm">
-        <textarea id="postContent" placeholder="Ask a doubt or share something..." style="width: 100%; height: 60px; padding: 5px; font-family: Arial, sans-serif; outline: none;" required></textarea>
-        <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-          <label style="font-size: 13px; cursor: pointer;">
-            [Upload Photo]
-            <input type="file" id="postImage" accept="image/*" style="display: none;">
-          </label>
-          <button type="button" id="togglePollBtn">Add Poll</button>
-          <label id="allowHtmlLabel" style="font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 4px;">
-            <input type="checkbox" id="allowHtmlCheck"> Allow HTML
-          </label>
-          <button type="submit" id="submitPostBtn">Post</button>
+      <!-- Name Modal Simulator -->
+      <div id="nameSection" style="border: 1px solid #000; padding: 10px; margin-bottom: 15px; background-color: #f9f9f9; display: none;">
+        <h3>Change Display Name</h3>
+        <form id="nameForm">
+          <input type="text" id="tempName" placeholder="Display Name" style="padding: 4px; margin-right: 5px;" required>
+          <button type="submit">Save</button>
+          <button type="button" id="cancelNameBtn" style="margin-left: 5px;">Cancel</button>
+        </form>
+      </div>
+      <button id="writePostToggleBtn" onclick="const p = document.getElementById('postBoxContainer'); p.style.display = p.style.display === 'none' ? 'block' : 'none'; this.innerText = p.style.display === 'none' ? 'Write a post' : 'Cancel post';" style="margin-bottom: 20px; width: 100%; padding: 10px; cursor: pointer; font-weight: bold; background-color: #334155; color: white; border: none; border-radius: 5px;">Write a post</button>
+      <!-- Creator box -->
+      <div id="postBoxContainer" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; display: none;">
+        <div style="margin-bottom: 10px; font-size: 13px;">
+          Posting as: <strong id="currentUserName">Guest</strong>
+          <button type="button" id="openNameBtn" style="margin-left: 10px; padding: 2px 5px;">Change</button>
         </div>
-        <div id="selectedImageLabel" style="font-size: 12px; margin-top: 5px; color: #666; display: none;"></div>
-        <!-- Poll Section -->
-        <div id="pollCreator" style="margin-top: 10px; padding: 10px; border: 1px solid #ddd; background-color: #fdfdfd; display: none;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-            <span style="font-size: 12px; font-weight: bold;">Poll Options</span>
-            <button type="button" id="addOptionBtn">+ Add Option</button>
+        <form id="postForm">
+          <textarea id="postContent" placeholder="Ask a doubt or share something..." style="width: 100%; height: 60px; padding: 5px; font-family: Arial, sans-serif; outline: none;" required></textarea>
+          <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+            <label style="font-size: 13px; cursor: pointer;">
+              [Upload Photo]
+              <input type="file" id="postImage" accept="image/*" style="display: none;">
+            </label>
+            <button type="button" id="togglePollBtn">Add Poll</button>
+            <label id="allowHtmlLabel" style="font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+              <input type="checkbox" id="allowHtmlCheck"> Allow HTML
+            </label>
+            <button type="submit" id="submitPostBtn">Post</button>
           </div>
-          <div id="pollOptionsContainer">
-            <div style="margin-bottom: 5px;">
-              <input type="text" class="poll-option-input" placeholder="Option 1" style="padding: 4px; width: 200px;">
+          <div id="selectedImageLabel" style="font-size: 12px; margin-top: 5px; color: #666; display: none;"></div>
+          <!-- Poll Section -->
+          <div id="pollCreator" style="margin-top: 10px; padding: 10px; border: 1px solid #ddd; background-color: #fdfdfd; display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+              <span style="font-size: 12px; font-weight: bold;">Poll Options</span>
+              <button type="button" id="addOptionBtn">+ Add Option</button>
             </div>
-            <div style="margin-bottom: 5px;">
-              <input type="text" class="poll-option-input" placeholder="Option 2" style="padding: 4px; width: 200px;">
+            <div id="pollOptionsContainer">
+              <div style="margin-bottom: 5px;">
+                <input type="text" class="poll-option-input" placeholder="Option 1" style="padding: 4px; width: 200px;">
+              </div>
+              <div style="margin-bottom: 5px;">
+                <input type="text" class="poll-option-input" placeholder="Option 2" style="padding: 4px; width: 200px;">
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-    <div id="errorAlert" class="alert-error" style="display: none;">
-      <div id="errorMsg" style="white-space: pre-line; margin-bottom: 8px;"></div>
-      <button id="retryBtn">Retry</button>
+        </form>
+      </div>
+      <div id="errorAlert" class="alert-error" style="display: none;">
+        <div id="errorMsg" style="white-space: pre-line; margin-bottom: 8px;"></div>
+        <button id="retryBtn">Retry</button>
+      </div>
     </div>
     <div id="loadingIndicator" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="80" height="80" style="shape-rendering: auto; display: block; background: transparent;" xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle cx="50" cy="50" r="32" stroke-width="8" stroke="#7f8af5" stroke-dasharray="50.26548245743669 50.26548245743669" fill="none" stroke-linecap="round">
   <animateTransform attributeName="transform" type="rotate" dur="0.40485829959514175s" repeatCount="indefinite" keyTimes="0;1" values="0 50 50;360 50 50"></animateTransform>
