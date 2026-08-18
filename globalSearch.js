@@ -284,7 +284,16 @@ const performGlobalSearch = async (query, currentPageType, dropdown, updatePosit
     promises.push(
       fetch(getUrl('materials.php', query))
         .then(res => res.json())
-        .then(data => ({ type: 'materials', data: Array.isArray(data) ? data : [] }))
+        .then(data => {
+          const arr = Array.isArray(data) ? data : [];
+          const filtered = arr.filter(item => 
+            (item.name || '').toLowerCase().includes(query) ||
+            (item.uploader || '').toLowerCase().includes(query) ||
+            (item.category || '').toLowerCase().includes(query) ||
+            (item.tags || '').toLowerCase().includes(query)
+          );
+          return { type: 'materials', data: filtered };
+        })
         .catch(() => ({ type: 'materials', data: [] }))
     );
   }
@@ -293,7 +302,14 @@ const performGlobalSearch = async (query, currentPageType, dropdown, updatePosit
     promises.push(
       fetch(getUrl('community_get.php', query))
         .then(res => res.json())
-        .then(data => ({ type: 'community', data: Array.isArray(data) ? data : [] }))
+        .then(data => {
+          const arr = Array.isArray(data) ? data : [];
+          const filtered = arr.filter(item => {
+            const cleanText = (item.content || '').replace(/<(style|script|svg)[^>]*>[\s\S]*?<\/\1>/gi, '').replace(/<[^>]*>?/gm, '').replace(/\s+/g, ' ').trim().toLowerCase();
+            return cleanText.includes(query) || (item.user_name || '').toLowerCase().includes(query);
+          });
+          return { type: 'community', data: filtered };
+        })
         .catch(() => ({ type: 'community', data: [] }))
     );
   }
