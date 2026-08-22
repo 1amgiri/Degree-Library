@@ -922,3 +922,35 @@ if(!document.querySelector('script[src="https://unpkg.com/@lottiefiles/lottie-pl
   lottieScript.src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
   document.head.appendChild(lottieScript);
 }
+
+const toggleSidebar = () => {
+  const sidebar = document.getElementById("sidebarMenu");
+  if (sidebar && sidebar.classList.contains("open")) {
+    closeSidebar();
+  } else {
+    openSidebar();
+  }
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+  const currentPath = window.location.pathname.toLowerCase();
+  let activeTitle = "";
+  if (currentPath === "/" || currentPath.endsWith("index.html") || currentPath.endsWith("index.php")) {
+    activeTitle = "Home";
+  } else if (currentPath.includes("community")) {
+    activeTitle = "Community";
+  } else if (currentPath.includes("upload")) {
+    activeTitle = "Add Notes";
+  } else if (currentPath.includes("mca")) {
+    activeTitle = "MCA";
+  }
+  
+  if (activeTitle) {
+    const navLinks = document.querySelectorAll('.modern-header .nav-right .nav-icon-link');
+    navLinks.forEach(link => {
+      if (link.getAttribute('title') === activeTitle) {
+        link.classList.add('active-mobile-nav');
+      }
+    });
+  }
+});

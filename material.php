@@ -139,5 +139,68 @@ $datePublished = !empty($material['created_at']) ? date('c', strtotime($material
   }
   </script>  <link rel="icon" type="image/png" href="/favicon.png">  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"></noscript>
-  <link rel="stylesheet" href="/style.min.css?v=3.1.0">  <script>    window.INITIAL_ROUTE = ''; // To prevent overriding by JS if not intended  </script></head><body>
-  <div id="splashScreen" style="display:none;"><img src="https://res.cloudinary.com/f4vsioev/image/upload/v1786708586/splashscreen-ezgif.com-crop_nsw6bw.gif" alt="Logo"></div><script>if(!sessionStorage.getItem("splashShown")){document.getElementById("splashScreen").style.display="flex";sessionStorage.setItem("splashShown","true");}</script>  <header>    <div class="header-container">      <div class="header-left">        <a href="/" class="brand" style="line-height: 0;">          <img src="https://res.cloudinary.com/y6hvobnk/image/upload/v1786698694/logo.png" alt="Logo" style="height: 45px; width: auto;">        </a>      </div>      <nav>        <a href="/">Home</a>        <a href="/upload.html">Add Notes</a>        <a href="/community.html">Community<span class="blinking-dot"></span></a>        <a href="/mca.html">MCA</a>        <a href="#" onclick="openSubscribeModal(event)" class="subscribe-btn">Subscribe <span            class="subscribe-count">0</span></a>        </nav>    </div>  </header>  <div id="marqueeContainer"></div>  <main style="max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">    <h1 style="font-size: 24px; color: #1E293B; margin-bottom: 10px;"><?php echo htmlspecialchars($material['name']); ?></h1>    <div style="margin-bottom: 20px; color: #475569; font-size: 14px;">      <p><strong>Uploader:</strong> <?php echo htmlspecialchars($material['uploader']); ?></p>      <p><strong>Category:</strong> <?php echo htmlspecialchars($material['category']); ?></p>      <p><strong>Tags:</strong> <?php echo htmlspecialchars($material['tags']); ?></p>      <p><strong>Uploaded On:</strong> <?php echo date('d M Y', strtotime($material['created_at'])); ?></p>    </div>    <div style="margin-top: 30px;">      <a href="<?php echo htmlspecialchars($material['file_path']); ?>" download="<?php echo htmlspecialchars($material['file_name']); ?>" onclick="event.preventDefault(); downloadFile('<?php echo $material['id']; ?>', '<?php echo htmlspecialchars($material['file_name']); ?>')" style="display: inline-block; padding: 10px 20px; background-color: #4F46E5; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">Download Material</a>      <button onclick="shareContent('<?php echo addslashes(htmlspecialchars($material_name_clean)); ?>', <?php echo htmlspecialchars(json_encode($shareText), ENT_QUOTES, 'UTF-8'); ?>, '/material/<?php echo htmlspecialchars($slug); ?>')" style="display: inline-block; padding: 10px 20px; background-color: #E2E8F0; color: #1E293B; text-decoration: none; border-radius: 4px; font-weight: bold; border: none; cursor: pointer; margin-left: 10px;">Share</button>    </div>    <div style="margin-top: 40px;">        <a href="/" style="color: #4F46E5; text-decoration: underline;">&larr; Back to Search</a>    </div>  </main>  <!-- We reuse the app.min.js?v=3.1.0 for download ad logic and sidebar -->  <script src="/app.min.js?v=3.1.0"></script></body></html>
+  <link rel="stylesheet" href="/style.min.css?v=4.3.0">  <script>    window.INITIAL_ROUTE = ''; // To prevent overriding by JS if not intended  </script></head><body>
+  <div id="splashScreen" style="display:none;"><img src="https://res.cloudinary.com/f4vsioev/image/upload/v1786708586/splashscreen-ezgif.com-crop_nsw6bw.gif" alt="Logo"></div><script>if(!sessionStorage.getItem("splashShown")){document.getElementById("splashScreen").style.display="flex";sessionStorage.setItem("splashShown","true");}</script>      <header class="modern-header">
+    <div class="nav-left">
+      <div style="display: flex; align-items: center; min-width: 0;">
+        <!-- Desktop Hamburger Menu (YouTube Style) -->
+        <button class="menu-btn-desktop" onclick="toggleSidebar()" aria-label="Toggle menu" style="background:transparent; border:none; outline:none; box-shadow:none; cursor:pointer; color: #ffffff; margin-right: 15px; display: flex; align-items: center; justify-content: center; padding: 0; flex-shrink: 0;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+        <a href="/" class="brand-logo" style="display:flex; align-items:center; text-decoration:none; min-width: 0;">
+          <img src="https://res.cloudinary.com/y6hvobnk/image/upload/v1786698694/logo.png" alt="Logo" style="height: 32px; width: auto; max-width: 100%; object-fit: contain;">
+        </a>
+      </div>
+      <div style="display: flex; align-items: center; gap: 15px; flex-shrink: 0; color: white;">
+        <!-- Mobile Subscribe Bell -->
+        <a href="#" onclick="openSubscribeModal(event)" class="nav-icon-link mobile-subscribe-btn" title="Subscribe" style="color: white; padding: 0; margin: 0; display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </a>
+        <!-- Mobile Help Button -->
+        <a href="#" onclick="openHelpModal(event)" class="nav-icon-link mobile-help-btn" title="Help" style="color: white; padding: 0; margin: 0; display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="nav-center">
+      <div class="search-container-header" style="position: relative; width: 100%;">
+        <input type="text" id="searchQuery" placeholder="Search materials..." aria-label="Search materials" class="search-input-header" autocomplete="off" oninput="document.getElementById('clearSearchBtnHeader').style.display = this.value ? 'block' : 'none';" />
+        <span id="clearSearchBtnHeader" style="position: absolute; right: 70px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 16px; color: #888; display: none;" onclick="document.getElementById('searchQuery').value=''; document.getElementById('searchQuery').dispatchEvent(new Event('input')); this.style.display='none';">✖</span>
+        <button class="search-btn-header" onclick="document.getElementById('searchQuery').focus()" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <a href="/" class="nav-icon-link" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="nav-icon-text">Home</span>
+      </a>
+      <a href="/community.html" class="nav-icon-link" title="Community" style="position: relative;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="blinking-dot" style="position:absolute; top:2px; right:10px;"></span>
+        <span class="nav-icon-text">Comm</span>
+      </a>
+      <a href="/upload.html" class="nav-icon-link" title="Add Notes">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        <span class="nav-icon-text">Add</span>
+      </a>
+      <a href="/mca.html" class="nav-icon-link" title="MCA">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        <span class="nav-icon-text">MCA</span>
+      </a>
+      <a href="#" onclick="openHelpModal(event)" class="nav-icon-link desktop-help-btn" title="Help">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        <span class="nav-icon-text">Help</span>
+      </a>
+      <a href="#" onclick="openSubscribeModal(event)" class="modern-subscribe-btn">Subscribe </a>
+      
+      <!-- Menu button now styled exactly like the rest -->
+      <button class="nav-icon-link menu-btn-mobile" onclick="toggleSidebar()" aria-label="Toggle menu" style="background:transparent; border:none; outline:none; box-shadow:none; cursor:pointer;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <span class="nav-icon-text">Menu</span>
+      </button>
+    </div>
+  </header>  <div id="marqueeContainer"></div>  <main style="max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">    <h1 style="font-size: 24px; color: #1E293B; margin-bottom: 10px;"><?php echo htmlspecialchars($material['name']); ?></h1>    <div style="margin-bottom: 20px; color: #475569; font-size: 14px;">      <p><strong>Uploader:</strong> <?php echo htmlspecialchars($material['uploader']); ?></p>      <p><strong>Category:</strong> <?php echo htmlspecialchars($material['category']); ?></p>      <p><strong>Tags:</strong> <?php echo htmlspecialchars($material['tags']); ?></p>      <p><strong>Uploaded On:</strong> <?php echo date('d M Y', strtotime($material['created_at'])); ?></p>    </div>    <div style="margin-top: 30px;">      <a href="<?php echo htmlspecialchars($material['file_path']); ?>" download="<?php echo htmlspecialchars($material['file_name']); ?>" onclick="event.preventDefault(); downloadFile('<?php echo $material['id']; ?>', '<?php echo htmlspecialchars($material['file_name']); ?>')" style="display: inline-block; padding: 10px 20px; background-color: #4F46E5; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">Download Material</a>      <button onclick="shareContent('<?php echo addslashes(htmlspecialchars($material_name_clean)); ?>', <?php echo htmlspecialchars(json_encode($shareText), ENT_QUOTES, 'UTF-8'); ?>, '/material/<?php echo htmlspecialchars($slug); ?>')" style="display: inline-block; padding: 10px 20px; background-color: #E2E8F0; color: #1E293B; text-decoration: none; border-radius: 4px; font-weight: bold; border: none; cursor: pointer; margin-left: 10px;">Share</button>    </div>    <div style="margin-top: 40px;">        <a href="/" style="color: #4F46E5; text-decoration: underline;">&larr; Back to Search</a>    </div>  </main>  <!-- We reuse the app.min.js?v=4.3.0 for download ad logic and sidebar -->  <script src="/app.min.js?v=4.3.0"></script></body></html>

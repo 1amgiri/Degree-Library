@@ -7,85 +7,7 @@ const injectToggleStyles = () => {
   const style = document.createElement('style');
   style.id = 'globalSearchStyles';
   style.textContent = `
-    .modern-toggle {
-      position: absolute;
-      left: 6px;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-    }
-    .modern-toggle-checkbox {
-      display: none;
-    }
-    .modern-toggle-label {
-      display: flex;
-      align-items: center;
-      position: relative;
-      width: 100px;
-      height: 30px;
-      background-color: #f1f5f9;
-      border-radius: 20px;
-      cursor: pointer;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-      padding: 2px;
-      box-sizing: border-box;
-    }
-    .modern-toggle-inner {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 48px;
-      height: 26px;
-      background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-      border-radius: 18px;
-      transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    .modern-toggle-checkbox:checked + .modern-toggle-label .modern-toggle-inner {
-      transform: translateX(48px);
-    }
-    .modern-toggle-text {
-      flex: 1;
-      text-align: center;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      z-index: 1;
-      transition: color 0.3s;
-      user-select: none;
-    }
-    .modern-toggle-checkbox:not(:checked) + .modern-toggle-label .modern-toggle-text:first-of-type {
-      color: white;
-    }
-    .modern-toggle-checkbox:not(:checked) + .modern-toggle-label .modern-toggle-text:last-of-type {
-      color: #64748b;
-    }
-    .modern-toggle-checkbox:checked + .modern-toggle-label .modern-toggle-text:first-of-type {
-      color: #64748b;
-    }
-    .modern-toggle-checkbox:checked + .modern-toggle-label .modern-toggle-text:last-of-type {
-      color: white;
-    }
     
-    /* Fluid Gradient Border Animation */
-    .global-search-wrapper.global-active-glow::after {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: var(--input-radius, 8px);
-      padding: 4px; /* Increased from 2px for a thicker gradient line */
-      background: linear-gradient(90deg, #ff007f, #7928ca, #00d2ff, #3a7bd5, #ff007f);
-      background-size: 400% 400%;
-      animation: fluid-gradient 3s ease infinite;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      z-index: 5;
-    }
-    
-    @keyframes fluid-gradient {
-      0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
@@ -93,30 +15,6 @@ const injectToggleStyles = () => {
     /* Hide the input's original border when the gradient glow is active so they don't overlap */
     .global-search-wrapper.global-active-glow > input {
       border-color: transparent !important;
-    }
-    
-    .global-search-input-padding {
-      padding-left: 115px !important;
-    }
-
-    @media (max-width: 450px) {
-      .modern-toggle-label {
-        width: 70px;
-        height: 26px;
-      }
-      .modern-toggle-inner {
-        width: 32px;
-        height: 22px;
-      }
-      .modern-toggle-checkbox:checked + .modern-toggle-label .modern-toggle-inner {
-        transform: translateX(34px);
-      }
-      .modern-toggle-text {
-        font-size: 8px;
-      }
-      .global-search-input-padding {
-        padding-left: 82px !important;
-      }
     }
   `;
   document.head.appendChild(style);
@@ -183,59 +81,14 @@ const initGlobalSearch = (inputId, currentPageType) => {
   const inputRadius = window.getComputedStyle(input).borderRadius;
   wrapper.style.setProperty('--input-radius', inputRadius || '8px');
 
-  // Create Modern Toggle UI
-  const toggleId = 'globalToggle_' + inputId;
-  const toggleContainer = document.createElement('div');
-  toggleContainer.className = 'modern-toggle';
-  toggleContainer.innerHTML = `
-    <input type="checkbox" id="${toggleId}" class="modern-toggle-checkbox" checked>
-    <label for="${toggleId}" class="modern-toggle-label">
-      <span class="modern-toggle-inner"></span>
-      <span class="modern-toggle-text">Local</span>
-      <span class="modern-toggle-text">Global</span>
-    </label>
-  `;
-  wrapper.appendChild(toggleContainer);
-  
-  // Add padding to input so text doesn't overlap the toggle
-  input.classList.add('global-search-input-padding');
-
-  // Remove focus outline so it doesn't conflict with our beautiful animated gradient
-  input.style.setProperty('outline', 'none', 'important');
-  input.addEventListener('focus', () => {
-      // The animated border acts as our focus indicator
-  });
-
-  const toggleInput = toggleContainer.querySelector('input');
-  
-  const updateGlow = () => {
-    if (toggleInput.checked) {
-      wrapper.classList.add('global-active-glow');
-    } else {
-      wrapper.classList.remove('global-active-glow');
-    }
-  };
-  
-  // Initial glow
-  updateGlow();
-
-  toggleInput.addEventListener('change', (e) => {
-    updateGlow();
-    if (!e.target.checked) {
-      dropdown.style.display = 'none';
-      dropdown.innerHTML = '';
-    } else if (input.value.trim()) {
-      input.dispatchEvent(new Event('input')); // Retrigger search
-    }
-  });
-
+  // Force active glow on wrapper
   let debounceTimer;
 
   input.addEventListener('input', (e) => {
     const query = e.target.value.trim().toLowerCase();
     
     clearTimeout(debounceTimer);
-    if (!query || !toggleInput.checked) {
+    if (!query) {
       dropdown.style.display = 'none';
       dropdown.innerHTML = '';
       return;
@@ -253,7 +106,7 @@ const initGlobalSearch = (inputId, currentPageType) => {
   });
 
   input.addEventListener('focus', () => {
-    if (input.value.trim() && dropdown.innerHTML.trim() !== '' && toggleInput.checked) {
+    if (input.value.trim() && dropdown.innerHTML.trim() !== '') {
       updatePosition();
       dropdown.style.display = 'block';
     }
@@ -457,3 +310,47 @@ const renderGlobalResults = (query, results, dropdown, updatePosition) => {
   dropdown.innerHTML = html;
   updatePosition();
 };
+
+// Animated Placeholder
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('searchQuery');
+  if (!input) return;
+  
+  const placeholders = [
+    'Search "Materials"',
+    'Search "Community Posts"',
+    'Search "MCA Notes"',
+    'Search "Important Notes"'
+  ];
+  
+  let pIdx = 0;
+  let isDeleting = false;
+  let currentText = '';
+  
+  function typePlaceholder() {
+    const fullText = placeholders[pIdx];
+    
+    if (isDeleting) {
+      currentText = fullText.substring(0, currentText.length - 1);
+    } else {
+      currentText = fullText.substring(0, currentText.length + 1);
+    }
+    
+    input.setAttribute('placeholder', currentText);
+    
+    let typeSpeed = isDeleting ? 30 : 60; // Fast typing
+    
+    if (!isDeleting && currentText === fullText) {
+      typeSpeed = 1000; // Pause for 1 second when fully typed!
+      isDeleting = true;
+    } else if (isDeleting && currentText === '') {
+      isDeleting = false;
+      pIdx = (pIdx + 1) % placeholders.length;
+      typeSpeed = 300;
+    }
+    
+    setTimeout(typePlaceholder, typeSpeed);
+  }
+  
+  setTimeout(typePlaceholder, 1000);
+});

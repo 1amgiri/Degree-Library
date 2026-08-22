@@ -168,8 +168,71 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
   </style>
   <link rel="icon" type="image/png" href="/favicon.png">  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"></noscript>
-  <link rel="stylesheet" href="/style.min.css?v=3.1.0"></head><body>
-  <div id="splashScreen" style="display:none;"><img src="https://res.cloudinary.com/f4vsioev/image/upload/v1786708586/splashscreen-ezgif.com-crop_nsw6bw.gif" alt="Logo"></div><script>if(!sessionStorage.getItem("splashShown")){document.getElementById("splashScreen").style.display="flex";sessionStorage.setItem("splashShown","true");}</script>  <header>    <div class="header-container">      <div class="header-left">        <a href="/" class="brand" style="line-height: 0;">          <img src="https://res.cloudinary.com/y6hvobnk/image/upload/v1786698694/logo.png" alt="Logo" style="height: 45px; width: auto;">        </a>      </div>      <nav>        <a href="/">Home</a>        <a href="/upload.html">Add Notes</a>        <a href="/community.html" style="font-weight: bold;">Community<span class="blinking-dot"></span></a>        <a href="/mca.html">MCA</a>        <a href="#" onclick="openSubscribeModal(event)" class="subscribe-btn">Subscribe <span            class="subscribe-count">0</span></a>        </nav>    </div>  </header>  <div id="marqueeContainer"></div>  <main style="max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">    <div class="post-item" style="border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; background: #f8fafc; position: relative; z-index: 1;">        <div class="post-header" style="display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #cbd5e1; padding-bottom: 10px;">          <span style="font-weight: bold; color: #0f172a;"><?php echo $post['is_admin'] ? '<span style="color: navy; border-bottom: 1px dotted navy; display: inline-flex; align-items: center; gap: 4px;">' . $author . '</span>' : $author; ?></span>          <span style="color: #64748b;"><?php echo date('d M Y H:i', strtotime($post['created_at'] . ' +12 hours')); ?></span>        </div>        <div class="post-body clear-both" style="color: #334155; line-height: 1.6; font-size: 16px; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">
+  <link rel="stylesheet" href="/style.min.css?v=4.3.0"></head><body>
+  <div id="splashScreen" style="display:none;"><img src="https://res.cloudinary.com/f4vsioev/image/upload/v1786708586/splashscreen-ezgif.com-crop_nsw6bw.gif" alt="Logo"></div><script>if(!sessionStorage.getItem("splashShown")){document.getElementById("splashScreen").style.display="flex";sessionStorage.setItem("splashShown","true");}</script>      <header class="modern-header">
+    <div class="nav-left">
+      <div style="display: flex; align-items: center; min-width: 0;">
+        <!-- Desktop Hamburger Menu (YouTube Style) -->
+        <button class="menu-btn-desktop" onclick="toggleSidebar()" aria-label="Toggle menu" style="background:transparent; border:none; outline:none; box-shadow:none; cursor:pointer; color: #ffffff; margin-right: 15px; display: flex; align-items: center; justify-content: center; padding: 0; flex-shrink: 0;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+        <a href="/" class="brand-logo" style="display:flex; align-items:center; text-decoration:none; min-width: 0;">
+          <img src="https://res.cloudinary.com/y6hvobnk/image/upload/v1786698694/logo.png" alt="Logo" style="height: 32px; width: auto; max-width: 100%; object-fit: contain;">
+        </a>
+      </div>
+      <div style="display: flex; align-items: center; gap: 15px; flex-shrink: 0; color: white;">
+        <!-- Mobile Subscribe Bell -->
+        <a href="#" onclick="openSubscribeModal(event)" class="nav-icon-link mobile-subscribe-btn" title="Subscribe" style="color: white; padding: 0; margin: 0; display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </a>
+        <!-- Mobile Help Button -->
+        <a href="#" onclick="openHelpModal(event)" class="nav-icon-link mobile-help-btn" title="Help" style="color: white; padding: 0; margin: 0; display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="nav-center">
+      <div class="search-container-header" style="position: relative; width: 100%;">
+        <input type="text" id="searchQuery" placeholder="Search materials..." aria-label="Search materials" class="search-input-header" autocomplete="off" oninput="document.getElementById('clearSearchBtnHeader').style.display = this.value ? 'block' : 'none';" />
+        <span id="clearSearchBtnHeader" style="position: absolute; right: 70px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 16px; color: #888; display: none;" onclick="document.getElementById('searchQuery').value=''; document.getElementById('searchQuery').dispatchEvent(new Event('input')); this.style.display='none';">✖</span>
+        <button class="search-btn-header" onclick="document.getElementById('searchQuery').focus()" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <a href="/" class="nav-icon-link" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="nav-icon-text">Home</span>
+      </a>
+      <a href="/community.html" class="nav-icon-link" title="Community" style="position: relative;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="blinking-dot" style="position:absolute; top:2px; right:10px;"></span>
+        <span class="nav-icon-text">Comm</span>
+      </a>
+      <a href="/upload.html" class="nav-icon-link" title="Add Notes">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        <span class="nav-icon-text">Add</span>
+      </a>
+      <a href="/mca.html" class="nav-icon-link" title="MCA">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        <span class="nav-icon-text">MCA</span>
+      </a>
+      <a href="#" onclick="openHelpModal(event)" class="nav-icon-link desktop-help-btn" title="Help">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        <span class="nav-icon-text">Help</span>
+      </a>
+      <a href="#" onclick="openSubscribeModal(event)" class="modern-subscribe-btn">Subscribe </a>
+      
+      <!-- Menu button now styled exactly like the rest -->
+      <button class="nav-icon-link menu-btn-mobile" onclick="toggleSidebar()" aria-label="Toggle menu" style="background:transparent; border:none; outline:none; box-shadow:none; cursor:pointer;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <span class="nav-icon-text">Menu</span>
+      </button>
+    </div>
+  </header>  <div id="marqueeContainer"></div>  <main style="max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">    <div class="post-item" style="border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; background: #f8fafc; position: relative; z-index: 1;">        <div class="post-header" style="display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #cbd5e1; padding-bottom: 10px;">          <span style="font-weight: bold; color: #0f172a;"><?php echo $post['is_admin'] ? '<span style="color: navy; border-bottom: 1px dotted navy; display: inline-flex; align-items: center; gap: 4px;">' . $author . '</span>' : $author; ?></span>          <span style="color: #64748b;"><?php echo date('d M Y H:i', strtotime($post['created_at'] . ' +12 hours')); ?></span>        </div>        <div class="post-body clear-both" style="color: #334155; line-height: 1.6; font-size: 16px; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">
 <?php 
 $content = trim($post['content']);
 // Strip leading spaces and non-breaking spaces (including right after the first HTML tag)
@@ -219,4 +282,4 @@ if ($post['allow_html']) {
         });
     });
   </script>
-  <script src="/app.min.js?v=3.1.0"></script></body></html>
+  <script src="/app.min.js?v=4.3.0"></script></body></html>
