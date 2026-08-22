@@ -83,8 +83,8 @@ nav a:hover {
 }
 
 main {
-  max-width: 1200px;
-  margin: 0 auto;
+    max-width: 1200px;
+    margin: 30px auto 0;
   min-height: 80vh;
 }
 
@@ -1404,7 +1404,7 @@ header.modern-header {
   align-items: center !important;
   border-bottom: 4px solid #1E293B !important;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
-  margin-bottom: 25px !important;
+  margin-bottom: 0 !important;
   position: sticky !important;
   top: 0 !important;
   z-index: 1000 !important;
@@ -1558,8 +1558,8 @@ header.modern-header {
     bottom: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    background-color: #ffffff !important;
-    border-top: 2px solid #1E293B !important;
+    background-color: #818CF8 !important;
+      border-top: 2px solid #1E293B !important;
     justify-content: space-around !important;
     padding: 6px 0 !important;
     margin: 0 !important;
@@ -1574,7 +1574,7 @@ header.modern-header {
   }
 
   .nav-icon-link {
-    color: #475569 !important; /* Dark icons on white mobile bar */
+    color: #ffffff !important; /* White icons on white mobile bar */
     flex: 1 !important;
     padding: 8px 0 !important;
   }
@@ -1636,8 +1636,8 @@ header.modern-header {
     transform: translateX(-50%) !important;
     width: 92% !important;
     max-width: 400px !important;
-    background-color: #ffffff !important;
-    border-radius: 30px !important; /* Pill shape */
+    background-color: #818CF8 !important;
+      border-radius: 30px !important; /* Pill shape */
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-around !important;
@@ -1652,7 +1652,7 @@ header.modern-header {
   }
 
   .nav-icon-link {
-    color: #818CF8 !important; /* Purple icons matching theme */
+    color: #ffffff !important; /* White icons matching theme */
     flex: 1 !important;
     padding: 6px 0 !important;
     position: relative !important;
@@ -1726,10 +1726,10 @@ header.modern-header {
 }
 
 .active-mobile-nav {
-  color: #F97316 !important;
+  color: #1E293B !important;
 }
 .active-mobile-nav svg {
-  stroke: #F97316 !important;
+  stroke: #1E293B !important;
 }
 .active-mobile-nav .nav-icon-text {
   font-weight: bold;

@@ -168,7 +168,7 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
   </style>
   <link rel="icon" type="image/png" href="/favicon.png">  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"></noscript>
-  <link rel="stylesheet" href="/style.min.css?v=4.3.0"></head><body>
+  <link rel="stylesheet" href="/style.min.css?v=4.5.0"></head><body>
   <div id="splashScreen" style="display:none;"><img src="https://res.cloudinary.com/f4vsioev/image/upload/v1786708586/splashscreen-ezgif.com-crop_nsw6bw.gif" alt="Logo"></div><script>if(!sessionStorage.getItem("splashShown")){document.getElementById("splashScreen").style.display="flex";sessionStorage.setItem("splashShown","true");}</script>      <header class="modern-header">
     <div class="nav-left">
       <div style="display: flex; align-items: center; min-width: 0;">
