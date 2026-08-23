@@ -21,9 +21,11 @@ const injectToggleStyles = () => {
 };
 
 const initGlobalSearch = (inputId, currentPageType) => {
-  injectToggleStyles();
   const input = document.getElementById(inputId);
-  if (!input) return;
+  if (!input || input.dataset.globalSearchInitialized) return;
+  input.dataset.globalSearchInitialized = 'true';
+
+  injectToggleStyles();
 
   let dropdown = document.getElementById('globalSearchDropdown');
   if (!dropdown) {
@@ -353,4 +355,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   setTimeout(typePlaceholder, 1000);
+});
+
+// Auto-initialize global search for the main header input if not already initialized
+document.addEventListener('DOMContentLoaded', () => {
+  const path = window.location.pathname.toLowerCase();
+  let pageType = 'other';
+  if (path === '/' || path.includes('index.html')) pageType = 'materials';
+  else if (path.includes('mca.html')) pageType = 'mca';
+  else if (path.includes('community.html')) pageType = 'community';
+  else if (path.includes('icet.html')) pageType = 'icet';
+  else if (path.includes('important.html')) pageType = 'important';
+  
+  initGlobalSearch('searchQuery', pageType);
 });
