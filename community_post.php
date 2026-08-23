@@ -226,7 +226,7 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
 
   <!-- Main Animated Text -->
   <text x="50%" y="45%" text-anchor="middle" dominant-baseline="central" class="main-text">
-    Free Degree Material
+    Free Degree Library
   </text>
 
   <!-- Sub Text / Footer matching logo.jpg layout -->
@@ -304,7 +304,7 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
 
   <!-- Main Animated Text -->
   <text x="50%" y="45%" text-anchor="middle" dominant-baseline="central" class="main-text">
-    Free Degree Material
+    Free Degree Library
   </text>
 
   <!-- Sub Text / Footer matching logo.jpg layout -->
