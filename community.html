@@ -162,12 +162,81 @@
     <div class="community-layout-container">
       <div class="community-content-wrapper">
         <div>
-          <h1 class="main-heading" style="display: flex; align-items: center; justify-content: center;">
-            Community Board
-            <span class="mobile-inline-animation">
-              <lottie-player src="Chat.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
-            </span>
-          </h1>
+          <div class="community-starters-wrapper" style="position: relative; margin-bottom: 10px; margin-top: 5px; display: flex; align-items: center; max-width: 100%;">
+            <button id="scrollLeftBtn" style="position: absolute; left: -10px; z-index: 10; background: #fff; border: 1px solid #cbd5e1; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: #475569; font-weight: bold; outline: none;">&lt;</button>
+            <div id="startersContainer" style="display: flex; overflow-x: auto; gap: 12px; padding: 5px 25px; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; white-space: nowrap; width: 100%; cursor: grab;">
+              <style>
+                #startersContainer::-webkit-scrollbar { display: none; }
+                .starter-box {
+                  background: #ffffff;
+                  border: 1px solid #cbd5e1;
+                  border-radius: 20px;
+                  padding: 8px 16px;
+                  font-size: 13px;
+                  cursor: pointer;
+                  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+                  flex-shrink: 0;
+                  color: #334155;
+                  font-weight: 600;
+                  user-select: none;
+                  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+                }
+                .starter-box:hover {
+                  background: #f8fafc;
+                  border-color: #94a3b8;
+                  transform: translateY(-1px);
+                }
+                @media (max-width: 768px) {
+                  #scrollLeftBtn, #scrollRightBtn { display: none !important; }
+                  #startersContainer { padding: 5px 2px !important; gap: 8px !important; }
+                  .community-starters-wrapper { margin-top: 0px !important; margin-bottom: 8px !important; }
+                }
+              </style>
+              <div class="starter-box" onclick="document.getElementById('postContent').value = this.innerText; document.getElementById('postBoxContainer').style.display = 'block'; document.getElementById('writePostToggleBtn').innerText = 'Cancel post'; document.getElementById('postContent').focus();">I want a material</div>
+              <div class="starter-box" onclick="document.getElementById('postContent').value = this.innerText; document.getElementById('postBoxContainer').style.display = 'block'; document.getElementById('writePostToggleBtn').innerText = 'Cancel post'; document.getElementById('postContent').focus();">SVU Results Update</div>
+              <div class="starter-box" onclick="document.getElementById('postContent').value = this.innerText; document.getElementById('postBoxContainer').style.display = 'block'; document.getElementById('writePostToggleBtn').innerText = 'Cancel post'; document.getElementById('postContent').focus();">Results link</div>
+              <div class="starter-box" onclick="document.getElementById('postContent').value = this.innerText; document.getElementById('postBoxContainer').style.display = 'block'; document.getElementById('writePostToggleBtn').innerText = 'Cancel post'; document.getElementById('postContent').focus();">Important Questions</div>
+              <div class="starter-box" onclick="document.getElementById('postContent').value = this.innerText; document.getElementById('postBoxContainer').style.display = 'block'; document.getElementById('writePostToggleBtn').innerText = 'Cancel post'; document.getElementById('postContent').focus();">ICET Updates</div>
+              <div class="starter-box" onclick="document.getElementById('postContent').value = this.innerText; document.getElementById('postBoxContainer').style.display = 'block'; document.getElementById('writePostToggleBtn').innerText = 'Cancel post'; document.getElementById('postContent').focus();">Supply Exam Fees</div>
+              <div class="starter-box" onclick="document.getElementById('postContent').value = this.innerText; document.getElementById('postBoxContainer').style.display = 'block'; document.getElementById('writePostToggleBtn').innerText = 'Cancel post'; document.getElementById('postContent').focus();">Hall Ticket Details</div>
+            </div>
+            <button id="scrollRightBtn" style="position: absolute; right: -10px; z-index: 10; background: #fff; border: 1px solid #cbd5e1; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: #475569; font-weight: bold; outline: none;">&gt;</button>
+          </div>
+          <script>
+            document.getElementById('scrollLeftBtn').addEventListener('click', () => {
+              document.getElementById('startersContainer').scrollBy({ left: -150, behavior: 'smooth' });
+            });
+            document.getElementById('scrollRightBtn').addEventListener('click', () => {
+              document.getElementById('startersContainer').scrollBy({ left: 150, behavior: 'smooth' });
+            });
+            
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            const slider = document.getElementById('startersContainer');
+          
+            slider.addEventListener('mousedown', (e) => {
+              isDown = true;
+              slider.style.cursor = 'grabbing';
+              startX = e.pageX - slider.offsetLeft;
+              scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', () => {
+              isDown = false;
+              slider.style.cursor = 'grab';
+            });
+            slider.addEventListener('mouseup', () => {
+              isDown = false;
+              slider.style.cursor = 'grab';
+            });
+            slider.addEventListener('mousemove', (e) => {
+              if (!isDown) return;
+              e.preventDefault();
+              const x = e.pageX - slider.offsetLeft;
+              const walk = (x - startX) * 2;
+              slider.scrollLeft = scrollLeft - walk;
+            });
+          </script>
           <!-- Name Modal Simulator -->
           <div id="nameSection" style="border: 1px solid #000; padding: 10px; margin-bottom: 15px; background-color: #f9f9f9; display: none;">
             <h3>Change Display Name</h3>
