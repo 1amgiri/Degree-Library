@@ -169,7 +169,77 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
   <link rel="icon" type="image/png" href="/favicon.png">  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"></noscript>
   <link rel="stylesheet" href="/style.min.css?v=4.5.0"></head><body>
-  <div id="splashScreen" style="display:none;"><img src="https://res.cloudinary.com/f4vsioev/image/upload/v1786708586/splashscreen-ezgif.com-crop_nsw6bw.gif" alt="Logo"></div><script>if(!sessionStorage.getItem("splashShown")){document.getElementById("splashScreen").style.display="flex";sessionStorage.setItem("splashShown","true");}</script>      <header class="modern-header">
+    <div id="splashScreen" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" style="max-width: 400px; width: 90%; height: auto;">
+  <style>
+    /* Importing a Google font that closely matches the rounded, bold look of logo.jpg */
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&amp;display=swap');
+    
+    .bg { fill: transparent; }
+    
+    .main-text {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      fill: transparent;
+      stroke: #ffffff;
+      stroke-width: 2.5;
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      /* Animates the stroke drawing, then fills the text solid */
+      animation: drawText 2s ease-in-out forwards, fillText 1s 1.8s ease-in-out forwards;
+    }
+
+    .sub-text {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      fill: #ffffff;
+      opacity: 0;
+      /* Fades in after the main text finishes drawing */
+      animation: fadeIn 1s 2.5s ease-in-out forwards;
+    }
+
+    .accent {
+      fill: #3924ff; /* Matching the vibrant blue from logo.jpg */
+    }
+
+    .line {
+      stroke: #ffffff;
+      stroke-width: 2;
+      opacity: 0;
+      animation: fadeIn 1s 2.5s ease-in-out forwards;
+    }
+
+    /* Keyframes for the animation */
+    @keyframes drawText {
+      100% { stroke-dashoffset: 0; }
+    }
+
+    @keyframes fillText {
+      100% { fill: #ffffff; stroke-width: 0; }
+    }
+
+    @keyframes fadeIn {
+      100% { opacity: 1; }
+    }
+  </style>
+
+  <!-- Main Animated Text -->
+  <text x="50%" y="45%" text-anchor="middle" dominant-baseline="central" class="main-text">
+    Free Degree Material
+  </text>
+
+  <!-- Sub Text / Footer matching logo.jpg layout -->
+  <g class="sub-text">
+    <text x="50%" y="80%" text-anchor="middle" dominant-baseline="central">
+      Powered By: <tspan class="accent">Cirravo Solutions</tspan>
+    </text>
+  </g>
+  
+  <!-- Decorative Side Lines -->
+  <line x1="12%" y1="80%" x2="23%" y2="80%" class="line" />
+  <line x1="77%" y1="80%" x2="88%" y2="80%" class="line" />
+</svg></div><script>if(!sessionStorage.getItem("splashShown")){document.getElementById("splashScreen").style.display="flex";sessionStorage.setItem("splashShown","true");}</script>      <header class="modern-header">
     <div class="nav-left">
       <div style="display: flex; align-items: center; min-width: 0;">
         <!-- Desktop Hamburger Menu (YouTube Style) -->
@@ -177,7 +247,77 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
         </button>
         <a href="/" class="brand-logo" style="display:flex; align-items:center; text-decoration:none; min-width: 0;">
-          <img src="https://res.cloudinary.com/y6hvobnk/image/upload/v1786698694/logo.png" alt="Logo" style="height: 32px; width: auto; max-width: 100%; object-fit: contain;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" style="height: 70px; width: auto; max-width: 100%;">
+  <style>
+    /* Importing a Google font that closely matches the rounded, bold look of logo.jpg */
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&amp;display=swap');
+    
+    .bg { fill: transparent; }
+    
+    .main-text {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      fill: transparent;
+      stroke: #ffffff;
+      stroke-width: 2.5;
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      /* Animates the stroke drawing, then fills the text solid */
+      animation: drawText 2s ease-in-out forwards, fillText 1s 1.8s ease-in-out forwards;
+    }
+
+    .sub-text {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      fill: #ffffff;
+      opacity: 0;
+      /* Fades in after the main text finishes drawing */
+      animation: fadeIn 1s 2.5s ease-in-out forwards;
+    }
+
+    .accent {
+      fill: #3924ff; /* Matching the vibrant blue from logo.jpg */
+    }
+
+    .line {
+      stroke: #ffffff;
+      stroke-width: 2;
+      opacity: 0;
+      animation: fadeIn 1s 2.5s ease-in-out forwards;
+    }
+
+    /* Keyframes for the animation */
+    @keyframes drawText {
+      100% { stroke-dashoffset: 0; }
+    }
+
+    @keyframes fillText {
+      100% { fill: #ffffff; stroke-width: 0; }
+    }
+
+    @keyframes fadeIn {
+      100% { opacity: 1; }
+    }
+  </style>
+
+  <!-- Main Animated Text -->
+  <text x="50%" y="45%" text-anchor="middle" dominant-baseline="central" class="main-text">
+    Free Degree Material
+  </text>
+
+  <!-- Sub Text / Footer matching logo.jpg layout -->
+  <g class="sub-text">
+    <text x="50%" y="80%" text-anchor="middle" dominant-baseline="central">
+      Powered By: <tspan class="accent">Cirravo Solutions</tspan>
+    </text>
+  </g>
+  
+  <!-- Decorative Side Lines -->
+  <line x1="12%" y1="80%" x2="23%" y2="80%" class="line" />
+  <line x1="77%" y1="80%" x2="88%" y2="80%" class="line" />
+</svg>
         </a>
       </div>
       <div style="display: flex; align-items: center; gap: 15px; flex-shrink: 0; color: white;">
