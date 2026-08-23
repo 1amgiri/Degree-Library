@@ -1372,14 +1372,14 @@ h1.main-heading {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #E2E4E1;
+    background-color: #818CF8;
     z-index: 999999;
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeOutSplash 2s forwards;
+    animation: fadeOutSplash 4.5s forwards;
 }
-#splashScreen img {
+#splashScreen svg {
     max-width: 250px;
     width: 80%;
     height: auto;
@@ -1726,11 +1726,30 @@ header.modern-header {
 }
 
 .active-mobile-nav {
-  color: #1E293B !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+.active-mobile-nav::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 48px !important;
+  height: 48px !important;
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  border-radius: 50% !important;
+  z-index: -1 !important;
+}
+.active-mobile-nav:hover::before, .active-mobile-nav:active::before {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
 }
 .active-mobile-nav svg {
-  stroke: #1E293B !important;
+  stroke: #ffffff !important;
 }
 .active-mobile-nav .nav-icon-text {
   font-weight: bold;
+  color: #ffffff !important;
 }
