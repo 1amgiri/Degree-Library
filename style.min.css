@@ -753,26 +753,26 @@ form {
 .marquee-container {
   display: flex;
   align-items: center;
-  background-color: #1E293B;
-  color: #FFFFFF;
+  background-color: transparent;
+  color: orange;
+  text-shadow: 1px 1px 2px black;
   padding: 8px 12px;
   font-family: 'Share Tech Mono', monospace;
-  border: 3px solid #1E293B;
-  border-bottom-color: #818CF8;
+  border: none;
   margin-bottom: 20px;
-  box-shadow: 3px 3px 0 #1E293B;
+  box-shadow: none;
 }
 
 .blinking-tag {
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
-  background-color: #FF0000;
+  background-color: orange;
   color: #FFFFFF;
   padding: 4px 6px;
   margin-right: 12px;
   flex-shrink: 0;
   animation: marqueeBlink 1s linear infinite;
-  border: 1px solid #FFF;
+  border: 1px solid orange;
 }
 
 marquee {

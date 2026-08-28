@@ -314,7 +314,7 @@ const loadMarquee = async () => {
         const data = await safeJsonParse(response);
         if (Array.isArray(data) && data.length > 0) {
             const update = data[0]; // Take the latest/only marquee
-            const linkStart = update.link_url ? `<a href="${update.link_url}" target="_blank" style="color: #FFF; text-decoration: underline;">` : '';
+            const linkStart = update.link_url ? `<a href="${update.link_url}" target="_blank" style="color: inherit; text-decoration: underline;">` : '';
             const linkEnd = update.link_url ? `</a>` : '';
 
             container.innerHTML = `
