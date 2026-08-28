@@ -335,7 +335,7 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
     <div class="nav-center">
       <div class="search-container-header" style="position: relative; width: 100%;">
         <input type="text" id="searchQuery" placeholder="Search materials..." aria-label="Search materials" class="search-input-header" autocomplete="off" oninput="document.getElementById('clearSearchBtnHeader').style.display = this.value ? 'block' : 'none';" />
-        <span id="clearSearchBtnHeader" style="position: absolute; right: 70px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 16px; color: #888; display: none;" onclick="document.getElementById('searchQuery').value=''; document.getElementById('searchQuery').dispatchEvent(new Event('input')); this.style.display='none';">✖</span>
+        <span id="clearSearchBtnHeader" style="position: absolute; right: 70px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 16px; color: #888; display: none;" onclick="document.getElementById('searchQuery').value=''; document.getElementById('searchQuery').dispatchEvent(new Event('input')); this.style.display='none';">âœ–</span>
         <button class="search-btn-header" onclick="document.getElementById('searchQuery').focus()" aria-label="Search">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         </button>
@@ -350,7 +350,7 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
       <a href="/community.html" class="nav-icon-link" title="Community" style="position: relative;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         <span class="blinking-dot" style="position:absolute; top:2px; right:10px;"></span>
-        <span class="nav-icon-text">Comm</span>
+        <span class="nav-icon-text">Community</span>
       </a>
       <a href="/upload.html" class="nav-icon-link" title="Add Notes">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>

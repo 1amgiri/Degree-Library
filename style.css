@@ -1505,7 +1505,7 @@ header.modern-header {
   font-size: 11px;
   margin-top: 4px;
   font-weight: 600;
-  display: none;
+  display: block;
 }
 
 .modern-subscribe-btn {
