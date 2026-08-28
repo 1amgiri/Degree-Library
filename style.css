@@ -756,9 +756,9 @@ form {
   background-color: #F06E44; /* Match orange from image */
   color: #000000;
   text-shadow: none;
-  padding: 10px 0;
+  padding: 6px 0;
   font-family: Impact, 'Arial Black', sans-serif;
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 900;
   text-transform: uppercase;
   border: none;
@@ -769,10 +769,10 @@ form {
 
 .blinking-tag {
   font-family: Impact, 'Arial Black', sans-serif;
-  font-size: 20px;
+  font-size: 14px;
   background-color: #000000;
   color: #F06E44;
-  padding: 6px 12px;
+  padding: 4px 8px;
   margin-right: 15px;
   margin-left: 15px;
   flex-shrink: 0;
