@@ -73,7 +73,20 @@ $mat_slug_param = !empty($material['slug']) ? $material['slug'] : $slug;
 $canonicalUrl = "https://degreelibrary.gt.tc/material/" . htmlspecialchars($mat_slug_param ?? '', ENT_QUOTES, 'UTF-8');
 $downloadUrl = "/api/download.php?id=" . $material['id'];
 $datePublished = !empty($material['created_at']) ? date('c', strtotime($material['created_at'])) : '';
-?><!DOCTYPE html><html lang="en"><head>  <!-- Google Tag Manager & Google tag (gtag.js) Deferred for Core Web Vitals -->
+?><!DOCTYPE html><html lang="en"><head>
+<script>
+(function() {
+    var ua = navigator.userAgent.toLowerCase();
+    var isApp = window.matchMedia('(display-mode: standalone)').matches || 
+                window.navigator.standalone || 
+                ua.includes('wv') || 
+                (ua.includes('android') && ua.includes('version/'));
+    if (isApp || window.location.search.includes('app=true')) {
+        document.documentElement.classList.add('is-android-app');
+    }
+})();
+</script>
+  <!-- Google Tag Manager & Google tag (gtag.js) Deferred for Core Web Vitals -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }

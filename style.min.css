@@ -1797,23 +1797,23 @@ header.modern-header {
 }
 
 @media (max-width: 768px) {
-  body.is-android-app .modern-header .nav-right {
+  .is-android-app .modern-header .nav-right {
     display: none !important;
   }
-  body.is-android-app main {
+  .is-android-app main {
     padding-bottom: 20px !important;
   }
 }
 
 /* Hide specific elements on Android WebApp */
-body.is-android-app #splashScreen,
-body.is-android-app .mobile-subscribe-btn,
-body.is-android-app .modern-subscribe-btn,
-body.is-android-app .mobile-help-btn,
-body.is-android-app .desktop-help-btn {
+.is-android-app #splashScreen,
+.is-android-app .mobile-subscribe-btn,
+.is-android-app .modern-subscribe-btn,
+.is-android-app .mobile-help-btn,
+.is-android-app .desktop-help-btn {
     display: none !important;
 }
 
-body.is-android-app .footer {
+.is-android-app .footer {
     display: none !important;
 }

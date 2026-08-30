@@ -77,7 +77,20 @@ $post_slug_param = !empty($post['slug']) ? $post['slug'] : $slug;
 $canonicalUrl = "https://degreelibrary.gt.tc/community/" . htmlspecialchars($post_slug_param, ENT_QUOTES, 'UTF-8');
 $ogImage = !empty($post['image_path']) ? "https://degreelibrary.gt.tc/" . htmlspecialchars($post['image_path'], ENT_QUOTES, 'UTF-8') : "https://degreelibrary.gt.tc/logo.png";
 $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['created_at'] . ' +12 hours')) : '';
-?><!DOCTYPE html><html lang="en"><head>  <!-- Google Tag Manager & Google tag (gtag.js) Deferred for Core Web Vitals -->
+?><!DOCTYPE html><html lang="en"><head>
+<script>
+(function() {
+    var ua = navigator.userAgent.toLowerCase();
+    var isApp = window.matchMedia('(display-mode: standalone)').matches || 
+                window.navigator.standalone || 
+                ua.includes('wv') || 
+                (ua.includes('android') && ua.includes('version/'));
+    if (isApp || window.location.search.includes('app=true')) {
+        document.documentElement.classList.add('is-android-app');
+    }
+})();
+</script>
+  <!-- Google Tag Manager & Google tag (gtag.js) Deferred for Core Web Vitals -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
