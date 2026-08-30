@@ -552,8 +552,8 @@ form {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
   display: none;
@@ -830,8 +830,8 @@ marquee {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
@@ -1170,8 +1170,8 @@ input:checked + .slider:before {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
@@ -1376,9 +1376,9 @@ h1.main-heading {
 #splashScreen {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
     background-color: #818CF8;
     z-index: 999999;
     display: flex;
@@ -1806,11 +1806,7 @@ header.modern-header {
 }
 
 /* Hide specific elements on Android WebApp */
-.is-android-app #splashScreen,
-.is-android-app .mobile-subscribe-btn,
-.is-android-app .modern-subscribe-btn,
-.is-android-app .mobile-help-btn,
-.is-android-app .desktop-help-btn {
+.is-android-app #splashScreen {
     display: none !important;
 }
 
