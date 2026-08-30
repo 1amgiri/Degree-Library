@@ -12,7 +12,8 @@ body {
   font-family: 'Share Tech Mono', monospace, Courier New, sans-serif;
   background-color: #F8FAFC;
   color: #1E293B;
-  padding: 20px;
+  margin: 0;
+  padding: 0;
   line-height: 1.5;
   font-size: 15px;
 }
@@ -1401,7 +1402,7 @@ h1.main-heading {
    MODERN HEADER (Fixed Alignment & Bottom Mobile Nav)
    ========================================================= */
 header.modern-header {
-  background-color: #818CF8 !important; /* Original Purple */
+  background: linear-gradient(90deg, #818CF8, #4F46E5) !important; /* Original Purple */
   padding: 12px 24px !important;
   display: flex !important;
   flex-direction: row !important;
@@ -1564,7 +1565,7 @@ header.modern-header {
     bottom: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    background-color: #818CF8 !important;
+    background: linear-gradient(90deg, #818CF8, #4F46E5) !important;
       border-top: 2px solid #1E293B !important;
     justify-content: space-around !important;
     padding: 6px 0 !important;
@@ -1642,7 +1643,7 @@ header.modern-header {
     transform: translateX(-50%) !important;
     width: 92% !important;
     max-width: 400px !important;
-    background-color: #818CF8 !important;
+    background: linear-gradient(90deg, #818CF8, #4F46E5) !important;
       border-radius: 30px !important; /* Pill shape */
     display: flex !important;
     flex-direction: row !important;
