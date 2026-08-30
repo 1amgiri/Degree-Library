@@ -1813,3 +1813,30 @@ header.modern-header {
 .is-android-app .footer {
     display: none !important;
 }
+
+/* Curved Effect for Mobile and Tablet */
+@media (max-width: 1024px) {
+  .modern-header {
+    border-bottom: none !important;
+    padding-bottom: 35px !important;
+  }
+  
+  main {
+    margin-top: -25px !important;
+    background-color: #F8FAFC !important;
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px !important;
+    position: relative;
+    z-index: 10;
+    padding-top: 20px !important;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.05); /* subtle shadow on the curve */
+  }
+  
+  /* Make sure marquee respects the curve if it's the very first element */
+  .marquee-container {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+}
