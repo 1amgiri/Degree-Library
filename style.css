@@ -1814,43 +1814,50 @@ header.modern-header {
     display: none !important;
 }
 
-/* The Absolute Perfect Flawless Convex Curve */
+/* The Ultimate Persistent Sticky Curve for Mobile and Tablet */
 @media (max-width: 1024px) {
-  html body header.modern-header,
-  header.modern-header,
-  .modern-header {
+  /* Highly specific selector to guarantee it overrides any other padding/border rules */
+  html body header.modern-header {
     border-bottom: none !important;
     border-radius: 0 !important; 
     box-shadow: none !important; 
-    padding-bottom: 25px !important; 
+    padding-bottom: 32px !important; /* Guaranteed empty space at the bottom */
   }
   
-  main {
-    margin-top: 0 !important;
-    background-color: #F8FAFC !important;
+  /* The curve is now attached to the sticky header, so it never scrolls away */
+  html body header.modern-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; /* Cover subpixel gaps */
+    left: 0;
+    width: 100%;
+    height: 25px; /* Safely smaller than the 32px padding, won't overlap search bar */
+    background-color: #F8FAFC !important; /* Matches body background */
     border-top-left-radius: 25px !important;
     border-top-right-radius: 25px !important;
-    position: relative !important;
-    z-index: auto !important; /* CRITICAL: Must be auto to allow ::before to go behind background */
-    padding-top: 20px !important;
+    z-index: 10;
+    pointer-events: none;
+  }
+  
+  /* Reset main to normal */
+  html body main {
+    margin-top: 0 !important;
+    background-color: #F8FAFC !important;
+    border-radius: 0 !important;
+    position: static !important;
+    padding-top: 10px !important;
     overflow: visible !important;
   }
   
-  main::before {
-    content: '';
-    position: absolute;
-    top: -1px; /* overlap slightly to avoid pixel gaps */
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background: linear-gradient(90deg, #818CF8, #4F46E5) !important;
-    z-index: -1 !important; /* Goes behind main's white background */
-    border-radius: 0 !important;
+  /* Erase previous pseudo-element hacks on main */
+  html body main::before {
+    display: none !important;
   }
 
+  /* Make marquee sit nicely below the sticky curve if it exists */
   #marqueeContainer {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    overflow: hidden;
+    border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
   }
 }

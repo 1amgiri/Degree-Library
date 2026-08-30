@@ -152,7 +152,7 @@ $datePublished = !empty($material['created_at']) ? date('c', strtotime($material
   }
   </script>  <link rel="icon" type="image/png" href="/favicon.png">  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"></noscript>
-  <link rel="stylesheet" href="/style.min.css?v=6.0.0">  <script>    window.INITIAL_ROUTE = ''; // To prevent overriding by JS if not intended  </script></head><body>
+  <link rel="stylesheet" href="/style.min.css?v=6.1.0">  <script>    window.INITIAL_ROUTE = ''; // To prevent overriding by JS if not intended  </script></head><body>
     <div id="splashScreen" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" style="max-width: 400px; width: 90%; height: auto;">
   <style>
     /* Importing a Google font that closely matches the rounded, bold look of logo.jpg */
