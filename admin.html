@@ -341,7 +341,7 @@
     </style>
     <div class="verification-banner">
       <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-        <span style="font-size: 22px;">ðŸ›¡ï¸</span>
+        <span style="font-size: 22px;">🛡️</span>
         <h2 style="font-family: 'Press Start 2P', monospace; font-size: 13px; color: #4F46E5; margin: 0; border: none; padding: 0; text-shadow: 1px 1px 0 #FFF;">VERIFIED BADGES & CUSTOM LABELS</h2>
       </div>
       <div style="font-family: 'Share Tech Mono', monospace; font-size: 15px; color: #1E293B; margin-bottom: 16px; line-height: 1.6;">
@@ -373,13 +373,13 @@
               style="width: 100%; padding: 10px 45px 10px 10px; font-family: 'Share Tech Mono', monospace; font-size: 16px; border: 3px solid #1E293B; box-sizing: border-box; transition: all 0.2s;"
               placeholder="Enter Admin Password" required>
             <button type="button" id="togglePasswordBtn" onclick="togglePasswordVisibility()" aria-label="Toggle Password Visibility"
-              style="position: absolute; right: 8px; background: none; border: none; font-size: 20px; cursor: pointer; padding: 0 5px; box-shadow: none;">ðŸ‘ï¸</button>
+              style="position: absolute; right: 8px; background: none; border: none; font-size: 20px; cursor: pointer; padding: 0 5px; box-shadow: none;">👁️</button>
           </div>
         </div>
         <div id="captchaSection" style="display: none; margin-top: 15px; margin-bottom: 15px; padding: 12px; border: 3px solid #DC2626; background-color: #FEF2F2; box-shadow: 4px 4px 0 #DC2626;">
-          <label id="captchaQuestionLabel" for="captchaAnswer" style="font-weight: bold; color: #991B1B; display: block; margin-bottom: 6px; font-size: 13px; font-family: 'Share Tech Mono', monospace;">ðŸ›¡ï¸ Anti-Bot Verification: What is <span id="captchaMathText" style="font-size: 15px; color: #000; background: #FED7AA; padding: 2px 6px; border: 1px solid #C2410C;"></span> ?</label>
+          <label id="captchaQuestionLabel" for="captchaAnswer" style="font-weight: bold; color: #991B1B; display: block; margin-bottom: 6px; font-size: 13px; font-family: 'Share Tech Mono', monospace;">🛡️ Anti-Bot Verification: What is <span id="captchaMathText" style="font-size: 15px; color: #000; background: #FED7AA; padding: 2px 6px; border: 1px solid #C2410C;"></span> ?</label>
           <input type="number" id="captchaAnswer" placeholder="Enter calculated result" style="width: 100%; padding: 8px; font-family: 'Share Tech Mono', monospace; font-size: 16px; border: 2px solid #1E293B; box-sizing: border-box;">
-          <div style="font-size: 11px; color: #7F1D1D; margin-top: 6px; font-family: 'Share Tech Mono', monospace;">âš ï¸ 3 incorrect attempts detected. Solve the math check to proceed.</div>
+          <div style="font-size: 11px; color: #7F1D1D; margin-top: 6px; font-family: 'Share Tech Mono', monospace;">⚠️ 3 incorrect attempts detected. Solve the math check to proceed.</div>
         </div>
         <button id="loginSubmitBtn" type="submit" style="width: 100%; font-size: 14px; padding: 12px; margin-top: 10px;">Verify & Access Dashboard</button>
       </form>
@@ -487,10 +487,10 @@
       const toggleBtn = document.getElementById('togglePasswordBtn');
       if (pwdInput.type === 'password') {
         pwdInput.type = 'text';
-        toggleBtn.innerText = 'ðŸ™ˆ';
+        toggleBtn.innerText = '🙈';
       } else {
         pwdInput.type = 'password';
-        toggleBtn.innerText = 'ðŸ‘ï¸';
+        toggleBtn.innerText = '👁️';
       }
     }
 
@@ -529,7 +529,7 @@
           loginError.style.color = '#DC2626';
           loginError.style.borderColor = '#DC2626';
           loginError.style.boxShadow = '5px 5px 0 #DC2626';
-          loginError.innerHTML = 'âŒ ANTI-BOT VERIFICATION FAILED!<br><span style="font-size: 13px; color: #991B1B;">Incorrect math answer. Please try solving the new calculation below.</span>';
+          loginError.innerHTML = '❌ ANTI-BOT VERIFICATION FAILED!<br><span style="font-size: 13px; color: #991B1B;">Incorrect math answer. Please try solving the new calculation below.</span>';
           generateMathCaptcha();
           if (userCaptchaEl) userCaptchaEl.focus();
           return;
@@ -541,10 +541,10 @@
       loginError.style.color = '#854D0E';
       loginError.style.borderColor = '#1E293B';
       loginError.style.boxShadow = '3px 3px 0 #1E293B';
-      loginError.innerHTML = 'â³ Verifying password with server...';
+      loginError.innerHTML = '⏳ Verifying password with server...';
       const enteredPassword = passwordInput.value.trim();
       if (!enteredPassword) {
-        loginError.innerHTML = 'âš ï¸ Please enter a password!';
+        loginError.innerHTML = '⚠️ Please enter a password!';
         return;
       }
       if (loginBtn) { loginBtn.disabled = true; loginBtn.innerText = 'Verifying...'; }
@@ -563,7 +563,7 @@
           loginError.style.color = '#065F46';
           loginError.style.borderColor = '#059669';
           loginError.style.boxShadow = '5px 5px 0 #059669';
-          loginError.innerHTML = 'âœ… CORRECT PASSWORD!<br>Access Granted. Loading Dashboard...';
+          loginError.innerHTML = '✅ CORRECT PASSWORD!<br>Access Granted. Loading Dashboard...';
           if (loginBtn) { loginBtn.innerText = 'Success! Opening Dashboard...'; }
           setTimeout(() => {
             loginSection.style.display = 'none';
@@ -580,9 +580,9 @@
           loginError.style.borderColor = '#DC2626';
           loginError.style.boxShadow = '5px 5px 0 #DC2626';
           
-          let errorMsg = 'âŒ WRONG PASSWORD! Access Denied.<br><span style="font-size: 13px; font-weight: normal; color: #991B1B;">The password you entered is incorrect (Attempt ' + wrongAttempts + ').</span>';
+          let errorMsg = '❌ WRONG PASSWORD! Access Denied.<br><span style="font-size: 13px; font-weight: normal; color: #991B1B;">The password you entered is incorrect (Attempt ' + wrongAttempts + ').</span>';
           if (wrongAttempts >= 3) {
-            errorMsg += '<br><div style="margin-top:6px; color:#B91C1C; font-size:12px; border-top:1px dashed #DC2626; padding-top:6px;">ðŸ›¡ï¸ <strong>Anti-Bot Shield Activated:</strong><br>Please solve the math challenge above to prove you are human before trying again!</div>';
+            errorMsg += '<br><div style="margin-top:6px; color:#B91C1C; font-size:12px; border-top:1px dashed #DC2626; padding-top:6px;">🛡️ <strong>Anti-Bot Shield Activated:</strong><br>Please solve the math challenge above to prove you are human before trying again!</div>';
             generateMathCaptcha();
           }
           loginError.innerHTML = errorMsg;
@@ -600,9 +600,9 @@
         loginError.style.color = '#DC2626';
         loginError.style.borderColor = '#DC2626';
         loginError.style.boxShadow = '5px 5px 0 #DC2626';
-        let errorMsg = 'âŒ WRONG PASSWORD OR ERROR!<br><span style="font-size: 13px; font-weight: normal; color: #991B1B;">Verification failed (' + (err.message || 'Access Denied') + ') - Attempt ' + wrongAttempts + '.</span>';
+        let errorMsg = '❌ WRONG PASSWORD OR ERROR!<br><span style="font-size: 13px; font-weight: normal; color: #991B1B;">Verification failed (' + (err.message || 'Access Denied') + ') - Attempt ' + wrongAttempts + '.</span>';
         if (wrongAttempts >= 3) {
-          errorMsg += '<br><div style="margin-top:6px; color:#B91C1C; font-size:12px; border-top:1px dashed #DC2626; padding-top:6px;">ðŸ›¡ï¸ <strong>Anti-Bot Shield Activated:</strong><br>Please solve the math challenge above to prove you are human!</div>';
+          errorMsg += '<br><div style="margin-top:6px; color:#B91C1C; font-size:12px; border-top:1px dashed #DC2626; padding-top:6px;">🛡️ <strong>Anti-Bot Shield Activated:</strong><br>Please solve the math challenge above to prove you are human!</div>';
           generateMathCaptcha();
         }
         loginError.innerHTML = errorMsg;
