@@ -1814,25 +1814,13 @@ header.modern-header {
     display: none !important;
 }
 
-/* Curved Effect for Mobile and Tablet */
+/* Curved Effect for Mobile and Tablet - The Native Way */
 @media (max-width: 1024px) {
   .modern-header {
     border-bottom: none !important;
-    padding-bottom: 35px !important;
-    position: sticky !important;
-  }
-  
-  .modern-header::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 26px;
-    background-color: #F8FAFC;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    z-index: 5;
-    pointer-events: none;
+    border-bottom-left-radius: 25px !important;
+    border-bottom-right-radius: 25px !important;
+    padding-bottom: 20px !important; /* give the search bar some breathing room */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
   }
 }
