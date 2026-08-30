@@ -718,9 +718,7 @@
       }
       fetchMaterials(e.target.value);
     });
-    retryBtn.addEventListener("click", () => {
-      fetchMaterials(searchInput.value);
-    });
+    retryBtn.addEventListener('click', () => { window.location.reload(); });
     /* Initial Load */
 
     document.addEventListener("DOMContentLoaded", () => {
