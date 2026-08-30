@@ -1819,24 +1819,20 @@ header.modern-header {
   .modern-header {
     border-bottom: none !important;
     padding-bottom: 35px !important;
+    position: sticky !important;
   }
   
-  main {
-    margin-top: -25px !important;
-    background-color: #F8FAFC !important;
-    border-top-left-radius: 25px !important;
-    border-top-right-radius: 25px !important;
-    position: relative;
-    z-index: 10;
-    padding-top: 20px !important;
-    box-shadow: 0 -4px 10px rgba(0,0,0,0.05); /* subtle shadow on the curve */
-  }
-  
-  /* Make sure marquee respects the curve if it's the very first element */
-  .marquee-container {
+  .modern-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 26px;
+    background-color: #F8FAFC;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-    margin-top: -20px;
-    margin-bottom: 20px;
+    z-index: 5;
+    pointer-events: none;
   }
 }
