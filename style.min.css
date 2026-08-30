@@ -1795,3 +1795,12 @@ header.modern-header {
     display: none !important;
   }
 }
+
+@media (max-width: 768px) {
+  body.is-android-app .modern-header .nav-right {
+    display: none !important;
+  }
+  body.is-android-app main {
+    padding-bottom: 20px !important;
+  }
+}

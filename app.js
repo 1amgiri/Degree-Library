@@ -954,3 +954,10 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+    const isApp = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone || /wv/.test(navigator.userAgent.toLowerCase()) || /android.*version\/\d/i.test(navigator.userAgent);
+    if (isApp) {
+        document.body.classList.add('is-android-app');
+    }
+});
