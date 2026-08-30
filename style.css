@@ -1804,3 +1804,12 @@ header.modern-header {
     padding-bottom: 20px !important;
   }
 }
+
+/* Hide specific elements on Android WebApp */
+body.is-android-app #splashScreen,
+body.is-android-app .mobile-subscribe-btn,
+body.is-android-app .modern-subscribe-btn,
+body.is-android-app .mobile-help-btn,
+body.is-android-app .desktop-help-btn {
+    display: none !important;
+}
