@@ -1814,13 +1814,40 @@ header.modern-header {
     display: none !important;
 }
 
-/* Curved Effect for Mobile and Tablet - The Native Way */
+/* Flawless Convex Curved Effect for Mobile and Tablet */
 @media (max-width: 1024px) {
   .modern-header {
     border-bottom: none !important;
-    border-bottom-left-radius: 25px !important;
-    border-bottom-right-radius: 25px !important;
-    padding-bottom: 20px !important; /* give the search bar some breathing room */
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
+    border-radius: 0 !important; 
+    box-shadow: none !important; 
+    padding-bottom: 20px !important; 
+  }
+  
+  main {
+    margin-top: 0 !important;
+    background-color: #F8FAFC !important;
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px !important;
+    position: relative;
+    z-index: 1; 
+    padding-top: 20px !important;
+  }
+  
+  main::before {
+    content: '';
+    position: absolute;
+    top: -1px; /* slight overlap to prevent subpixel white lines */
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(90deg, #818CF8, #4F46E5) !important;
+    z-index: -1; 
+    border-radius: 0 !important;
+  }
+
+  #marqueeContainer {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    overflow: hidden;
   }
 }
