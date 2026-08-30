@@ -696,11 +696,13 @@ const initWebNotifications = async () => {
 
             const storedMatId = parseInt(localStorage.getItem('latest_material_id') || '0');
             const storedPostId = parseInt(localStorage.getItem('latest_post_id') || '0');
+            const storedReplyId = parseInt(localStorage.getItem('latest_reply_id') || '0');
 
             // If it's the very first time, just store them silently so we don't spam
-            if (storedMatId === 0 && storedPostId === 0) {
+            if (storedMatId === 0 && storedPostId === 0 && storedReplyId === 0) {
                 localStorage.setItem('latest_material_id', data.latest_material_id);
                 localStorage.setItem('latest_post_id', data.latest_post_id);
+                localStorage.setItem('latest_reply_id', data.latest_reply_id);
                 return;
             }
 
@@ -718,6 +720,7 @@ const initWebNotifications = async () => {
                     icon: 'logo.png'
                 });
                 localStorage.setItem('latest_post_id', data.latest_post_id);
+                localStorage.setItem('latest_reply_id', data.latest_reply_id);
             }
         } catch (e) {
             console.error('Polling error', e);
