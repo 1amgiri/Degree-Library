@@ -1857,7 +1857,10 @@ header.modern-header {
   /* Make marquee sit nicely below the sticky curve if it exists */
   #marqueeContainer {
     border-radius: 12px;
-    margin-top: 0px;
+    margin: 0;
+  }
+  #marqueeContainer:not(:empty) {
+    margin-top: 10px;
     margin-bottom: 10px;
   }
 }

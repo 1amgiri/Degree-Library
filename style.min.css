@@ -85,7 +85,7 @@ nav a:hover {
 
 main {
     max-width: 1200px;
-    margin: 30px auto 0;
+    margin: 0 auto 0;
   min-height: 80vh;
 }
 
@@ -754,28 +754,28 @@ form {
 .marquee-container {
   display: flex;
   align-items: center;
-  background-color: #F06E44; /* Match orange from image */
+  background-color: #F06E44;
   color: #000000;
   text-shadow: none;
-  padding: 6px 0;
+  padding: 2px 0;
   font-family: Impact, 'Arial Black', sans-serif;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 900;
   text-transform: uppercase;
   border: none;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   box-shadow: none;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .blinking-tag {
   font-family: Impact, 'Arial Black', sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   background-color: #000000;
   color: #F06E44;
-  padding: 4px 8px;
-  margin-right: 15px;
-  margin-left: 15px;
+  padding: 2px 6px;
+  margin-right: 10px;
+  margin-left: 10px;
   flex-shrink: 0;
   animation: marqueeBlink 1s linear infinite;
   border: none;
@@ -1821,7 +1821,7 @@ header.modern-header {
     border-bottom: none !important;
     border-radius: 0 !important; 
     box-shadow: none !important; 
-    padding-bottom: 32px !important; /* Guaranteed empty space at the bottom */
+    padding-bottom: 10px !important; /* Guaranteed empty space at the bottom */
   }
   
   /* The curve is now attached to the sticky header, so it never scrolls away */
@@ -1831,10 +1831,10 @@ header.modern-header {
     bottom: -1px; /* Cover subpixel gaps */
     left: 0;
     width: 100%;
-    height: 25px; /* Safely smaller than the 32px padding, won't overlap search bar */
+    height: 10px;
     background-color: #F8FAFC !important; /* Matches body background */
-    border-top-left-radius: 25px !important;
-    border-top-right-radius: 25px !important;
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
     z-index: 10;
     pointer-events: none;
   }
@@ -1845,7 +1845,7 @@ header.modern-header {
     background-color: #F8FAFC !important;
     border-radius: 0 !important;
     position: static !important;
-    padding-top: 10px !important;
+    padding-top: 0 !important;
     overflow: visible !important;
   }
   
@@ -1857,7 +1857,10 @@ header.modern-header {
   /* Make marquee sit nicely below the sticky curve if it exists */
   #marqueeContainer {
     border-radius: 12px;
+    margin: 0;
+  }
+  #marqueeContainer:not(:empty) {
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 }
