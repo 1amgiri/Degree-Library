@@ -1813,3 +1813,7 @@ body.is-android-app .mobile-help-btn,
 body.is-android-app .desktop-help-btn {
     display: none !important;
 }
+
+body.is-android-app .footer {
+    display: none !important;
+}

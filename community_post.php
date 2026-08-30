@@ -168,7 +168,7 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
   </style>
   <link rel="icon" type="image/png" href="/favicon.png">  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"></noscript>
-  <link rel="stylesheet" href="/style.min.css?v=4.5.0"></head><body>
+  <link rel="stylesheet" href="/style.min.css?v=5.0.0"></head><body>
     <div id="splashScreen" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" style="max-width: 400px; width: 90%; height: auto;">
   <style>
     /* Importing a Google font that closely matches the rounded, bold look of logo.jpg */
@@ -422,4 +422,4 @@ if ($post['allow_html']) {
         });
     });
   </script>
-  <script src="/app.min.js?v=4.3.0"></script></body></html>
+  <script src="/app.min.js?v=5.0.0"></script></body></html>
