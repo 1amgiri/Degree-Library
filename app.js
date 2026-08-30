@@ -683,11 +683,9 @@ const openSubscribeModal = (e) => {
 
 const initWebNotifications = async () => {
     if (!('Notification' in window)) return;
-
     const checkUpdates = async () => {
         if (Notification.permission !== 'granted') return;
         if (localStorage.getItem('browser_notifications_enabled') !== 'true') return;
-
         try {
             const response = await fetch(getProxiedUrl('latest_updates.php'), { cache: 'no-store' });
             if (!response.ok) return;
@@ -698,7 +696,6 @@ const initWebNotifications = async () => {
             const storedPostId = parseInt(localStorage.getItem('latest_post_id') || '0');
             const storedReplyId = parseInt(localStorage.getItem('latest_reply_id') || '0');
 
-            // If it's the very first time, just store them silently so we don't spam
             if (storedMatId === 0 && storedPostId === 0 && storedReplyId === 0) {
                 localStorage.setItem('latest_material_id', data.latest_material_id);
                 localStorage.setItem('latest_post_id', data.latest_post_id);
@@ -707,30 +704,24 @@ const initWebNotifications = async () => {
             }
 
             if (data.latest_material_id > storedMatId) {
-                new Notification('Free Degree Library Alert', {
-                    body: 'A new study material was uploaded!',
-                    icon: 'logo.png'
-                });
+                new Notification('Free Degree Library Alert', { body: 'A new study material was uploaded!', icon: 'logo.png' });
                 localStorage.setItem('latest_material_id', data.latest_material_id);
             }
 
             if (data.latest_post_id > storedPostId) {
-                new Notification('Free Degree Library Alert', {
-                    body: 'A new post in the Community Board!',
-                    icon: 'logo.png'
-                });
+                new Notification('Free Degree Library Alert', { body: 'A new post in the Community Board!', icon: 'logo.png' });
                 localStorage.setItem('latest_post_id', data.latest_post_id);
+            }
+            
+            if (data.latest_reply_id > storedReplyId) {
+                new Notification('Free Degree Library Alert', { body: 'Someone replied in the Community Board!', icon: 'logo.png' });
                 localStorage.setItem('latest_reply_id', data.latest_reply_id);
             }
         } catch (e) {
             console.error('Polling error', e);
         }
     };
-
-    // Run immediately
     checkUpdates();
-
-    // Then poll every 30 seconds
     setInterval(checkUpdates, 30000);
 };
 

@@ -435,4 +435,4 @@ if ($post['allow_html']) {
         });
     });
   </script>
-  <script src="/app.min.js?v=5.1.0"></script></body></html>
+  <script src="/app.min.js?v=5.3.0"></script></body></html>
