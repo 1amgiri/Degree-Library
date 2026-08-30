@@ -732,7 +732,7 @@ form {
     max-width: 100%;
   }
 
-  body {
+  main {
     padding: 10px;
   }
 
@@ -1354,7 +1354,7 @@ h1.main-heading {
 
 /* Adjustments for small mobile devices */
 @media (max-width: 450px) {
-  body { font-size: 13px; padding: 10px; }
+  body { font-size: 13px; } main { padding: 10px; }
   .brand { font-size: 9px; }
   .header-left img { height: 35px !important; }
   .brand-subtitle { font-size: 8px; }
@@ -1576,8 +1576,8 @@ header.modern-header {
   }
 
   /* Add padding to body so content isn't hidden behind the bottom bar */
-  body {
-    padding-bottom: 75px !important; 
+  main {
+    padding-bottom: 75px !important;
   }
 
   .nav-icon-link {
