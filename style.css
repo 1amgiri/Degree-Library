@@ -1864,3 +1864,7 @@ header.modern-header {
     margin-bottom: 10px;
   }
 }
+
+.app-web-btn { display: none !important; }
+.is-android-app .app-web-btn { display: flex !important; }
+
