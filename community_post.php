@@ -348,7 +348,7 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
     <div class="nav-center">
       <div class="search-container-header" style="position: relative; width: 100%;">
         <input type="text" id="searchQuery" placeholder="Search materials..." aria-label="Search materials" class="search-input-header" autocomplete="off" oninput="document.getElementById('clearSearchBtnHeader').style.display = this.value ? 'block' : 'none';" />
-        <span id="clearSearchBtnHeader" style="position: absolute; right: 70px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 16px; color: #888; display: none;" onclick="document.getElementById('searchQuery').value=''; document.getElementById('searchQuery').dispatchEvent(new Event('input')); this.style.display='none';">✖</span>
+        <span id="clearSearchBtnHeader" style="position: absolute; right: 70px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 16px; color: #888; display: none;" onclick="document.getElementById('searchQuery').value=''; document.getElementById('searchQuery').dispatchEvent(new Event('input')); this.style.display='none';">âœ–</span>
         <button class="search-btn-header" onclick="document.getElementById('searchQuery').focus()" aria-label="Search">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         </button>
@@ -435,4 +435,118 @@ if ($post['allow_html']) {
         });
     });
   </script>
-  <script src="/app.min.js?v=5.3.0"></script></body></html>
+  <script src="/app.min.js?v=5.3.0"></script>  <!-- Sidebar overlay backdrop -->
+  <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
+  <!-- Sidebar Menu Drawer -->
+  <div id="sidebarMenu" class="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-title">MENU</span>
+      <button class="sidebar-close" aria-label="Close menu" onclick="closeSidebar()">X</button>
+    </div>
+    <div class="sidebar-content">
+      <!-- Section 2: Browse Content -->
+      <div class="menu-section">
+        <div class="menu-section-title">Browse Content</div>
+        <a href="index.html" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="home"></i></span> Home
+        </a>
+        <a href="community.html" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="message-circle"></i></span> Student Community
+        </a>
+        <a href="upload.html" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="upload-cloud"></i></span> Upload Materials
+        </a>
+        <a href="important.html" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="zap"></i></span> Important Questions
+        </a>
+        <a href="mca.html" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="graduation-cap"></i></span> MCA
+        </a>
+        <a href="icet.html" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="graduation-cap"></i></span> ICET PYQs
+        </a>
+        <a href="admin.html" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="key"></i></span> Admin Panel
+        </a>
+      </div>
+      <!-- Section 3: Help -->
+      <div class="menu-section">
+        <div class="menu-section-title">Help</div>
+        <div class="menu-item-dropdown">
+          <div class="menu-item" style="cursor: pointer; justify-content: space-between;" onclick="toggleMenuDropdown(this)">
+            <span style="display: flex; align-items: center; gap: 12px;"><span class="menu-item-icon"><i data-lucide="book-open"></i></span> Official Syllabus Content</span>
+            <span class="arrow">â–¾</span>
+          </div>
+          <div class="menu-dropdown-content" style="display: none; padding-left: 20px;">
+            <div style="padding: 10px 15px; color: #818CF8; font-size: 12px; font-weight: bold;">UG</div>
+            <a href="https://svuniversity.edu.in/degree-course-syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon"><i data-lucide="graduation-cap"></i></span> SV University
+            </a>
+            <a href="https://cuap.ac.in/syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon"><i data-lucide="graduation-cap"></i></span> Andhra University
+            </a>
+            <div style="padding: 10px 15px; color: #818CF8; font-size: 12px; font-weight: bold; margin-top: 5px;">PG</div>
+            <a href="https://svuniversity.edu.in/pg-course-syllabus/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon"><i data-lucide="graduation-cap"></i></span> SV University
+            </a>
+            <a href="https://andhrauni-ac.in/admissions/school-of-distance-education/pgcourses.html" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none; padding-top: 5px; padding-bottom: 5px;">
+              <span class="menu-item-icon"><i data-lucide="graduation-cap"></i></span> Andhra University
+            </a>
+          </div>
+        </div>
+        <a href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="landmark"></i></span> APSHE
+        </a>
+        <div class="menu-item-dropdown">
+          <div class="menu-item" style="cursor: pointer; justify-content: space-between;" onclick="toggleMenuDropdown(this)">
+            <span style="display: flex; align-items: center; gap: 12px;"><span class="menu-item-icon"><i data-lucide="file-text"></i></span> Results</span>
+            <span class="arrow">â–¾</span>
+          </div>
+          <div class="menu-dropdown-content" style="display: none; padding-left: 20px;">
+            <a href="https://www.manabadi.co.in/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none;">
+              <span class="menu-item-icon"><i data-lucide="search"></i></span> Results(Manabadi)
+            </a>
+            <a href="https://g21.tcsion.com/per/g21/pub/1723/SelfServices/templates/sdham15012018101517/Sdham515012018101605.html" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none;">
+              <span class="menu-item-icon"><i data-lucide="school"></i></span> Results(TCSion)
+            </a>
+          </div>
+        </div>
+        <a href="https://pixels111.github.io/bcahub/index.html" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="book-open"></i></span> BCA Resources
+        </a>
+      </div>
+      <!-- Section 4: Other Products -->
+      <div class="menu-section">
+        <div class="menu-section-title">Our Other Free Products</div>
+        <a href="https://buildmyresume.free.nf/" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="briefcase"></i></span> ATS Friendly Resume Builder
+        </a>
+        <a href="https://upiqr.ct.ws/" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="smartphone"></i></span> UPI QR Generator
+        </a>
+        <a href="https://cirravosolutions.co.in/safex/index.html?i=1" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="lock"></i></span> Offline Password Manager
+        </a>
+        <a href="https://1amgiri.itch.io/ilikecode" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="smartphone"></i></span> iLikeCode - Mobile Coding
+        </a>
+      </div>
+      <!-- Section 5: Extras -->
+      <div class="menu-section" style="border-top: 1px dashed #334155; padding-top: 10px;">
+        <a href="#" onclick="alertBugReport(event)" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="alert-triangle"></i></span> Report Error/Bug
+        </a>
+        <a href="about.html" class="menu-item" style="background: #EEF2FF; font-weight: bold; color: #4F46E5;">
+          <span class="menu-item-icon"><i data-lucide="info"></i></span> About Free Degree Library
+        </a>
+        <a href="admin.html" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="key"></i></span> Admin Login
+        </a>
+        <a href="https://www.instagram.com/cirravo/" target="_blank" rel="noopener noreferrer" class="menu-item">
+          <span class="menu-item-icon"><i data-lucide="instagram"></i></span> Follow on Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body></html>
