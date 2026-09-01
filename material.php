@@ -319,7 +319,7 @@ $datePublished = !empty($material['created_at']) ? date('c', strtotime($material
     <div class="nav-center">
       <div class="search-container-header" style="position: relative; width: 100%;">
         <input type="text" id="searchQuery" placeholder="Search materials..." aria-label="Search materials" class="search-input-header" autocomplete="off" oninput="document.getElementById('clearSearchBtnHeader').style.display = this.value ? 'block' : 'none';" />
-        <span id="clearSearchBtnHeader" style="position: absolute; right: 70px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 16px; color: #888; display: none;" onclick="document.getElementById('searchQuery').value=''; document.getElementById('searchQuery').dispatchEvent(new Event('input')); this.style.display='none';">ÃƒÂ¢Ã…â€œÃ¢â‚¬â€œ</span>
+        <span id="clearSearchBtnHeader" style="position: absolute; right: 70px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 16px; color: #888; display: none;" onclick="document.getElementById('searchQuery').value=''; document.getElementById('searchQuery').dispatchEvent(new Event('input')); this.style.display='none';">✖</span>
         <button class="search-btn-header" onclick="document.getElementById('searchQuery').focus()" aria-label="Search">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         </button>
@@ -396,7 +396,7 @@ $datePublished = !empty($material['created_at']) ? date('c', strtotime($material
         <div class="menu-item-dropdown">
           <div class="menu-item" style="cursor: pointer; justify-content: space-between;" onclick="toggleMenuDropdown(this)">
             <span style="display: flex; align-items: center; gap: 12px;"><span class="menu-item-icon"><i data-lucide="book-open"></i></span> Official Syllabus Content</span>
-            <span class="arrow">ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â¾</span>
+            <span class="arrow">▾</span>
           </div>
           <div class="menu-dropdown-content" style="display: none; padding-left: 20px;">
             <div style="padding: 10px 15px; color: #818CF8; font-size: 12px; font-weight: bold;">UG</div>
@@ -421,7 +421,7 @@ $datePublished = !empty($material['created_at']) ? date('c', strtotime($material
         <div class="menu-item-dropdown">
           <div class="menu-item" style="cursor: pointer; justify-content: space-between;" onclick="toggleMenuDropdown(this)">
             <span style="display: flex; align-items: center; gap: 12px;"><span class="menu-item-icon"><i data-lucide="file-text"></i></span> Results</span>
-            <span class="arrow">ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â¾</span>
+            <span class="arrow">▾</span>
           </div>
           <div class="menu-dropdown-content" style="display: none; padding-left: 20px;">
             <a href="https://www.manabadi.co.in/" target="_blank" rel="noopener noreferrer" class="menu-item" style="border-bottom: none;">
