@@ -555,7 +555,7 @@ form {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  z-index: 99998;
   display: none;
 }
 
@@ -567,7 +567,7 @@ form {
   height: 100%;
   background-color: #1E293B;
   color: #FFFFFF;
-  z-index: 1000;
+  z-index: 99999;
   overflow-y: auto;
   transition: left 0.3s ease;
   border-right: 4px solid #1E293B;
