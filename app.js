@@ -174,7 +174,58 @@ const showVideoAdAndDownload = (urlOrId, filename) => {
     });
 };
 
+const showAppPromoModal = (urlOrId, filename) => {
+    if (document.getElementById('appPromoRetroModal')) return;
+
+    const modalOverlay = document.createElement('div');
+    modalOverlay.id = 'appPromoRetroModal';
+    modalOverlay.className = 'retro-modal-overlay';
+    
+    modalOverlay.innerHTML = `
+        <div class="retro-modal-card" style="max-height: 90vh; overflow-y: auto;">
+            <div class="retro-modal-header">
+                <span class="retro-modal-title">GET OUR MOBILE APP</span>
+                <button class="retro-modal-close" id="btnCloseAppPromo">X</button>
+            </div>
+            <div class="retro-modal-body" style="text-align: center;">
+                <p style="font-weight: bold; margin-bottom: 15px;">For a better and seamless experience, download our mobile app!</p>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button id="btnDownloadApp" class="sub-btn-success" style="padding: 10px; font-family: 'Share Tech Mono', monospace; font-size: 16px;">Download App</button>
+                    <button id="btnContinueBrowser" class="sub-btn-danger" style="padding: 10px; font-family: 'Share Tech Mono', monospace; font-size: 16px;">Continue in Browser</button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modalOverlay);
+    sessionStorage.setItem('appPromoShownForDownload', 'true');
+
+    const closeAndProceed = () => {
+        modalOverlay.remove();
+        showVideoAdAndDownload(urlOrId, filename);
+    };
+
+    document.getElementById('btnCloseAppPromo').onclick = closeAndProceed;
+    document.getElementById('btnContinueBrowser').onclick = closeAndProceed;
+    
+    document.getElementById('btnDownloadApp').onclick = () => {
+        window.open('https://1amgiri.itch.io/free-degree-library', '_blank');
+        closeAndProceed();
+    };
+};
+
 const downloadFile = (urlOrId, filename) => {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);
+    const isAndroidWebView = /wv/.test(ua.toLowerCase()) || (/android/i.test(ua) && /version\//i.test(ua) && !/chrome/i.test(ua));
+    const isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true || document.documentElement.classList.contains('is-android-app') || document.body.classList.contains('is-android-app');
+
+    if (isMobile && !isAndroidWebView && !isPWA) {
+        if (!sessionStorage.getItem('appPromoShownForDownload')) {
+            showAppPromoModal(urlOrId, filename);
+            return;
+        }
+    }
     showVideoAdAndDownload(urlOrId, filename);
 };
 
