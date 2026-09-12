@@ -1382,7 +1382,7 @@ h1.main-heading {
   left: 0;
   right: 0;
   bottom: 0;
-    background-color: #818CF8;
+    background: linear-gradient(90deg, #818CF8, #4F46E5);
     z-index: 999999;
     display: flex;
     justify-content: center;
