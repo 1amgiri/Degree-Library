@@ -182,6 +182,9 @@ h3 {
   .scroll-btn {
     display: inline-block;
   }
+  .keywords-wrapper {
+    margin-top: 25px;
+  }
 }
 
 .keywords-scroll-container::-webkit-scrollbar {
