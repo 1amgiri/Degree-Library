@@ -181,7 +181,37 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
   </style>
   <link rel="icon" type="image/png" href="/favicon.png">  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"></noscript>
-  <link rel="stylesheet" href="/style.min.css?v=6.9.1"></head><body>
+  <link rel="stylesheet" href="/style.min.css?v=6.9.1"><style>
+    .community-layout-container { display: flex; justify-content: flex-start; align-items: flex-start; gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .community-content-wrapper { flex: 1; width: 100%; max-width: 800px; }
+    .ad-banner-left { width: 250px; position: sticky; top: 90px; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px; }
+    .ad-banner-project { background: #0B0F19; border-radius: 16px; padding: 24px 20px; position: relative; overflow: hidden; border: 1px solid #1e293b; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+    .ad-banner-project::after { content: ''; position: absolute; top: -20px; left: -20px; right: -20px; bottom: -20px; background: radial-gradient(circle at 80% 20%, rgba(0,240,255,0.15) 0%, transparent 60%); pointer-events: none; }
+    .ad-banner-project-badge { background: rgba(0, 240, 255, 0.1); color: #00f0ff; font-size: 10px; padding: 4px 8px; border-radius: 12px; display: inline-block; margin-bottom: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; font-family: 'Share Tech Mono', monospace; border: 1px solid rgba(0,240,255,0.2); }
+    .ad-banner-project h3 { color: #ffffff; font-size: 20px; font-weight: 800; line-height: 1.25; margin-top: 0; margin-bottom: 12px; font-family: 'Share Tech Mono', monospace; }
+    .ad-banner-project p { color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 20px; }
+    .ad-banner-project a { display: block; text-align: center; background: #00f0ff; color: #0B0F19; font-weight: 900; padding: 10px; border-radius: 8px; text-decoration: none; box-shadow: 0 0 15px rgba(0, 240, 255, 0.3); transition: all 0.3s; text-transform: uppercase; font-size: 13px; }
+    .ad-banner-project a:hover { box-shadow: 0 0 25px rgba(0, 240, 255, 0.5); transform: translateY(-2px); }
+    .ad-banner-agency { background-color: #6366f1; background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 15px 15px; border-radius: 16px; padding: 24px 20px; position: relative; box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2); }
+    .ad-banner-agency-inner { position: absolute; inset: 0; background: rgba(88, 92, 230, 0.85); border-radius: 16px; }
+    .ad-banner-agency-content { position: relative; z-index: 2; }
+    .ad-banner-agency h3 { color: #ffffff; font-size: 20px; font-weight: 900; line-height: 1.25; margin-top: 0; margin-bottom: 10px; font-family: 'Share Tech Mono', monospace; }
+    .ad-banner-agency h3 span { color: #fde047; display: block; font-size: 22px; }
+    .ad-banner-agency p { color: #e0e7ff; font-size: 13px; line-height: 1.5; margin-bottom: 20px; font-weight: 500; }
+    .ad-banner-agency a { display: block; text-align: center; background: #ffffff; color: #4f46e5; font-weight: 800; padding: 10px; border-radius: 20px; text-decoration: none; transition: all 0.3s; font-size: 14px; }
+    .ad-banner-agency a:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+    @media (max-width: 900px) { .ad-banner-left { display: none; } }
+    .ad-banner-right { width: 250px; position: sticky; top: 90px; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px; }
+    .ad-banner-cvep { background: #ffffff; border-radius: 16px; padding: 24px 20px; position: relative; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    .ad-banner-cvep-badge { font-size: 10px; padding: 4px 8px; border-radius: 12px; display: inline-block; margin-bottom: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; font-family: 'Share Tech Mono', monospace; background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; }
+    .ad-banner-cvep h3 { color: #0f172a; font-size: 18px; font-weight: 800; line-height: 1.3; margin-top: 0; margin-bottom: 12px; }
+    .ad-banner-cvep p { color: #475569; font-size: 13px; line-height: 1.5; margin-bottom: 15px; }
+    .domain-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .domain-tag { background: #f1f5f9; color: #334155; font-size: 11px; padding: 4px 8px; border-radius: 4px; border: 1px solid #e2e8f0; font-weight: 600; }
+    .ad-banner-cvep a { display: block; text-align: center; background: #f97316; color: #ffffff; font-weight: bold; padding: 10px; border-radius: 8px; text-decoration: none; transition: all 0.3s; font-size: 13px; }
+    .ad-banner-cvep a:hover { background: #ea580c; }
+    @media (max-width: 1100px) { .ad-banner-right { display: none; } }
+</style></head><body>
     <div id="splashScreen" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" style="max-width: 400px; width: 90%; height: auto;">
   <style>
     /* Importing a Google font that closely matches the rounded, bold look of logo.jpg */
@@ -385,7 +415,27 @@ $datePublished = !empty($post['created_at']) ? date('c', strtotime($post['create
         <span class="nav-icon-text">Menu</span>
       </button>
     </div>
-  </header>  <div id="marqueeContainer"></div>  <main style="max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">    <div class="post-item" style="border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; background: #f8fafc; position: relative; z-index: 1;">        <div class="post-header" style="display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #cbd5e1; padding-bottom: 10px;">          <span style="font-weight: bold; color: #0f172a; display: inline-flex; align-items: center;"><?php echo ($post['is_admin'] && stripos($author, 'giri') !== false) ? '<img src="https://res.cloudinary.com/y6hvobnk/image/upload/v1788084727/Admin_logo.png" style="width: 24px; height: 24px; border-radius: 50%; margin-right: 8px; vertical-align: middle; object-fit: cover;" alt="Admin" />' : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#94a3b8" style="margin-right: 8px; border-radius: 50%; vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>'; ?><?php echo $post['is_admin'] ? '<span style="color: navy; border-bottom: 1px dotted navy; display: inline-flex; align-items: center; gap: 4px;">' . $author . '</span>' : $author; ?></span>          <span style="color: #64748b;"><?php echo date('d M Y H:i', strtotime($post['created_at'] . ' +12 hours')); ?></span>        </div>        <div class="post-body clear-both" style="color: #334155; line-height: 1.6; font-size: 16px; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">
+  </header>  <div id="marqueeContainer"></div>  <div class="community-layout-container" style="margin-top: 20px;">
+
+      <div class="ad-banner-left">
+        <div class="ad-banner-project">
+          <div class="ad-banner-project-badge">● AI-Powered</div>
+          <h3>Build Industry-Level Projects.</h3>
+          <p>Transform your academic ideas into production-ready software with expert AI assistance.</p>
+          <a href="https://projects.cirravosolutions.co.in/" target="_blank">Start Your Project →</a>
+        </div>
+        <div class="ad-banner-agency">
+          <div class="ad-banner-agency-inner"></div>
+          <div class="ad-banner-agency-content">
+            <h3>We specialize in <span>Web Development</span></h3>
+            <p>One agency for web, mobile, and AI. Design, build, and scale today.</p>
+            <a href="https://cirravosolutions.co.in/" target="_blank">Start building for free</a>
+          </div>
+        </div>
+      </div>
+
+<div class="community-content-wrapper">
+<main style="max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">    <div class="post-item" style="border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; background: #f8fafc; position: relative; z-index: 1;">        <div class="post-header" style="display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #cbd5e1; padding-bottom: 10px;">          <span style="font-weight: bold; color: #0f172a; display: inline-flex; align-items: center;"><?php echo ($post['is_admin'] && stripos($author, 'giri') !== false) ? '<img src="https://res.cloudinary.com/y6hvobnk/image/upload/v1788084727/Admin_logo.png" style="width: 24px; height: 24px; border-radius: 50%; margin-right: 8px; vertical-align: middle; object-fit: cover;" alt="Admin" />' : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#94a3b8" style="margin-right: 8px; border-radius: 50%; vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>'; ?><?php echo $post['is_admin'] ? '<span style="color: navy; border-bottom: 1px dotted navy; display: inline-flex; align-items: center; gap: 4px;">' . $author . '</span>' : $author; ?></span>          <span style="color: #64748b;"><?php echo date('d M Y H:i', strtotime($post['created_at'] . ' +12 hours')); ?></span>        </div>        <div class="post-body clear-both" style="color: #334155; line-height: 1.6; font-size: 16px; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">
 <?php 
 $content = trim($post['content']);
 // Strip leading spaces and non-breaking spaces (including right after the first HTML tag)
@@ -409,6 +459,28 @@ if ($post['allow_html']) {
 }
 ?>
         </div>        <?php if (!empty($post['image_path'])): ?>        <div class="post-image-container clear-both" style="margin-top: 20px; max-width: 100%;">            <a href="/<?php echo htmlspecialchars($post['image_path']); ?>" target="_blank" style="display: block; cursor: pointer;">                <img src="/<?php echo htmlspecialchars($post['image_path']); ?>" alt="Post Image" style="max-width: 100%; height: auto; border-radius: 4px; display: block; position: static !important; margin: 0 auto;">            </a>        </div>        <?php endif; ?>    </div>    <div class="clear-both" style="margin-top: 40px; position: relative; z-index: 2; padding-bottom: 20px;">        <a href="/community.html" style="color: #4F46E5; text-decoration: underline; font-weight: bold; display: inline-block;">&larr; Back to Community Board</a>    </div>  </main>
+</div>
+
+      <div class="ad-banner-right">
+        <div class="ad-banner-cvep">
+          <div class="ad-banner-cvep-badge">CVEP-TRACK</div>
+          <h3>Unpaid Internship</h3>
+          <p>Join Cirravo Virtual Experience Program in various domains.</p>
+          <div class="domain-tags">
+            <span class="domain-tag">MERN Stack</span>
+            <span class="domain-tag">React</span>
+            <span class="domain-tag">UI/UX</span>
+            <span class="domain-tag">Python</span>
+            <span class="domain-tag">Java</span>
+            <span class="domain-tag">Data Analytics</span>
+            <span class="domain-tag">Digital Marketing</span>
+            <span class="domain-tag">PHP & MySQL</span>
+          </div>
+          <a href="https://internships.cirravosolutions.co.in" target="_blank">Explore Domains</a>
+        </div>
+      </div>
+
+</div>
   <script>
     // Make sure any pasted images are statically positioned, properly scaled, and open in full view when clicked.
     document.addEventListener("DOMContentLoaded", function() {

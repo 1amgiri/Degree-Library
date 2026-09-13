@@ -81,7 +81,37 @@
   <link rel="stylesheet" href="style.min.css?v=6.9.1">
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <link rel="icon" type="image/png" href="/favicon.png" />
-</head><body>
+<style>
+    .community-layout-container { display: flex; justify-content: flex-start; align-items: flex-start; gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .community-content-wrapper { flex: 1; width: 100%; max-width: 800px; }
+    .ad-banner-left { width: 250px; position: sticky; top: 90px; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px; }
+    .ad-banner-project { background: #0B0F19; border-radius: 16px; padding: 24px 20px; position: relative; overflow: hidden; border: 1px solid #1e293b; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+    .ad-banner-project::after { content: ''; position: absolute; top: -20px; left: -20px; right: -20px; bottom: -20px; background: radial-gradient(circle at 80% 20%, rgba(0,240,255,0.15) 0%, transparent 60%); pointer-events: none; }
+    .ad-banner-project-badge { background: rgba(0, 240, 255, 0.1); color: #00f0ff; font-size: 10px; padding: 4px 8px; border-radius: 12px; display: inline-block; margin-bottom: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; font-family: 'Share Tech Mono', monospace; border: 1px solid rgba(0,240,255,0.2); }
+    .ad-banner-project h3 { color: #ffffff; font-size: 20px; font-weight: 800; line-height: 1.25; margin-top: 0; margin-bottom: 12px; font-family: 'Share Tech Mono', monospace; }
+    .ad-banner-project p { color: #94a3b8; font-size: 13px; line-height: 1.5; margin-bottom: 20px; }
+    .ad-banner-project a { display: block; text-align: center; background: #00f0ff; color: #0B0F19; font-weight: 900; padding: 10px; border-radius: 8px; text-decoration: none; box-shadow: 0 0 15px rgba(0, 240, 255, 0.3); transition: all 0.3s; text-transform: uppercase; font-size: 13px; }
+    .ad-banner-project a:hover { box-shadow: 0 0 25px rgba(0, 240, 255, 0.5); transform: translateY(-2px); }
+    .ad-banner-agency { background-color: #6366f1; background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 15px 15px; border-radius: 16px; padding: 24px 20px; position: relative; box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2); }
+    .ad-banner-agency-inner { position: absolute; inset: 0; background: rgba(88, 92, 230, 0.85); border-radius: 16px; }
+    .ad-banner-agency-content { position: relative; z-index: 2; }
+    .ad-banner-agency h3 { color: #ffffff; font-size: 20px; font-weight: 900; line-height: 1.25; margin-top: 0; margin-bottom: 10px; font-family: 'Share Tech Mono', monospace; }
+    .ad-banner-agency h3 span { color: #fde047; display: block; font-size: 22px; }
+    .ad-banner-agency p { color: #e0e7ff; font-size: 13px; line-height: 1.5; margin-bottom: 20px; font-weight: 500; }
+    .ad-banner-agency a { display: block; text-align: center; background: #ffffff; color: #4f46e5; font-weight: 800; padding: 10px; border-radius: 20px; text-decoration: none; transition: all 0.3s; font-size: 14px; }
+    .ad-banner-agency a:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+    @media (max-width: 900px) { .ad-banner-left { display: none; } }
+    .ad-banner-right { width: 250px; position: sticky; top: 90px; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px; }
+    .ad-banner-cvep { background: #ffffff; border-radius: 16px; padding: 24px 20px; position: relative; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    .ad-banner-cvep-badge { font-size: 10px; padding: 4px 8px; border-radius: 12px; display: inline-block; margin-bottom: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; font-family: 'Share Tech Mono', monospace; background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; }
+    .ad-banner-cvep h3 { color: #0f172a; font-size: 18px; font-weight: 800; line-height: 1.3; margin-top: 0; margin-bottom: 12px; }
+    .ad-banner-cvep p { color: #475569; font-size: 13px; line-height: 1.5; margin-bottom: 15px; }
+    .domain-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .domain-tag { background: #f1f5f9; color: #334155; font-size: 11px; padding: 4px 8px; border-radius: 4px; border: 1px solid #e2e8f0; font-weight: 600; }
+    .ad-banner-cvep a { display: block; text-align: center; background: #f97316; color: #ffffff; font-weight: bold; padding: 10px; border-radius: 8px; text-decoration: none; transition: all 0.3s; font-size: 13px; }
+    .ad-banner-cvep a:hover { background: #ea580c; }
+    @media (max-width: 1100px) { .ad-banner-right { display: none; } }
+</style></head><body>
     <div id="splashScreen" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" style="max-width: 400px; width: 90%; height: auto;">
   <style>
     /* Importing a Google font that closely matches the rounded, bold look of logo.jpg */
@@ -290,12 +320,54 @@
         <span class="nav-icon-text">Menu</span>
       </button>
     </div>
-  </header>  <main style="text-align: center; padding: 40px 20px;">    <h1 class="main-heading">MCA Complete Special Notes By - SV University</h1>  <div style="max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+  </header>  <div class="community-layout-container" style="margin-top: 20px;">
+
+      <div class="ad-banner-left">
+        <div class="ad-banner-project">
+          <div class="ad-banner-project-badge">● AI-Powered</div>
+          <h3>Build Industry-Level Projects.</h3>
+          <p>Transform your academic ideas into production-ready software with expert AI assistance.</p>
+          <a href="https://projects.cirravosolutions.co.in/" target="_blank">Start Your Project →</a>
+        </div>
+        <div class="ad-banner-agency">
+          <div class="ad-banner-agency-inner"></div>
+          <div class="ad-banner-agency-content">
+            <h3>We specialize in <span>Web Development</span></h3>
+            <p>One agency for web, mobile, and AI. Design, build, and scale today.</p>
+            <a href="https://cirravosolutions.co.in/" target="_blank">Start building for free</a>
+          </div>
+        </div>
+      </div>
+
+<div class="community-content-wrapper">
+<main style="text-align: center; padding: 40px 20px;">    <h1 class="main-heading">MCA Complete Special Notes By - SV University</h1>  <div style="max-width: 800px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
   <h2 style="color: #1E293B; margin-bottom: 20px; text-align: left; display: flex; align-items: center;">MCA Materials Directory <span style="display: inline-block; width: 40px; height: 40px; margin-left: 8px;"><lottie-player src="mca_notes.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player></span></h2>
   <input type="text" id="mcaSearch" placeholder="Search for files or folders..." style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 16px; outline: none; box-sizing: border-box;">
 <ul id="mca-directory-tree" style="list-style-type: none; padding-left: 0; text-align: left;"></ul>
 
-</div>  </main><footer class="footer">    <div class="footer-container">      <div class="footer-col">        <h4>Quick Links</h4>        <ul>          <li><a href="/">Home</a></li>          <li><a href="/upload.html">Upload Material</a></li>          <li><a href="/community.html">Community Forum</a></li>          <li><a href="/mca.html">MCA</a></li>        </ul>      </div>      <div class="footer-col">        <h4>Resources</h4>        <ul>          <li><a href="icet.html">ICET PYQs</a></li>          <li><a href="https://pixels111.github.io/bcahub/index.html" target="_blank">BCA Resources</a></li>          <li><a href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx" target="_blank">APSHE</a></li>        </ul>      </div>      <div class="footer-col">        <h4>FAQs</h4>        <ul>          <li><a href="#" onclick="alert('Yes, all materials on Free Degree Library are 100% free to download!')">Is downloading free?</a></li>          <li><a href="#" onclick="alert('Anyone can upload study materials! Just go to the Upload section and share.')">How to upload?</a></li>          <li><a href="#" onclick="alert('You can report any issues or bugs using the Menu -> Report Error/Bug option.')">How to report an issue?</a></li>        </ul>      </div>      <div class="footer-col">        <h4>Connect</h4>        <ul>          <li><a href="https://www.instagram.com/cirravo/" target="_blank">Instagram</a></li>          <li><a href="#" onclick="alertBugReport(event)">Report Error/Bug</a></li>          <li><a href="admin.html">Admin Login</a></li>        </ul>      </div>    </div>    <div class="footer-bottom">      <div>&copy; Free Degree Library, Since 2023</div>          </div>  </footer>  <script src="app.min.js?v=5.3.0" defer></script>    
+</div>  </main>
+</div>
+
+      <div class="ad-banner-right">
+        <div class="ad-banner-cvep">
+          <div class="ad-banner-cvep-badge">CVEP-TRACK</div>
+          <h3>Unpaid Internship</h3>
+          <p>Join Cirravo Virtual Experience Program in various domains.</p>
+          <div class="domain-tags">
+            <span class="domain-tag">MERN Stack</span>
+            <span class="domain-tag">React</span>
+            <span class="domain-tag">UI/UX</span>
+            <span class="domain-tag">Python</span>
+            <span class="domain-tag">Java</span>
+            <span class="domain-tag">Data Analytics</span>
+            <span class="domain-tag">Digital Marketing</span>
+            <span class="domain-tag">PHP & MySQL</span>
+          </div>
+          <a href="https://internships.cirravosolutions.co.in" target="_blank">Explore Domains</a>
+        </div>
+      </div>
+
+</div><footer class="footer">    <div class="footer-container">      <div class="footer-col">        <h4>Quick Links</h4>        <ul>          <li><a href="/">Home</a></li>          <li><a href="/upload.html">Upload Material</a></li>          <li><a href="/community.html">Community Forum</a></li>          <li><a href="/mca.html">MCA</a></li>        </ul>      </div>      <div class="footer-col">        <h4>Resources</h4>        <ul>          <li><a href="icet.html">ICET PYQs</a></li>          <li><a href="https://pixels111.github.io/bcahub/index.html" target="_blank">BCA Resources</a></li>          <li><a href="https://cets.apsche.ap.gov.in/APSCHE/APSCHEHome.aspx" target="_blank">APSHE</a></li>        </ul>      </div>      <div class="footer-col">        <h4>FAQs</h4>        <ul>          <li><a href="#" onclick="alert('Yes, all materials on Free Degree Library are 100% free to download!')">Is downloading free?</a></li>          <li><a href="#" onclick="alert('Anyone can upload study materials! Just go to the Upload section and share.')">How to upload?</a></li>          <li><a href="#" onclick="alert('You can report any issues or bugs using the Menu -> Report Error/Bug option.')">How to report an issue?</a></li>        </ul>      </div>      <div class="footer-col">        <h4>Connect</h4>        <ul>          <li><a href="https://www.instagram.com/cirravo/" target="_blank">Instagram</a></li>          <li><a href="#" onclick="alertBugReport(event)">Report Error/Bug</a></li>          <li><a href="admin.html">Admin Login</a></li>        </ul>      </div>    </div>    <div class="footer-bottom">      <div>&copy; Free Degree Library, Since 2023</div>          </div>  </footer>  <script src="app.min.js?v=5.3.0" defer></script>    
   <!-- Sidebar overlay backdrop -->
   <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
   <!-- Sidebar Menu Drawer -->
